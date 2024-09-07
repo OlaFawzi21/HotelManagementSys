@@ -1,0 +1,28 @@
+@import 'pages/auth.scss';
+@import 'pages/buttons.scss';
+@import 'pages/colors.scss';
+@import 'pages/fonts.scss';
+@import 'pages/inputs.scss';
+@import 'pages/ngx-drop.scss';
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
