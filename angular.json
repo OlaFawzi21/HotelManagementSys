@@ -37,8 +37,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "../node_modules/chart.js/dist/chart.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -107,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e5eeba09-b45d-457f-a50a-ae85b087e47c"
   }
 }
