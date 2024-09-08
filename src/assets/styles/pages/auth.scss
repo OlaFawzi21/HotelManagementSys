@@ -1,0 +1,39 @@
+.section-auth {
+  min-height: 100vh;
+  background-color: #f2f2f2;
+
+  .auth {
+    background-color: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 85vh;
+
+    a,
+    label {
+      color: #152C5B !important;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .login-back {
+    background: url(../../images/auth/login.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+  }
+
+  .register-back {
+    background: url(../../images/auth/signUp.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+  }
+
+  .forget-reset-back {
+    background: url(../../images/auth/forget-reset.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+  }
+}

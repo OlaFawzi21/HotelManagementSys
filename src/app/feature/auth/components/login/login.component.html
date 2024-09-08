@@ -1,1 +1,54 @@
-<p>login works!</p>
+<section class="section-auth d-flex align-items-center justify-content-center">
+  <div class="container">
+    <div class="row w-100 auth">
+      <div class="col-md-6">
+        <div class="logo">
+          <img
+            src="../../../../../assets/images/landing/Staycation.svg"
+            alt="logo"
+          />
+        </div>
+        <div class="auth-form p-5 d-flex flex-column gap-5">
+          <div class="auth-title">
+            <h2 class="mb-4">Sign in</h2>
+            <p class="mb-0">If you don’t have an account register</p>
+            <p class="mb-0">
+              You can
+              <a routerLink="/auth/register" class="fw-bold">Register here !</a>
+            </p>
+          </div>
+          <form class="d-flex flex-column gap-4">
+            <div class="d-flex flex-column gap-2">
+              <label>Email Address</label>
+              <input
+                type="email"
+                pInputText
+                aria-describedby="email-help"
+                placeholder="Please type here ..."
+              />
+              <small id="email-help"> </small>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label>Password</label>
+              <p-password
+                [toggleMask]="true"
+                placeholder="Please type here ..."
+              ></p-password>
+              <a routerLink="/auth/register" class="text-end"
+                >Forgot Password ?</a
+              >
+            </div>
+
+            <p-button
+              label="Login"
+              [loading]="loading"
+              class="btn-main"
+            ></p-button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 login-back"></div>
+    </div>
+  </div>
+</section>
