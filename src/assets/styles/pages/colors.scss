@@ -1,0 +1,40 @@
+:root {
+  --default-color: #333;
+  --main-color: #fff;
+  --secondary-color: #3252DF;
+  --ternary-color: #152C5B;
+  --bg-main-color: #fff;
+  --bg-secondary-color: #3252DF;
+  --bg-gary-color: #F5F6F8;
+  --btn-hover: #3e60f9;
+  --btn-shadow: 0 8px 15px rgba(62, 96, 249, 0.3);
+}
+
+
+.default-color {
+  color: var(--default-color);
+}
+
+.main-color {
+  color: var(--main-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.ternary-color {
+  color: var(--ternary-color);
+}
+
+.bg-main-color {
+  background-color: var(--bg-main-color);
+}
+
+.bg-secondary-color {
+  background-color: var(--bg-secondary-color);
+}
+
+.bg-gray-color {
+  background-color: var(--bg-gary-color);
+}

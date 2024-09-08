@@ -1,4 +1,14 @@
 .p-password,
 .p-inputtext {
   width: 100%;
+  background-color: var(--bg-gary-color) !important;
+}
+
+.p-inputtext.ng-dirty.ng-invalid:focus,
+.p-password-mask.ng-invalid.ng-dirty .p-password-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(254, 38, 38, 0.229) !important;
+}
+
+::placeholder {
+  font-size: 13px !important;
 }

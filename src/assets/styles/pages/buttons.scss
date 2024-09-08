@@ -1,4 +1,12 @@
-
-button{
+button {
   border-radius: revert-layer !important;
+}
+
+.btn-main .p-button {
+  background-color: var(--bg-secondary-color) !important;
+  box-shadow: var(--btn-shadow) !important;
+
+  &:hover {
+    background-color: var(--btn-hover) !important;
+  }
 }
