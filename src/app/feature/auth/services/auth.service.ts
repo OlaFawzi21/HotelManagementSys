@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { ResetPasswordRequest } from '../interfaces/reset-password-request';
 import { ResetPasswordResponse } from '../interfaces/reset-password-response';
 import { ForgetPasswordResponse } from '../interfaces/forget-password-response';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,8 @@ export class AuthService {
       this.authBaseUrl + 'reset-password',
       formValue
     );
+  }
+  onRegister(data: FormData): Observable<any> {
+    return this._http.post(this.authBaseUrl, data);
   }
 }

@@ -1,1 +1,121 @@
-<p>register works!</p>
+<section class="section-auth d-flex align-items-center justify-content-center">
+  <div class="container">
+    <div class="row w-100 auth">
+      <div class="col-md-6">
+        <div class="logo">
+          <img
+            src="../../../../../assets/images/landing/Staycation.svg"
+            alt="logo"
+          />
+        </div>
+        <div class="auth-form p-5 d-flex flex-column gap-4">
+          <div class="auth-title">
+            <h2 class="mb-3">Sign up</h2>
+            <p class="mb-0">If you don’t have an account register</p>
+            <p class="mb-0">
+              You can
+              <a routerLink="/auth/login" class="fw-bold">Login here !</a>
+            </p>
+          </div>
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit(registerForm)"
+            class="d-flex flex-column gap-2"
+          >
+            <div class="d-flex flex-column gap-2">
+              <ngx-dropzone
+                class="rounded-5"
+                formControlName="profileImage"
+                (change)="onSelect($event)"
+              >
+                <ngx-dropzone-label>Drop your image here </ngx-dropzone-label>
+                <ngx-dropzone-image-preview
+                  ngProjectAs="ngx-dropzone-preview"
+                  *ngFor="let f of files"
+                  [removable]="true"
+                  (removed)="onRemove(f)"
+                  [file]="f"
+                >
+                  <ngx-dropzone-label
+                    >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                  >
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+              <label class="fw-bold">User name</label>
+              <input
+                type="text"
+                formControlName="userName"
+                pInputText
+                aria-describedby="email-help"
+                placeholder="Please type here ..."
+              />
+              <small id="email-help"> </small>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <label class="fw-bold">Phone number</label>
+                <input
+                  formControlName="phoneNumber"
+                  type="text"
+                  pInputText
+                  aria-describedby="email-help"
+                  placeholder="Please type here ..."
+                />
+                <small id="email-help"> </small>
+              </div>
+              <div class="col-6">
+                <label class="fw-bold">Country</label>
+                <input
+                  formControlName="country"
+                  type="text"
+                  pInputText
+                  aria-describedby="email-help"
+                  placeholder="Please type here ..."
+                />
+                <small id="email-help"> </small>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <label class="fw-bold">Email address</label>
+              <input
+                formControlName="email"
+                type="email"
+                pInputText
+                aria-describedby="email-help"
+                placeholder="Please type here ..."
+              />
+              <small id="email-help"> </small>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <label class="fw-bold">Password</label>
+              <p-password
+                formControlName="password"
+                [(ngModel)]="value"
+                [toggleMask]="true"
+              ></p-password>
+
+              <small id="email-help"> </small>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <label class="fw-bold">Confirm password</label>
+              <p-password
+                formControlName="confirmPassword"
+                [(ngModel)]="value"
+                [toggleMask]="true"
+              ></p-password>
+              <small id="email-help"> </small>
+            </div>
+            <p-button
+              type="submit"
+              label="Sign up"
+              [loading]="loading"
+              class="btn-main"
+            ></p-button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 login-back"></div>
+    </div>
+  </div>
+</section>

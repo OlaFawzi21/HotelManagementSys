@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
+import { FileUploadModule } from 'primeng/fileupload';
 
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './components/login/login.component';
@@ -17,6 +18,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ResetPasswordComponent,
     ForgetPasswordComponent,
   ],
-  imports: [CommonModule, AuthRoutingModule, SharedModule],
+  imports: [CommonModule, AuthRoutingModule, SharedModule, FileUploadModule],
 })
 export class AuthModule {}
