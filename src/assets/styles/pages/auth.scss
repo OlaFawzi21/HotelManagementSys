@@ -1,23 +1,40 @@
 .section-auth {
   min-height: 100vh;
-  background-color: #f2f2f2;
+  background-color: var(--bg-gary-color);
 
   .auth {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--bg-main-color);
+    color: var(--default-color);
     padding: 30px;
     border-radius: 15px;
-    min-height: 85vh;
+    max-height: 100%;
+    min-height: 650px;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 10px;
 
     a,
     label {
-      color: #152C5B !important;
+      color: var(--ternary-color) !important;
     }
 
     button {
       width: 100%;
     }
+
+    small {
+      position: absolute;
+      
+    }
   }
+
+  @media (max-width: 500px) {
+    .auth {
+      padding-inline: 10px;
+      width: 100%;
+    }
+  }
+
 
   .login-back {
     background: url(../../images/auth/login.png) no-repeat;
