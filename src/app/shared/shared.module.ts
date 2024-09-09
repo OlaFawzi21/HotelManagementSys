@@ -6,13 +6,16 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ImageModule } from 'primeng/image';
 
 import { MessageService } from 'primeng/api';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
 
 @NgModule({
-  declarations: [ChangePasswordComponent],
+  declarations: [ChangePasswordComponent, ProfileImagePickerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +25,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     ButtonModule,
     ToastModule,
     ScrollPanelModule,
+    FileUploadModule,
+    ImageModule,
   ],
   exports: [
     InputTextModule,
@@ -31,8 +36,11 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     ButtonModule,
     ToastModule,
     ScrollPanelModule,
+    FileUploadModule,
+    ImageModule,
 
     ChangePasswordComponent,
+    ProfileImagePickerComponent,
   ],
   providers: [MessageService],
 })

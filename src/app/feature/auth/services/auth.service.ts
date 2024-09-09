@@ -35,4 +35,8 @@ export class AuthService {
       formValue
     );
   }
+
+  register(formValue: FormData): Observable<any> {
+    return this._http.post<any>(this.authBaseUrl, formValue);
+  }
 }
