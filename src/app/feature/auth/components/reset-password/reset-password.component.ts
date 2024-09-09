@@ -9,6 +9,8 @@ import { AuthService } from '../../services/auth.service';
 
 import { ResetPasswordRequest } from '../../interfaces/reset-password-request';
 
+import { MatchFieldValidator } from './../../../../shared/validators/match-field-validator';
+
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -17,12 +19,20 @@ import { ResetPasswordRequest } from '../../interfaces/reset-password-request';
 export class ResetPasswordComponent {
   loading: boolean = false;
 
-  resetPasswordForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    seed: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required]),
-  });
+  value = false;
+
+  resetPasswordForm = new FormGroup(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      seed: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[a-zA-Z0-9]{4}'),
+      ]),
+      password: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]),
+    },
+    [MatchFieldValidator('password', 'confirmPassword')]
+  );
 
   constructor(
     private _auth: AuthService,
@@ -44,7 +54,7 @@ export class ResetPasswordComponent {
               detail: response?.message ?? '',
             });
 
-            this.router.navigateByUrl('auth/reset-password');
+            this.router.navigateByUrl('auth/login');
           },
           error: (error) => {
             this.messageService.add({
