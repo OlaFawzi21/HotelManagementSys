@@ -54,11 +54,13 @@ export class LoginComponent {
           summary: 'Success',
           detail: this.response.message,
         });
-        if (this.response.data.user.role == 'admin') {
-          this.router.navigate(['/dashboard']);
-        } else if (this.response.data.user.role == 'user') {
-          this.router.navigate(['/landing']);
-        }
+        setTimeout(() => {
+          if (this.response.data.user.role == 'admin') {
+            this.router.navigate(['/dashboard']);
+          } else if (this.response.data.user.role == 'user') {
+            this.router.navigate(['/landing']);
+          }
+        }, 1000);
       },
     });
   }
