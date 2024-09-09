@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
+  isToggle = false;
+  receiveToggle(data: boolean) {
+    this.isToggle = data;
+  }
 }
