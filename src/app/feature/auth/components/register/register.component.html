@@ -1,16 +1,14 @@
 <section class="section-auth d-flex align-items-center justify-content-center">
   <div class="container">
-    <div class="row w-100 auth">
-      <div class="col-md-6">
+    <div class="row auth">
+      <div class="col-lg-6">
         <div class="logo">
           <img
             src="../../../../../assets/images/landing/Staycation.svg"
             alt="logo"
           />
         </div>
-        <div
-          class="auth-form px-lg-5 px-3 py-5 d-flex flex-column gap-md-5 gap-4"
-        >
+        <div class="auth-form p-3 d-flex flex-column gap-3">
           <div class="auth-title">
             <h2 class="mb-4">Sign Up</h2>
             <p class="mb-0">If you already have an account register</p>
@@ -20,75 +18,41 @@
             </p>
           </div>
 
-          <p-scrollPanel [style]="{ height: '50vh' }" class="py-3">
+          <p-scrollPanel [style]="{ height: '50vh' }">
             <form [formGroup]="registerForm" class="d-flex flex-column gap-4">
               <app-profile-image-picker
                 (profileImageEmitter)="updateProfileImage($event)"
               ></app-profile-image-picker>
 
-              <div class="d-flex flex-column gap-2">
-                <label>User Name</label>
-                <span class="p-input-icon-right">
-                  <i class="pi pi-user"></i>
-                  <input
-                    type="text"
-                    pInputText
-                    aria-describedby="username-help"
-                    placeholder="Enter your username"
-                    formControlName="userName"
-                  />
-                </span>
-                <div
-                  id="username-help"
-                  *ngIf="
-                    registerForm.controls.userName.touched &&
-                    registerForm.controls.userName.errors
-                  "
-                  class="position-relative"
-                >
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.controls.userName.errors?.['required']"
-                    >Username is required</small
-                  >
-                </div>
-              </div>
-
-              <div class="row mx-0">
-                <div class="col-md-6 ps-0 d-flex flex-column gap-2">
-                  <label>Phone Number</label>
+              <div class="row mx-0 gap-md-0 gap-4">
+                <div class="col-md-6 pe-md-2 p-0 d-flex flex-column gap-2">
+                  <label>User Name</label>
                   <span class="p-input-icon-right">
-                    <i class="pi pi-mobile"></i>
-
+                    <i class="pi pi-user"></i>
                     <input
                       type="text"
                       pInputText
-                      aria-describedby="phonenumber-help"
-                      formControlName="phoneNumber"
-                      placeholder="Enter your phone number"
+                      aria-describedby="username-help"
+                      placeholder="Enter your username"
+                      formControlName="userName"
                     />
                   </span>
                   <div
-                    id="phonenumber-help"
+                    id="username-help"
                     *ngIf="
-                      registerForm.controls.phoneNumber.touched &&
-                      registerForm.controls.phoneNumber.errors
+                      registerForm.controls.userName.touched &&
+                      registerForm.controls.userName.errors
                     "
                     class="position-relative"
                   >
                     <small
                       class="text-danger"
-                      *ngIf="registerForm.controls.phoneNumber.errors?.['required']"
-                      >Phone number is required</small
+                      *ngIf="registerForm.controls.userName.errors?.['required']"
+                      >Username is required</small
                     >
-                    <small
-                      class="text-danger"
-                      *ngIf="registerForm.controls.phoneNumber.errors?.['pattern']"
-                      >Phone number must start with 01 and be 11 digits
-                    </small>
                   </div>
                 </div>
-                <div class="col-md-6 pe-0 d-flex flex-column gap-2">
+                <div class="col-md-6 p-0 d-flex flex-column gap-2">
                   <label>Country</label>
                   <span class="p-input-icon-right">
                     <i class="pi pi-map-marker"></i>
@@ -114,6 +78,40 @@
                       >Country is required</small
                     >
                   </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column gap-2">
+                <label>Phone Number</label>
+                <span class="p-input-icon-right">
+                  <i class="pi pi-mobile"></i>
+
+                  <input
+                    type="text"
+                    pInputText
+                    aria-describedby="phonenumber-help"
+                    formControlName="phoneNumber"
+                    placeholder="Enter your phone number"
+                  />
+                </span>
+                <div
+                  id="phonenumber-help"
+                  *ngIf="
+                    registerForm.controls.phoneNumber.touched &&
+                    registerForm.controls.phoneNumber.errors
+                  "
+                  class="position-relative"
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="registerForm.controls.phoneNumber.errors?.['required']"
+                    >Phone number is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="registerForm.controls.phoneNumber.errors?.['pattern']"
+                    >Phone number must start with 01 and be 11 digits
+                  </small>
                 </div>
               </div>
 
@@ -174,7 +172,7 @@
                 </div>
               </div>
 
-              <div class="d-flex flex-column gap-2">
+              <div class="d-flex flex-column gap-2 mb-1">
                 <label>Confirm Password</label>
                 <p-password
                   [feedback]="false"
@@ -207,7 +205,7 @@
           </p-scrollPanel>
 
           <p-button
-            label="Reset"
+            label="Sign up"
             [loading]="loading"
             class="btn-main"
             (click)="submit()"
@@ -215,7 +213,7 @@
         </div>
       </div>
       <div
-        class="col-lg-6 d-lg-flex d-none register-back p-5 d-flex flex-column justify-content-end"
+        class="col-lg-6 d-lg-flex d-none register-back p-5 flex-column justify-content-end"
       >
         <h2 class="main-color">Sign up to Roamhome</h2>
         <p class="main-color">Homes as unique as you.</p>
