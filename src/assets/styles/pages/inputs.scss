@@ -17,4 +17,22 @@ label {
   color: var(--ternary-color);
   font-family: Poppins;
   font-weight: 400;
+  padding-bottom: 4px !important;
+}
+
+form.p-inputs-sm input,
+.p-input-sm {
+  height: 45px !important;
+}
+
+form.p-inputs-lg input,
+.p-input-lg {
+  height: 48px !important;
+}
+
+.error-text {
+  font-size: 14px;
+  color: #dc3545 !important;
+  padding-top: 4px !important;
+  padding-bottom: 10px !important;
 }
