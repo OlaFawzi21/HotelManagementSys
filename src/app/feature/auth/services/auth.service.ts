@@ -14,6 +14,7 @@ import { LoginResponse } from '../interfaces/login-response';
 })
 export class AuthService {
   authBaseUrl = 'portal/users/';
+
   constructor(private _http: HttpClient) {}
 
   login(data: LoginRequest): Observable<LoginResponse> {

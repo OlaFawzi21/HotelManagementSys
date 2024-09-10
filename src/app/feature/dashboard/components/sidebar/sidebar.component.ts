@@ -30,7 +30,7 @@ export class SidebarComponent {
     {
       title: 'Rooms',
       icon: 'pi-th-large',
-      link: '/dashboard/rooms',
+      link: '/dashboard/rooms/list',
     },
     {
       title: 'Ads',

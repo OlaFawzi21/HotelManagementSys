@@ -16,9 +16,7 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [
-      Validators.required,
-    ]),
+    password: new FormControl(null, [Validators.required]),
   });
 
   constructor(
@@ -54,6 +52,7 @@ export class LoginComponent {
           detail: this.response.message,
         });
         setTimeout(() => {
+          localStorage.setItem('userToken', this.response.data.token);
           if (this.response.data.user.role == 'admin') {
             this.router.navigate(['/dashboard']);
           } else if (this.response.data.user.role == 'user') {

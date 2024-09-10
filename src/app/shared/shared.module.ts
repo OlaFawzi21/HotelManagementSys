@@ -10,6 +10,10 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ImageModule } from 'primeng/image';
 import { TableModule } from 'primeng/table';
 import { DividerModule } from 'primeng/divider';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { GalleriaModule } from 'primeng/galleria';
+import { DialogModule } from 'primeng/dialog';
 
 import { MessageService } from 'primeng/api';
 
@@ -17,6 +21,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
 import { TableComponent } from './components/table/table.component';
 import { PasswordHintPopOverComponent } from './components/password-hint-pop-over/password-hint-pop-over.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,7 @@ import { PasswordHintPopOverComponent } from './components/password-hint-pop-ove
     ProfileImagePickerComponent,
     TableComponent,
     PasswordHintPopOverComponent,
+    GalleryComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +44,10 @@ import { PasswordHintPopOverComponent } from './components/password-hint-pop-ove
     ImageModule,
     TableModule,
     DividerModule,
+    AvatarModule,
+    AvatarGroupModule,
+    GalleriaModule,
+    DialogModule,
   ],
   exports: [
     InputTextModule,
@@ -51,6 +61,10 @@ import { PasswordHintPopOverComponent } from './components/password-hint-pop-ove
     ImageModule,
     TableModule,
     DividerModule,
+    AvatarModule,
+    AvatarGroupModule,
+    GalleriaModule,
+    DialogModule,
 
     TableComponent,
     ChangePasswordComponent,
