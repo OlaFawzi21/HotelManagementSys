@@ -147,7 +147,12 @@
               formControlName="password"
               aria-describedby="password-help"
               placeholder="Enter new password"
-            ></p-password>
+            >
+              <ng-template pTemplate="footer">
+                <app-password-hint-pop-over></app-password-hint-pop-over>
+              </ng-template>
+            </p-password>
+
             <div
               *ngIf="
                 registerForm.controls.password.touched &&
@@ -170,7 +175,9 @@
               aria-describedby="confirm-password-help"
               placeholder="Enter confirm password"
               formControlName="confirmPassword"
-            ></p-password>
+            >
+            </p-password>
+
             <div
               *ngIf="
                 registerForm.controls.confirmPassword.touched &&
