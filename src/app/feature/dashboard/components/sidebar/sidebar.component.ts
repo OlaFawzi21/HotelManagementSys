@@ -18,9 +18,9 @@ export class SidebarComponent {
 
   menu: any = [
     {
-      title: 'Home',
+      title: 'Insights',
       icon: 'pi-home',
-      link: '/dashboard/home',
+      link: '/dashboard/insights',
     },
     {
       title: 'Users',

@@ -1,0 +1,13 @@
+.img {
+  box-shadow: 0 0 5px rgb(155 155 155);
+  width: 50px;
+  height: 50px;
+}
+
+::ng-deep .p-menuitem-text {
+  font-size: 13px;
+}
+
+::ng-deep .p-tieredmenu {
+  padding: 0 !important;
+}

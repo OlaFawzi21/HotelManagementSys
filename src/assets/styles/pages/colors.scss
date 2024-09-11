@@ -6,6 +6,8 @@
   --bg-main-color: #fff;
   --bg-secondary-color: #203fc7;
   --bg-gary-color: #f5f6f8;
+  --bg-navbar-color: #e7eaef;
+  --bg-icon-color: rgba(32, 63, 199, 0.2);
   --btn-hover: #3e60f9;
   --li-hover: rgba(26, 27, 30, 17%);
   --btn-shadow: 0 8px 15px rgba(62, 96, 249, 0.3);
@@ -37,4 +39,8 @@
 
 .bg-gray-color {
   background-color: var(--bg-gary-color);
+}
+
+.bg-navbar-color {
+  background-color: var(--bg-navbar-color);
 }
