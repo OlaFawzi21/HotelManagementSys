@@ -43,8 +43,7 @@ export class RoomsListComponent {
         this.roomsList = data.rooms;
         this.totalRecords = data.totalCount;
       },
-      error: () => {
-      },
+      error: () => {},
     });
   }
 
@@ -52,7 +51,9 @@ export class RoomsListComponent {
     this._router.navigateByUrl('dashboard/rooms/add');
   }
 
-  onView(e: Room): void {}
+  onView(e: Room): void {
+    this._router.navigateByUrl('dashboard/rooms/view/' + e._id);
+  }
 
   onEdit(e: Room): void {
     this._router.navigateByUrl('dashboard/rooms/edit/' + e._id);

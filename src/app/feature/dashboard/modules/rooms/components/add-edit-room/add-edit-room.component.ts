@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { RoomService } from '../../services/room.service';
 
+import { MessageService } from 'primeng/api';
+
 import { RoomFacility } from '../../interfaces/room-facility';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Room } from '../../interfaces/room';
@@ -24,6 +26,8 @@ export class AddEditRoomComponent {
   imagesLimit = 5;
   images: any[] = [];
 
+  isViewMode: boolean = false;
+
   roomForm = new FormGroup({
     roomNumber: new FormControl(null, [Validators.required]),
     price: new FormControl(null, [Validators.required]),
@@ -35,7 +39,8 @@ export class AddEditRoomComponent {
   constructor(
     private _room: RoomService,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private messageService: MessageService
   ) {
     this._route.params.subscribe({
       next: ({ id }) => {
@@ -43,6 +48,7 @@ export class AddEditRoomComponent {
 
         if (this.id) {
           this.initRoom();
+          this.checkRoute();
         }
       },
     });
@@ -52,6 +58,16 @@ export class AddEditRoomComponent {
     this.getRoomFacilities();
   }
 
+  checkRoute(): void {
+    const currentRoute = this._router.url;
+    if (currentRoute.includes('view')) {
+      this.isViewMode = true;
+      this.roomForm.disable();
+    } else {
+      this.isViewMode = false;
+      this.roomForm.enable();
+    }
+  }
   getRoomFacilities(): void {
     this._room.getRoomFacilities().subscribe({
       next: ({ data }) => {
@@ -109,21 +125,33 @@ export class AddEditRoomComponent {
       } else {
         this.addRoom(roomFormData);
       }
-
-      window.alert('success');
     }
   }
 
   addRoom(formData: FormData): void {
     this._room.addRoom(formData).subscribe({
-      next: () => {},
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Room added successfully!',
+        });
+        this._router.navigate(['/dashboard/rooms/list']);
+      },
       error: () => {},
     });
   }
 
   editRoom(formData: FormData): void {
     this._room.editRoom(formData, this.id).subscribe({
-      next: () => {},
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Room updated successfully!',
+        });
+        this._router.navigate(['/dashboard/rooms/list']);
+      },
       error: () => {},
     });
   }

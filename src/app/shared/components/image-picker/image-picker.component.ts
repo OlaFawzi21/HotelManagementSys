@@ -16,9 +16,6 @@ export class ImagePickerComponent {
 
   uploadImage(e: any): void {
     this.images = Array.from(e.currentFiles);
-
-    debugger;
-
     this.imagesEmitter.emit(this.images);
   }
 }

@@ -1,5 +1,6 @@
 .p-password,
-.p-inputtext {
+.p-inputtext,
+.p-multiselect {
   width: 100%;
   background-color: var(--bg-gary-color) !important;
 }
@@ -9,6 +10,7 @@
   box-shadow: 0 0 0 0.2rem rgba(254, 38, 38, 0.229) !important;
 }
 
+.p-multiselect .p-multiselect-label.p-placeholder,
 ::placeholder {
   font-size: 13px !important;
 }
