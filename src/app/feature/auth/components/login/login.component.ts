@@ -5,8 +5,6 @@ import { LoginRequest } from '../../interfaces/login-request';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LoginResponse } from '../../interfaces/login-response';
-import { UserDataService } from 'src/app/shared/services/userData.service';
-import { UserData } from 'src/app/shared/interfaces/userData';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,14 +16,13 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required]),
+    password: new FormControl(null, [Validators.required , Validators.minLength(6)]),
   });
 
   constructor(
     private authService: AuthService,
     private messageService: MessageService,
-    private router: Router,
-    private userData: UserDataService
+    private router: Router
   ) {}
 
   onLogin(data: FormGroup) {
@@ -40,12 +37,12 @@ export class LoginComponent {
         this.response = res;
       },
       error: (error) => {
-        // this.loading = false;
-        // this.messageService.add({
-        //   severity: 'error',
-        //   summary: 'Fail',
-        //   detail: error.error.message,
-        // });
+        this.loading = false;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Fail',
+          detail: error.error.message,
+        });
       },
       complete: () => {
         this.loading = false;
@@ -56,6 +53,7 @@ export class LoginComponent {
         });
         setTimeout(() => {
           localStorage.setItem('userToken', this.response.data.token);
+          localStorage.setItem('role', this.response.data.user.role);
           if (this.response.data.user.role == 'admin') {
             this.router.navigate(['/dashboard']);
           } else if (this.response.data.user.role == 'user') {

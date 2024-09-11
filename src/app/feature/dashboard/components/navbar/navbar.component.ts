@@ -33,7 +33,7 @@ export class NavbarComponent {
   }
 
   getProfile() {
-    this.userData.getProfile(this.userData.decoded._id).subscribe({
+    this.userData.getProfile(this.userData.id).subscribe({
       next: (res) => {
         this.userProfile = res;
       },

@@ -135,7 +135,10 @@
 
     <p-divider class="mt-5"></p-divider>
 
-    <div class="row mx-0 mb-3 justify-content-end align-items-center">
+    <div
+      class="row mx-0 mb-3 justify-content-end align-items-center"
+      *ngIf="!isViewMode"
+    >
       <button
         pButton
         pRipple

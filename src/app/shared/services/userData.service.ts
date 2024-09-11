@@ -10,10 +10,21 @@ import { jwtDecode } from 'jwt-decode';
 export class UserDataService {
   authBaseUrl = 'portal/users/';
 
-  token: any = localStorage.getItem('userToken');
-  decoded: any = jwtDecode(this.token);
-
-  constructor(private _http: HttpClient) {}
+  token: string | null = localStorage.getItem('userToken');
+  decoded: any;
+  role: string;
+  id: string;
+  constructor(private _http: HttpClient) {
+    if (this.token) {
+      try {
+        this.decoded = jwtDecode(this.token);
+        this.role = this.decoded.role;
+        this.id = this.decoded._id;
+      } catch (error) {
+        this.decoded = null;
+      }
+    }
+  }
 
   getProfile(id: string): Observable<UserData> {
     return this._http.get<UserData>(`${this.authBaseUrl}${id}`);

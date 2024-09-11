@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'edit/:id',
         component: AddEditRoomComponent,
       },
+      {
+        path: 'view/:id',
+        component: AddEditRoomComponent,
+      },
     ],
   },
 ];
