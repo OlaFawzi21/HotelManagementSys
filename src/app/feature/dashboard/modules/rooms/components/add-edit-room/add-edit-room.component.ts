@@ -40,7 +40,7 @@ export class AddEditRoomComponent {
     private _room: RoomService,
     private _route: ActivatedRoute,
     private _router: Router,
-    private messageService: MessageService
+    public messageService: MessageService
   ) {
     this._route.params.subscribe({
       next: ({ id }) => {
@@ -73,7 +73,6 @@ export class AddEditRoomComponent {
       next: ({ data }) => {
         this.facilitiesDropDown = data.facilities;
       },
-      error: () => {},
     });
   }
 
@@ -82,8 +81,14 @@ export class AddEditRoomComponent {
       next: ({ data }) => {
         this.details = data.room;
 
-        const { roomNumber, price, capacity, discount, facilities }: any =
-          this.details;
+        const {
+          roomNumber,
+          price,
+          capacity,
+          discount,
+          facilities,
+          images,
+        }: any = this.details;
 
         this.roomForm.patchValue({
           roomNumber,
@@ -92,6 +97,8 @@ export class AddEditRoomComponent {
           discount,
           facilities: facilities.map((facility: any) => facility._id),
         });
+
+        this.images = images;
       },
     });
   }
@@ -136,9 +143,9 @@ export class AddEditRoomComponent {
           summary: 'Success',
           detail: 'Room added successfully!',
         });
+
         this._router.navigate(['/dashboard/rooms/list']);
       },
-      error: () => {},
     });
   }
 
@@ -146,13 +153,13 @@ export class AddEditRoomComponent {
     this._room.editRoom(formData, this.id).subscribe({
       next: () => {
         this.messageService.add({
-          severity: 'success',
+          severity: 'error',
           summary: 'Success',
           detail: 'Room updated successfully!',
         });
+
         this._router.navigate(['/dashboard/rooms/list']);
       },
-      error: () => {},
     });
   }
 

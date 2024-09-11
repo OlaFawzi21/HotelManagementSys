@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 
 import { RoomService } from '../../services/room.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
 
 import { TableColumn } from 'src/app/shared/interfaces/table-column';
 import { Room } from '../../interfaces/room';
+
 import { DeleteItemComponent } from 'src/app/shared/components/delete-item/delete-item.component';
 
 @Component({
@@ -28,7 +30,8 @@ export class RoomsListComponent {
   constructor(
     private _room: RoomService,
     private _router: Router,
-    public _dialog: DialogService
+    public _dialog: DialogService,
+    public messageService: MessageService
   ) {
     this.columns = this._room.tableColumns;
   }
@@ -43,7 +46,6 @@ export class RoomsListComponent {
         this.roomsList = data.rooms;
         this.totalRecords = data.totalCount;
       },
-      error: () => {},
     });
   }
 
@@ -76,6 +78,12 @@ export class RoomsListComponent {
   deleteRoom(id: string): void {
     this._room.deleteRoom(id).subscribe({
       next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Room is deleted successfully!',
+        });
+
         this.getRoomsList();
       },
     });

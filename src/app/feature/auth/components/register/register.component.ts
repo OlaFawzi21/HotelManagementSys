@@ -66,13 +66,6 @@ export class RegisterComponent {
 
           this.router.navigateByUrl('auth/login');
         },
-        error: (error) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Fail',
-            detail: error.error?.message ?? '',
-          });
-        },
       });
     }
   }

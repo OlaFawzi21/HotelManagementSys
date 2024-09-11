@@ -16,7 +16,10 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required , Validators.minLength(6)]),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
 
   constructor(
@@ -35,14 +38,6 @@ export class LoginComponent {
     this.authService.login(data.value as LoginRequest).subscribe({
       next: (res) => {
         this.response = res;
-      },
-      error: (error) => {
-        this.loading = false;
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Fail',
-          detail: error.error.message,
-        });
       },
       complete: () => {
         this.loading = false;

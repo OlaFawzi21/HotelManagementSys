@@ -41,13 +41,7 @@ export class ForgetPasswordComponent {
 
             this.router.navigateByUrl('auth/reset-password');
           },
-          error: (error) => {
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Fail',
-              detail: error.error?.message ?? '',
-            });
-          },
+         
         });
     }
   }

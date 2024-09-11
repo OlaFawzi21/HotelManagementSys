@@ -22,8 +22,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
-import { MessageService } from 'primeng/api';
-
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
 import { TableComponent } from './components/table/table.component';
@@ -103,6 +101,5 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     SpinnerComponent,
     TableHeaderComponent,
   ],
-  providers: [MessageService],
 })
 export class SharedModule {}

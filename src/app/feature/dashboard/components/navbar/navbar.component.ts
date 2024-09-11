@@ -37,9 +37,6 @@ export class NavbarComponent {
       next: (res) => {
         this.userProfile = res;
       },
-      error: (err) => {
-        console.log(err.errors);
-      },
     });
   }
 }

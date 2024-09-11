@@ -6,10 +6,13 @@ import { SharedModule } from './shared/shared.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
-import { HttpHandleResponseInterceptor } from './core/interceptors/http-handle-response-interceptor';
+import { HttpErrorsInterceptor } from './core/interceptors/http-errors-interceptor';
 import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
 
 import { AppComponent } from './app.component';
+
+import { MessageService } from 'primeng/api';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,12 +23,13 @@ import { AppComponent } from './app.component';
     SharedModule,
   ],
   providers: [
+    MessageService,
     { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpHandleResponseInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
