@@ -27,6 +27,8 @@ import { PasswordHintPopOverComponent } from './components/password-hint-pop-ove
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { TableHeaderComponent } from './components/table-header/table-header.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ImagePickerComponent } from './components/image-picker/image-picker.com
     GalleryComponent,
     DeleteItemComponent,
     ImagePickerComponent,
+    SpinnerComponent,
+    TableHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -84,6 +88,8 @@ import { ImagePickerComponent } from './components/image-picker/image-picker.com
     ProfileImagePickerComponent,
     PasswordHintPopOverComponent,
     ImagePickerComponent,
+    SpinnerComponent,
+    TableHeaderComponent,
   ],
   providers: [MessageService],
 })

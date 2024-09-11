@@ -80,7 +80,9 @@ export class AddEditRoomComponent {
     });
   }
 
-  cancel(): void {}
+  cancel(): void {
+    this._router.navigate(['dashboard', 'rooms', 'list']);
+  }
 
   submit(): void {
     this.roomForm.markAllAsTouched();

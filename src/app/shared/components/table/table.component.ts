@@ -31,6 +31,7 @@ export class TableComponent {
   @Input() totalRecords: number;
   @Input() pageLinks: number = 3;
   @Input() frozenColumns = [];
+  @Input() styleClass: string = 'p-datatable-sm';
 
   currentPageReportTemplate = 'Showing {first} to {last} of {totalRecords}';
 
