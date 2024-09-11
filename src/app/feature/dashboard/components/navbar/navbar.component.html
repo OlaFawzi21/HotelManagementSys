@@ -1,1 +1,26 @@
-<p>navbar works!</p>
+<nav>
+  <div class="bg-navbar-color p-3 px-4 rounded-4 mt-4">
+    <div class="d-flex justify-content-end align-items-center gap-4" *ngIf="userProfile">
+      <div>
+        <img
+          *ngIf="userProfile.data.user.profileImage; else noImg"
+          [src]="'https://upskilling-egypt.com:3000/' + userProfile.data.user.profileImage"
+          class="rounded-circle img"
+          alt="profile-img"
+        />
+        <ng-template #noImg>
+          <img
+            src="../../../../../assets/images/global/noImg.png"
+            class="rounded-circle img"
+            alt="profile-img"
+          />
+        </ng-template>
+      </div>
+      <h6>{{userProfile.data.user.userName}}</h6>
+      <a (click)="menu.toggle($event)" class="pointer"
+        ><i class="pi pi-chevron-down"></i
+      ></a>
+      <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
+    </div>
+  </div>
+</nav>

@@ -14,6 +14,10 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { GalleriaModule } from 'primeng/galleria';
 import { DialogModule } from 'primeng/dialog';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { CardModule } from 'primeng/card';
+import { ChartModule } from 'primeng/chart';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { MessageService } from 'primeng/api';
 
@@ -22,6 +26,7 @@ import { ProfileImagePickerComponent } from './components/profile-image-picker/p
 import { TableComponent } from './components/table/table.component';
 import { PasswordHintPopOverComponent } from './components/password-hint-pop-over/password-hint-pop-over.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     TableComponent,
     PasswordHintPopOverComponent,
     GalleryComponent,
+    LogoutComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +54,9 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     AvatarGroupModule,
     GalleriaModule,
     DialogModule,
+    TieredMenuModule,
+    CardModule,
+    ChartModule,
   ],
   exports: [
     InputTextModule,
@@ -65,6 +74,9 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     AvatarGroupModule,
     GalleriaModule,
     DialogModule,
+    TieredMenuModule,
+    CardModule,
+    ChartModule,
 
     TableComponent,
     ChangePasswordComponent,
