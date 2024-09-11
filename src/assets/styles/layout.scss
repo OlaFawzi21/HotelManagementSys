@@ -22,12 +22,14 @@ body {
 a {
   text-decoration: none !important;
   color: inherit !important;
-
-  &:hover {
-    text-decoration: underline !important;
-  }
 }
 
 .p-scrollpanel-content {
   padding: 5px 15px 40px !important;
+}
+
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
 }

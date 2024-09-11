@@ -5,6 +5,8 @@ import { LoginRequest } from '../../interfaces/login-request';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LoginResponse } from '../../interfaces/login-response';
+import { UserDataService } from 'src/app/shared/services/userData.service';
+import { UserData } from 'src/app/shared/interfaces/userData';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +24,8 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private userData: UserDataService
   ) {}
 
   onLogin(data: FormGroup) {

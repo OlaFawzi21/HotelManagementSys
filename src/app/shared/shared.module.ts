@@ -14,6 +14,10 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { GalleriaModule } from 'primeng/galleria';
 import { DialogModule } from 'primeng/dialog';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { CardModule } from 'primeng/card';
+import { ChartModule } from 'primeng/chart';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
@@ -25,6 +29,7 @@ import { ProfileImagePickerComponent } from './components/profile-image-picker/p
 import { TableComponent } from './components/table/table.component';
 import { PasswordHintPopOverComponent } from './components/password-hint-pop-over/password-hint-pop-over.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -37,6 +42,7 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     TableComponent,
     PasswordHintPopOverComponent,
     GalleryComponent,
+    LogoutComponent,
     DeleteItemComponent,
     ImagePickerComponent,
     SpinnerComponent,
@@ -59,6 +65,9 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     AvatarGroupModule,
     GalleriaModule,
     DialogModule,
+    TieredMenuModule,
+    CardModule,
+    ChartModule,
     DropdownModule,
     MultiSelectModule,
     DynamicDialogModule,
@@ -79,6 +88,9 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     AvatarGroupModule,
     GalleriaModule,
     DialogModule,
+    TieredMenuModule,
+    CardModule,
+    ChartModule,
     DropdownModule,
     MultiSelectModule,
     DynamicDialogModule,
