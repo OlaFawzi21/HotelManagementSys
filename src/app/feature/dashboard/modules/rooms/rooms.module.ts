@@ -6,6 +6,7 @@ import { RoomsComponent } from './rooms.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
+import { RoomsFilterComponent } from './components/rooms-filter/rooms-filter.component';
 
 
 
@@ -13,7 +14,8 @@ import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.c
   declarations: [
     RoomsComponent,
     RoomsListComponent,
-    AddEditRoomComponent
+    AddEditRoomComponent,
+    RoomsFilterComponent
   ],
   imports: [
     CommonModule,

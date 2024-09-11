@@ -48,17 +48,23 @@
           </span>
 
           <ng-container *ngSwitchCase="'images'">
-            <p-avatarGroup
-              (click)="openGallery(getColumnAvatars(rowData[column.field]))"
-            >
-              <p-avatar
-                *ngFor="let avatar of getColumnAvatars(rowData[column.field])"
-                [image]="avatar"
-                size="large"
-                shape="circle"
+            <ng-container *ngIf="rowData[column.field].length; else noImages">
+              <p-avatarGroup
+                class="pointer"
+                (click)="openGallery(getColumnAvatars(rowData[column.field]))"
               >
-              </p-avatar>
-            </p-avatarGroup>
+                <p-avatar
+                  *ngFor="let avatar of getColumnAvatars(rowData[column.field])"
+                  [image]="avatar"
+                  size="large"
+                  shape="circle"
+                >
+                </p-avatar>
+              </p-avatarGroup>
+            </ng-container>
+            <ng-template #noImages>
+              <h6>No Images</h6>
+            </ng-template>
           </ng-container>
 
           <!-- <img

@@ -1,22 +1,29 @@
 <nav>
   <div class="bg-navbar-color p-3 px-4 rounded-4 mt-4">
-    <div class="d-flex justify-content-end align-items-center gap-4" *ngIf="userProfile">
+    <div
+      class="d-flex justify-content-end align-items-center gap-4"
+      *ngIf="userProfile"
+    >
       <div>
-        <img
+        <p-avatar
           *ngIf="userProfile.data.user.profileImage; else noImg"
-          [src]="'https://upskilling-egypt.com:3000/' + userProfile.data.user.profileImage"
-          class="rounded-circle img"
-          alt="profile-img"
-        />
+          [image]="
+            'https://upskilling-egypt.com:3000/' +
+            userProfile.data.user.profileImage
+          "
+          size="large"
+          shape="circle"
+        ></p-avatar>
         <ng-template #noImg>
-          <img
-            src="../../../../../assets/images/global/noImg.png"
-            class="rounded-circle img"
-            alt="profile-img"
-          />
+          <p-avatar
+            *ngIf="userProfile.data.user.profileImage; else noImg"
+            [image]="'../../../../../assets/images/global/noImg.png'"
+            size="large"
+            shape="circle"
+          ></p-avatar>
         </ng-template>
       </div>
-      <h6>{{userProfile.data.user.userName}}</h6>
+      <h6>{{ userProfile.data.user.userName }}</h6>
       <a (click)="menu.toggle($event)" class="pointer"
         ><i class="pi pi-chevron-down"></i
       ></a>

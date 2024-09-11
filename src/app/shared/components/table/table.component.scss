@@ -1,5 +1,13 @@
-::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr {
-  padding: 1rem !important;
+// ::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th,
+// ::ng-deep p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+//   padding: 1rem !important;
+// }
+
+td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 130px;
 }
 
 // Actions
