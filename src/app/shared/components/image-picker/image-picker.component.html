@@ -1,0 +1,47 @@
+<p-fileUpload
+  name="demo[]"
+  [customUpload]="true"
+  [multiple]="multiple"
+  accept="image/*"
+  [maxFileSize]="1000000"
+  [showUploadButton]="false"
+  [showCancelButton]="false"
+  chooseIcon="pi pi-upload"
+  [chooseLabel]="''"
+  class="image-picker"
+  [styleClass]="
+    images && images.length
+      ? 'uploaded-image-container'
+      : 'empty-image-container'
+  "
+  [chooseStyleClass]="'choose-button'"
+  [fileLimit]="fileLimit"
+  (onSelect)="uploadImage($event)"
+>
+  <ng-template pTemplate="toolbar">
+    <div class="my-3" *ngIf="images.length == 0">
+      <span class="choose-images">Choose a {{ name }} images</span> to upload
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="file">
+    <div class="d-flex justify-content-center">
+      <div class="text-center mx-1" *ngFor="let image of images">
+        <!-- Image Preview -->
+        <!-- <i (click)="image = null" class="pi pi-times delete-icon"></i> -->
+        <p-image
+          [src]="image?.objectURL?.changingThisBreaksApplicationSecurity"
+          alt="Image"
+          width="120"
+          height="120"
+          [preview]="true"
+        >
+        </p-image>
+
+        <div class="d-flex justify-content-center mt-2">
+          <label class="mx-2">{{ image?.name }}</label>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-fileUpload>

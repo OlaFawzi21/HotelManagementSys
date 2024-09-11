@@ -1,29 +1,29 @@
-.profile-image-picker {
-  ::ng-deep .p-fileupload .p-progressbar {
+.profile-image-picker ::ng-deep {
+  .p-fileupload .p-progressbar {
     display: none;
   }
 
-  ::ng-deep.p-fileupload .p-fileupload-buttonbar,
-  ::ng-deep .p-fileupload .p-fileupload-content {
+  .p-fileupload .p-fileupload-buttonbar,
+  .p-fileupload .p-fileupload-content {
     background-color: transparent !important;
     border: none !important;
     padding: 0 !important;
     text-align: center !important;
   }
 
-  ::ng-deep .uploaded-image-container {
+  .uploaded-image-container {
     .p-fileupload-buttonbar {
       display: none;
     }
   }
 
-  ::ng-deep .empty-image-container {
+  .empty-image-container {
     .p-fileupload-content {
       display: none;
     }
   }
 
-  ::ng-deep .p-fileupload-choose {
+  .p-fileupload-choose {
     .p-button-icon {
       margin: 0;
     }

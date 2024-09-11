@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
+import { HttpHandleResponseInterceptor } from './core/interceptors/http-handle-response-interceptor';
 
 import { AppComponent } from './app.component';
 @NgModule({
@@ -17,6 +18,11 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpHandleResponseInterceptor,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })

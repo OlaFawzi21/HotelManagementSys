@@ -3,9 +3,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SortEvent } from 'primeng/api';
 
 import { TableService } from '../../services/table.service';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+
 import { TableColumn } from '../../interfaces/table-column';
 
 import { environment } from 'src/app/core/environments/environment';
+import { DeleteItemComponent } from '../delete-item/delete-item.component';
 
 @Component({
   selector: 'app-table',
@@ -35,6 +38,8 @@ export class TableComponent {
   showImagesGallery: boolean = false;
   currentRowImages: any[] = [];
 
+  ref: DynamicDialogRef;
+
   constructor(private _table: TableService) {
     this.imageUrl = environment.imageUrl;
   }
@@ -61,7 +66,6 @@ export class TableComponent {
     this.currentRowImages = images;
 
     this.showImagesGallery;
-    debugger;
 
     if (!this.showImagesGallery) {
       this.showImagesGallery = true;

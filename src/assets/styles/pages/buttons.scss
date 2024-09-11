@@ -4,9 +4,36 @@ button {
 
 .btn-main .p-button {
   background-color: var(--bg-secondary-color) !important;
-  box-shadow: var(--btn-shadow) !important;
 
   &:hover {
     background-color: var(--btn-hover) !important;
+    box-shadow: var(--btn-shadow) !important;
   }
+}
+
+.btn-outline-main .p-button {
+  background-color: white !important;
+  border: 1px solid var(--bg-secondary-color) !important;
+  color: var(--bg-secondary-color) !important;
+
+  &:hover {
+    background-color: var(--bg-secondary-color) !important;
+    color: white !important;
+    box-shadow: var(--btn-shadow) !important;
+  }
+}
+
+.btn-danger .p-button {
+  background-color: #dc3545 !important;
+  border: #dc3545 !important;
+  color: white !important;
+}
+
+.p-button,
+.p-button.p-button-lg {
+  height: 45px !important;
+}
+
+.p-button.p-button-lg {
+  height: 50px !important;
 }

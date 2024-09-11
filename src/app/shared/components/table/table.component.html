@@ -89,7 +89,7 @@
                 pRipple
                 icon="pi pi-eye"
                 class="p-button-rounded p-button-primary me-2"
-                (click)="onView(rowData[column.field])"
+                (click)="onView(rowData)"
               ></button>
               <button
                 *ngIf="column.actions?.isEdit"
@@ -97,7 +97,7 @@
                 pRipple
                 icon="pi pi-pencil"
                 class="p-button-rounded p-button-success me-2"
-                (click)="onEdit(rowData[column.field])"
+                (click)="onEdit(rowData)"
               ></button>
               <button
                 *ngIf="column.actions?.isDelete"
@@ -105,8 +105,10 @@
                 pRipple
                 icon="pi pi-trash"
                 class="p-button-rounded p-button-warning me-2"
-                (click)="onDelete(rowData[column.field]?.id)"
+                (click)="onDelete(rowData)"
               ></button>
+              <p-toast>
+              </p-toast>
             </span>
           </ng-container>
         </td>

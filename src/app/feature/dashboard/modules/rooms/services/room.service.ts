@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 
 import { TableColumn } from 'src/app/shared/interfaces/table-column';
 import { GetRoomsListResponse } from '../interfaces/get-rooms-list-response';
+import { GetRoomFacilitiesResponse } from '../interfaces/get-room-facilities-response';
+import { Room } from '../interfaces/room';
+import { GetRoomResponse } from '../interfaces/get-room-response';
 
 @Injectable({
   providedIn: 'root',
@@ -89,5 +92,25 @@ export class RoomService {
     return this._http.get<GetRoomsListResponse>(
       this.roomsBaseUrl + '?page=1&size=1000000'
     );
+  }
+
+  getRoomFacilities(): Observable<GetRoomFacilitiesResponse> {
+    return this._http.get<GetRoomFacilitiesResponse>('admin/room-facilities');
+  }
+
+  addRoom(formData: FormData): Observable<any> {
+    return this._http.post(this.roomsBaseUrl, formData);
+  }
+
+  editRoom(formData: FormData, roomId: string): Observable<any> {
+    return this._http.put(this.roomsBaseUrl + '/' + roomId, formData);
+  }
+
+  deleteRoom(roomId: string): Observable<any> {
+    return this._http.delete(this.roomsBaseUrl + '/' + roomId);
+  }
+
+  getRoomById(id: string): Observable<GetRoomResponse> {
+    return this._http.get<GetRoomResponse>(this.roomsBaseUrl + '/' + id);
   }
 }

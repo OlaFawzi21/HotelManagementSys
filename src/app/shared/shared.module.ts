@@ -14,6 +14,9 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { GalleriaModule } from 'primeng/galleria';
 import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 import { MessageService } from 'primeng/api';
 
@@ -22,6 +25,8 @@ import { ProfileImagePickerComponent } from './components/profile-image-picker/p
 import { TableComponent } from './components/table/table.component';
 import { PasswordHintPopOverComponent } from './components/password-hint-pop-over/password-hint-pop-over.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { DeleteItemComponent } from './components/delete-item/delete-item.component';
+import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     TableComponent,
     PasswordHintPopOverComponent,
     GalleryComponent,
+    DeleteItemComponent,
+    ImagePickerComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +55,9 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     AvatarGroupModule,
     GalleriaModule,
     DialogModule,
+    DropdownModule,
+    MultiSelectModule,
+    DynamicDialogModule,
   ],
   exports: [
     InputTextModule,
@@ -65,11 +75,15 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     AvatarGroupModule,
     GalleriaModule,
     DialogModule,
+    DropdownModule,
+    MultiSelectModule,
+    DynamicDialogModule,
 
     TableComponent,
     ChangePasswordComponent,
     ProfileImagePickerComponent,
     PasswordHintPopOverComponent,
+    ImagePickerComponent,
   ],
   providers: [MessageService],
 })

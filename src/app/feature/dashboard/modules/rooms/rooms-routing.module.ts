@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { RoomsComponent } from './rooms.component';
 import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
+import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,14 @@ const routes: Routes = [
       {
         path: 'list',
         component: RoomsListComponent,
+      },
+      {
+        path: 'add',
+        component: AddEditRoomComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: AddEditRoomComponent,
       },
     ],
   },
