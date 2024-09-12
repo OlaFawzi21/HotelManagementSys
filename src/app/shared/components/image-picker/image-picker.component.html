@@ -28,7 +28,6 @@
     <div class="d-flex justify-content-center">
       <div class="text-center mx-1" *ngFor="let image of images">
         <!-- Image Preview -->
-        <!-- <i (click)="image = null" class="pi pi-times delete-icon"></i> -->
         <p-image
           [src]="image?.objectURL?.changingThisBreaksApplicationSecurity"
           alt="Image"

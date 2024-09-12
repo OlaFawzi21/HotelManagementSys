@@ -125,9 +125,8 @@
   </ng-template>
 </p-table>
 
-<ng-container *ngIf="showImagesGallery">
-  <app-gallery
-    [images]="currentRowImages"
-    [visible]="showImagesGallery"
-  ></app-gallery>
-</ng-container>
+<app-gallery
+  [images]="galleryImages"
+  [visible]="showGallery"
+  (exitEmitter)="exitGallery()"
+></app-gallery>

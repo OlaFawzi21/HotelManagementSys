@@ -1,14 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { SortEvent } from 'primeng/api';
-
 import { TableService } from '../../services/table.service';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { TableColumn } from '../../interfaces/table-column';
 
 import { environment } from 'src/app/core/environments/environment';
-import { DeleteItemComponent } from '../delete-item/delete-item.component';
 
 @Component({
   selector: 'app-table',
@@ -36,8 +33,8 @@ export class TableComponent {
   currentPageReportTemplate = 'Showing {first} to {last} of {totalRecords}';
 
   imageUrl: string;
-  showImagesGallery: boolean = false;
-  currentRowImages: any[] = [];
+  showGallery: boolean = false;
+  galleryImages: any[] = [];
 
   ref: DynamicDialogRef;
 
@@ -45,7 +42,10 @@ export class TableComponent {
     this.imageUrl = environment.imageUrl;
   }
 
-  onSort(event: SortEvent): void {}
+  ngOnInit(): void {
+    this.currentPageReportTemplate =
+      this.currentPageReportTemplate + ' ' + this.footerKey;
+  }
 
   onView(e: any): void {
     this.viewEmitter.emit(e);
@@ -64,12 +64,14 @@ export class TableComponent {
   }
 
   openGallery(images: any[]): void {
-    this.currentRowImages = images;
+    this.galleryImages = images;
 
-    this.showImagesGallery;
+    this.showGallery = true;
+  }
 
-    if (!this.showImagesGallery) {
-      this.showImagesGallery = true;
-    }
+  exitGallery(): void {
+    this.galleryImages = [];
+
+    this.showGallery = false;
   }
 }

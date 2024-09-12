@@ -9,7 +9,7 @@ export class TableService {
   constructor() {}
 
   getColumnAvatars(rowImages: string | Array<any>): any {
-    if (rowImages && rowImages.length < 1) {
+    if (rowImages && rowImages.length === 1) {
       return [rowImages];
     }
 

@@ -8,6 +8,9 @@
     [showItemNavigators]="true"
     [showThumbnails]="false"
   >
+    <ng-template pTemplate="closeicon" let-closeIcon>
+      <i (click)="onClose()" class="px-1 pi pi-times"></i>
+    </ng-template>
     <ng-template pTemplate="item" let-item>
       <img [src]="item" style="width: 100%; display: block" />
     </ng-template>
