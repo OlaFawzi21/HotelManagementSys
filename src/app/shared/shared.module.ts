@@ -31,6 +31,7 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     DropdownModule,
     MultiSelectModule,
     DynamicDialogModule,
+    ConfirmDialogModule,
   ],
   exports: [
     InputTextModule,
@@ -99,6 +101,7 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     ImagePickerComponent,
     SpinnerComponent,
     TableHeaderComponent,
+    ConfirmDialogModule,
   ],
 })
 export class SharedModule {}
