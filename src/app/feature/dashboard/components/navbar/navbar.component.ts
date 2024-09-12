@@ -1,18 +1,21 @@
-import { ChangePassword } from './../../interfaces/change-password';
 import { Component } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
+
 import { MenuItem } from 'primeng/api';
-import { UserData } from 'src/app/shared/interfaces/userData';
+
 import {
   ConfirmationService,
   MessageService,
   ConfirmEventType,
 } from 'primeng/api';
-
 import { UserDataService } from 'src/app/shared/services/userData.service';
 import { NavbarService } from '../../services/navbar.service';
 
+import { UserData } from 'src/app/shared/interfaces/userData';
+import { ChangePassword } from './../../interfaces/change-password';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -69,15 +72,16 @@ export class NavbarComponent {
       },
     });
   }
+
   logOut() {
     localStorage.clear();
     this._Router.navigate(['/landing']);
   }
+
   showDialog() {
     this.displayDialog = true;
   }
 
-  // Method to hide the dialog
   hideDialog() {
     this.displayDialog = false;
   }
