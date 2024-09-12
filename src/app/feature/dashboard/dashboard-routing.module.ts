@@ -31,7 +31,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'booking',
+        path: 'bookings',
         loadChildren: () =>
           import('./modules/booking/booking.module').then(
             (m) => m.BookingModule

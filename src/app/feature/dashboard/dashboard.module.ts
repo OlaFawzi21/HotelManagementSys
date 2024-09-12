@@ -8,7 +8,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ChartComponent } from './components/chart/chart.component';
-import { DeleteComponent } from './components/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { DeleteComponent } from './components/delete/delete.component';
     NavbarComponent,
     SidebarComponent,
     ChartComponent,
-    DeleteComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule],
 })

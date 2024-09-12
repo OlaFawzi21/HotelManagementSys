@@ -38,9 +38,14 @@ export class SidebarComponent {
       link: '/dashboard/ads',
     },
     {
-      title: 'Booking Facilities',
+      title: 'Facilities',
       icon: 'pi-book',
       link: '/dashboard/facilities',
+    },
+    {
+      title: 'Bookings',
+      icon: 'pi-money-bill',
+      link: '/dashboard/bookings',
     },
   ];
 
