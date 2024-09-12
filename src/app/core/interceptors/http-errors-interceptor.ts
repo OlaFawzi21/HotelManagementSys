@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { catchError, Observable,  throwError } from 'rxjs';
+
 import {
   HttpRequest,
   HttpHandler,
@@ -28,9 +29,6 @@ export class HttpErrorsInterceptor implements HttpInterceptor {
             : httpError.error.message;
         }
 
-        errorMessage;
-        debugger;
-
         // Handle error response
         this._message.add({
           severity: 'error',
@@ -38,7 +36,6 @@ export class HttpErrorsInterceptor implements HttpInterceptor {
           detail: errorMessage,
         });
 
-        // Ensure error is propagated to the next level
         return throwError(() => new Error(errorMessage));
       })
     );

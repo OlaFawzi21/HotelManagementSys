@@ -19,8 +19,7 @@ export class GalleryComponent {
   }
 
   onVisible(e: any): void {
-    e;
-    debugger;
+
     this.visibleEmitter.emit(e);
   }
 }

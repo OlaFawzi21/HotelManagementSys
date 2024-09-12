@@ -72,10 +72,4 @@ export class TableComponent {
       this.showImagesGallery = true;
     }
   }
-
-  // updateShowGallery(e: any): void {
-  //   e;
-  //   debugger;
-  //   this.showImagesGallery = e;
-  // }
 }

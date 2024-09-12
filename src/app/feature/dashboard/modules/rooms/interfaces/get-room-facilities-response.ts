@@ -1,4 +1,4 @@
-import { RoomFacility } from './room-facility';
+import { RoomFacility } from "./room-facility";
 
 export interface GetRoomFacilitiesResponse {
   success: boolean;

@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 
 import { TableColumn } from 'src/app/shared/interfaces/table-column';
 import { GetRoomsListResponse } from '../interfaces/get-rooms-list-response';
-import { GetRoomFacilitiesResponse } from '../interfaces/get-room-facilities-response';
-import { Room } from '../interfaces/room';
 import { GetRoomResponse } from '../interfaces/get-room-response';
+import { GetRoomFacilitiesResponse } from '../interfaces/get-room-facilities-response';
 
 @Injectable({
   providedIn: 'root',
