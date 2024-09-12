@@ -1,1 +1,13 @@
-<p>users works!</p>
+<app-table-header
+  title="Booking Table Details"
+
+></app-table-header>
+
+<app-table
+  [columns]="columns"
+  [data]="userList"
+  [paginator]="paginator"
+  [totalRecords]="totalRecords"
+  [footerKey]="footerKey"
+ 
+></app-table>
