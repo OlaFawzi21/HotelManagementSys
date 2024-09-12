@@ -19,8 +19,6 @@ export class GalleryComponent {
   }
 
   onClose(): void {
-    window.alert(123);
-    debugger;
     this.exitEmitter.emit();
   }
 }
