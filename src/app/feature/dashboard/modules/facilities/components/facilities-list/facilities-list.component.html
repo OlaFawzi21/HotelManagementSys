@@ -1,7 +1,7 @@
 <app-table-header
   title="Facilities"
   buttonText="Add New Facility"
-  (addEmitter)="addFacility()"
+  (addEmitter)="onAdd()"
 ></app-table-header>
 
 <app-table
@@ -9,8 +9,8 @@
   [data]="facilitiesList"
   [paginator]="paginator"
   [totalRecords]="totalRecords"
+  [rows]="rows"
   [footerKey]="footerKey"
-  (viewEmitter)="onView($event)"
   (editEmitter)="onEdit($event)"
   (deleteEmitter)="onDelete($event)"
 ></app-table>

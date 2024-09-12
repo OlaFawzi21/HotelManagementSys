@@ -14,7 +14,7 @@ export class FacilitiesService {
 
   constructor(private _http: HttpClient) {}
 
-  // Handle rooms table
+  // Handle facilities table
   get tableColumns(): TableColumn[] {
     return [
       {
@@ -39,7 +39,7 @@ export class FacilitiesService {
         header: 'Actions',
         field: 'actions',
         actions: {
-          isView: true,
+          isView: false,
           isEdit: true,
           isDelete: true,
         },
@@ -55,18 +55,14 @@ export class FacilitiesService {
   }
 
   addFacility(name: string): Observable<any> {
-    return this._http.post(this.facilitiesBaseUrl, name);
+    return this._http.post(this.facilitiesBaseUrl, { name });
   }
 
   editFacility(name: string, facilityId: string): Observable<any> {
-    return this._http.put(this.facilitiesBaseUrl + '/' + facilityId, name);
+    return this._http.put(this.facilitiesBaseUrl + '/' + facilityId, { name });
   }
 
   deleteFacility(facilityId: string): Observable<any> {
     return this._http.delete(this.facilitiesBaseUrl + '/' + facilityId);
-  }
-
-  getFacilityById(id: string): Observable<any> {
-    return this._http.get<any>(this.facilitiesBaseUrl + '/' + id);
   }
 }

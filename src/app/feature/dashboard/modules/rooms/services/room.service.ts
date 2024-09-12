@@ -53,18 +53,7 @@ export class RoomService {
         field: 'createdBy',
         objectKey: 'userName',
       },
-      {
-        type: 'date',
-        header: 'Created At',
-        field: 'createdAt',
-        format: 'dd/mm/yyyy',
-      },
-      {
-        type: 'object',
-        header: 'Created By',
-        field: 'createdBy',
-        objectKey: 'userName',
-      },
+    
       {
         type: 'date',
         header: 'Created At',

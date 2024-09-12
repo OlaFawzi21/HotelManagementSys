@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Router } from '@angular/router';
-
 import { FacilitiesService } from '../../services/facilities.service';
 import { DynamicDialogRef, DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
@@ -9,6 +7,7 @@ import { MessageService } from 'primeng/api';
 import { Facility } from '../../interfaces/facility';
 import { TableColumn } from 'src/app/shared/interfaces/table-column';
 
+import { AddEditFacilityComponent } from '../add-edit-facility/add-edit-facility.component';
 import { DeleteItemComponent } from 'src/app/shared/components/delete-item/delete-item.component';
 
 @Component({
@@ -24,12 +23,14 @@ export class FacilitiesListComponent {
   paginator = true;
   totalRecords: number;
   footerKey = 'facility';
+  rows = 10;
 
+  addRef: DynamicDialogRef;
+  editRef: DynamicDialogRef;
   deleteRef: DynamicDialogRef;
 
   constructor(
     private _facility: FacilitiesService,
-    private _router: Router,
     public _dialog: DialogService,
     public messageService: MessageService
   ) {
@@ -49,11 +50,33 @@ export class FacilitiesListComponent {
     });
   }
 
-  addFacility(): void {}
+  onAdd(): void {
+    this.addRef = this._dialog.open(AddEditFacilityComponent, {
+      header: 'Add Facility',
+      style: { minWidth: '35%' },
+      contentStyle: { overflow: 'auto' },
+    });
 
-  onView(e: Facility): void {}
+    this.addRef.onClose.subscribe((name: string) => {
+      this.addFacility(name);
+    });
+  }
 
-  onEdit(e: Facility): void {}
+  onEdit(e: Facility): void {
+    this.editRef = this._dialog.open(AddEditFacilityComponent, {
+      data: {
+        name: e.name,
+        id: e._id,
+      },
+      style: { minWidth: '35%' },
+      contentStyle: { overflow: 'auto' },
+      header: 'Edit Facility',
+    });
+
+    this.editRef.onClose.subscribe(({ name, id }) => {
+      this.editFacility(name, id);
+    });
+  }
 
   onDelete(e: Facility): void {
     this.deleteRef = this._dialog.open(DeleteItemComponent, {
@@ -66,6 +89,34 @@ export class FacilitiesListComponent {
 
     this.deleteRef.onClose.subscribe((id: any) => {
       this.deleteFacility(id);
+    });
+  }
+
+  addFacility(name: string): void {
+    this._facility.addFacility(name).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Facility is added successfully!',
+        });
+
+        this.getFacilitiesList();
+      },
+    });
+  }
+
+  editFacility(name: string, id: string): void {
+    this._facility.editFacility(name, id).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Facility is updated successfully!',
+        });
+
+        this.getFacilitiesList();
+      },
     });
   }
 

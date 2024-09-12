@@ -17,7 +17,6 @@
     <tr>
       <th
         *ngFor="let column of columns"
-        style="min-width: 150px"
         pFrozenColumn
         [frozen]="column.isFrozen"
         [alignFrozen]="column.frozenDirection"
