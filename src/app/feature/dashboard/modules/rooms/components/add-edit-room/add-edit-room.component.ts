@@ -24,6 +24,7 @@ export class AddEditRoomComponent {
 
   multipleImages = true;
   imagesLimit = 5;
+  initialImages: any[] = [];
   images: any[] = [];
 
   isViewMode: boolean = false;
@@ -98,7 +99,7 @@ export class AddEditRoomComponent {
           facilities: facilities.map((facility: any) => facility._id),
         });
 
-        this.images = images;
+        this.initialImages = images;
       },
     });
   }

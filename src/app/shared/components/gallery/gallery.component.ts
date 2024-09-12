@@ -21,4 +21,8 @@ export class GalleryComponent {
   onClose(): void {
     this.exitEmitter.emit();
   }
+
+  ngOnDestroy(): void {
+    console.log('is destroyed');
+  }
 }

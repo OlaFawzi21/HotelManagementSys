@@ -70,8 +70,10 @@ export class TableComponent {
   }
 
   exitGallery(): void {
-    this.galleryImages = [];
-
     this.showGallery = false;
+
+    debugger;
+
+    // this.galleryImages = [];
   }
 }
