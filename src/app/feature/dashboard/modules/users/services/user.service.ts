@@ -69,4 +69,9 @@ export class UserService {
       this.UsersBaseUrl +'?page=1&size=1000000'
     );
   }
+  getUserByID(id:string): Observable<any> {
+    return this._HttpClient.get(
+      this.UsersBaseUrl +'/'+id
+    );
+  }
 }

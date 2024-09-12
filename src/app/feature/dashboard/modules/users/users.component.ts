@@ -13,35 +13,35 @@ import { UserService } from './services/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
-  columns: TableColumn[] = [];
-  userList: any;
+  // columns: TableColumn[] = [];
+  // userList: any;
 
-  paginator = true;
-  totalRecords: number;
-  footerKey = 'users';
+  // paginator = true;
+  // totalRecords: number;
+  // footerKey = 'users';
 
 
 
-  constructor(
-    private _UserService: UserService,
-    private _router: Router,
+  // constructor(
+  //   private _UserService: UserService,
+  //   private _router: Router,
   
-    public messageService: MessageService
-  ) {
-    this.columns = this._UserService.tableColumns;
-  }
+  //   public messageService: MessageService
+  // ) {
+  //   this.columns = this._UserService.tableColumns;
+  // }
 
-  ngOnInit() {
-    this.getuserList();
-  }
+  // ngOnInit() {
+  //   this.getuserList();
+  // }
 
-  getuserList(): void {
-    this._UserService.getUserList().subscribe({
-      next: ({ data }) => {
-        this.userList = data.users;
-        this.totalRecords = data.totalCount;
-      },
-    });
-  }
+  // getuserList(): void {
+  //   this._UserService.getUserList().subscribe({
+  //     next: ({ data }) => {
+  //       this.userList = data.users;
+  //       this.totalRecords = data.totalCount;
+  //     },
+  //   });
+  // }
 
 }
