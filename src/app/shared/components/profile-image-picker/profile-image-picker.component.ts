@@ -15,4 +15,12 @@ export class ProfileImagePickerComponent {
 
     this.profileImageEmitter.emit(this.profileImage);
   }
+
+  removeImage(e: Event) {
+    this.profileImage = null;
+
+    this.profileImageEmitter.emit(this.profileImage);
+
+    e.stopPropagation();
+  }
 }

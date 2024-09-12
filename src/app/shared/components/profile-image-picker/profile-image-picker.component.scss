@@ -11,7 +11,24 @@
     text-align: center !important;
   }
 
+  .choose-button.p-fileupload-choose {
+    background-color: transparent !important;
+    color: var(--image-picker-color) !important;
+    height: 70px !important;
+    width: 70px;
+    border-radius: 50%;
+    border: 3px dashed var(--image-picker-color) !important;
+    justify-content: center;
+
+    .p-button-icon::before {
+      font-size: 25px !important;
+    }
+  }
+
   .uploaded-image-container {
+    .p-image-preview-indicator {
+      border-radius: 50% !important;
+    }
     .p-fileupload-buttonbar {
       display: none;
     }
@@ -33,12 +50,23 @@
     }
   }
 
-  .delete-icon {
-    display: block;
-    background-color: transparent;
-    border: none;
-    color: red;
-    font-size: 16px;
-    cursor: pointer;
+  .icons-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+
+    i {
+      background-color: transparent;
+
+      border: none;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+      color: white;
+    }
   }
 }

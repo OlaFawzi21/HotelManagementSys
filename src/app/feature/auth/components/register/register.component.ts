@@ -46,6 +46,14 @@ export class RegisterComponent {
   submit(): void {
     this.registerForm.markAllAsTouched();
 
+    if (!this.profileImage) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Please upload your profile picture',
+      });
+    }
+
     if (this.registerForm.valid && this.profileImage) {
       const registerFormData: FormData = new FormData();
 

@@ -17,7 +17,6 @@ import { DialogModule } from 'primeng/dialog';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { CardModule } from 'primeng/card';
 import { ChartModule } from 'primeng/chart';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';

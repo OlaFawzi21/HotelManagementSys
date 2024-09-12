@@ -9,6 +9,7 @@
   chooseIcon="pi pi-user"
   [chooseLabel]="''"
   (onSelect)="uploadImage($event)"
+  [chooseStyleClass]="'choose-button'"
   class="profile-image-picker"
   [styleClass]="
     profileImage ? 'uploaded-image-container' : 'empty-image-container'
@@ -17,21 +18,19 @@
   <ng-template pTemplate="file">
     <div class="text-center">
       <!-- Image Preview -->
-
-      <i (click)="profileImage = null" class="pi pi-times delete-icon"></i>
-
       <p-image
         [src]="profileImage?.objectURL?.changingThisBreaksApplicationSecurity"
         alt="Image"
-        width="120"
-        height="120"
+        width="70"
+        height="70"
+        imageClass="rounded-circle"
         [preview]="true"
       >
+        <ng-template pTemplate="indicator">
+          <i (click)="removeImage($event)" class="px-1 pi pi-trash"></i>
+          <i class="px-1 pi pi-eye"></i>
+        </ng-template>
       </p-image>
-
-      <div class="d-flex justify-content-center mt-2">
-        <label class="mx-2">{{ profileImage?.name }}</label>
-      </div>
     </div>
   </ng-template>
 </p-fileUpload>
