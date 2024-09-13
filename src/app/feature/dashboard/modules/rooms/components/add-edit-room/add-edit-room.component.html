@@ -127,9 +127,12 @@
     </div>
 
     <app-image-picker
+      *ngIf="isViewMode !== undefined"
+      [initialImages]="initialImages"
       [multiple]="multipleImages"
       [name]="'Room'"
       [fileLimit]="imagesLimit"
+      [isView]="isViewMode"
       (imagesEmitter)="updateImages($event)"
     ></app-image-picker>
 

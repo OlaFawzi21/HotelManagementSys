@@ -14,10 +14,6 @@ export class GalleryComponent {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log('images', this.images);
-  }
-
   onClose(): void {
     this.exitEmitter.emit();
   }

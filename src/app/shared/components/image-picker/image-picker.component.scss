@@ -1,4 +1,8 @@
 .image-picker ::ng-deep {
+  .p-fileupload-files {
+    display: none;
+  }
+
   .p-fileupload {
     border: 1px dashed var(--image-picker-border) !important;
     text-align: center !important;

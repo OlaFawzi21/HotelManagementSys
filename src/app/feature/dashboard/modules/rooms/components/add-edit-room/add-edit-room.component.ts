@@ -24,9 +24,10 @@ export class AddEditRoomComponent {
 
   multipleImages = true;
   imagesLimit = 5;
+  initialImages: any[] = [];
   images: any[] = [];
 
-  isViewMode: boolean = false;
+  isViewMode: boolean | undefined = undefined;
 
   roomForm = new FormGroup({
     roomNumber: new FormControl(null, [Validators.required]),
@@ -45,11 +46,6 @@ export class AddEditRoomComponent {
     this._route.params.subscribe({
       next: ({ id }) => {
         this.id = id;
-
-        if (this.id) {
-          this.initRoom();
-          this.checkRoute();
-        }
       },
     });
   }
@@ -72,11 +68,21 @@ export class AddEditRoomComponent {
     this._room.getRoomFacilities().subscribe({
       next: ({ data }) => {
         this.facilitiesDropDown = data.facilities;
+
+        if (this.id) {
+          this.initRoom();
+        }
+      },
+      error: () => {
+        if (this.id) {
+          this.initRoom();
+        }
       },
     });
   }
 
   initRoom(): void {
+    this.facilitiesDropDown;
     this._room.getRoomById(this.id).subscribe({
       next: ({ data }) => {
         this.details = data.room;
@@ -95,12 +101,36 @@ export class AddEditRoomComponent {
           price,
           capacity,
           discount,
-          facilities: facilities.map((facility: any) => facility._id),
+          facilities: facilities.map((facility: any) => facility._id) || [],
         });
 
-        this.images = images;
+        this.initialImages = images;
+
+        this.checkRoute();
       },
     });
+  }
+
+  handleFormData(): FormData {
+    const roomFormData: FormData = new FormData();
+
+    for (const [key, value] of Object.entries(this.roomForm.value)) {
+      if (Array.isArray(value)) {
+        value.forEach((element) => {
+          roomFormData.append(key, element);
+        });
+      } else if (typeof value === 'string') {
+        roomFormData.append(key, value);
+      } else {
+        roomFormData.append(key, value as any);
+      }
+    }
+
+    this.images.forEach((image: File) => {
+      roomFormData.append('imgs', image);
+    });
+
+    return roomFormData;
   }
 
   cancel(): void {
@@ -110,23 +140,9 @@ export class AddEditRoomComponent {
   submit(): void {
     this.roomForm.markAllAsTouched();
 
+    const roomFormData = this.handleFormData();
+
     if (this.roomForm.valid) {
-      const roomFormData: FormData = new FormData();
-
-      for (const [key, value] of Object.entries(this.roomForm.value)) {
-        if (Array.isArray(value)) {
-          value?.forEach((element) => {
-            roomFormData.append(key, element);
-          });
-        } else {
-          roomFormData.append(key, value as any);
-        }
-      }
-
-      this.images.forEach((image: File, index: number) => {
-        roomFormData.append('imgs', image); // 'imgs' is the field name for images
-      });
-
       if (this.id) {
         this.editRoom(roomFormData);
       } else {
@@ -153,7 +169,7 @@ export class AddEditRoomComponent {
     this._room.editRoom(formData, this.id).subscribe({
       next: () => {
         this.messageService.add({
-          severity: 'error',
+          severity: 'success',
           summary: 'Success',
           detail: 'Room updated successfully!',
         });

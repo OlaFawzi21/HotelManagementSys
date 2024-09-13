@@ -21,7 +21,7 @@
         [frozen]="column.isFrozen"
         [alignFrozen]="column.frozenDirection"
       >
-        {{ column.header }}
+        {{ column.header | titlecase }}
       </th>
     </tr>
   </ng-template>
@@ -71,17 +71,6 @@
             </ng-template>
           </ng-container>
 
-          <!-- <img
-              *ngSwitchCase="'image'"
-              [src]="
-                column.field
-                  ? imageUrl + rowData[column.field]
-                  : '../../../../../assets/images/' + column.defaultImage
-              "
-              width="60"
-              height="60"
-            /> -->
-
           <span *ngSwitchCase="'date'"
             >{{ rowData[column.field] | date : column.format }}
           </span>
@@ -126,6 +115,7 @@
 </p-table>
 
 <app-gallery
+  *ngIf="showGallery === true"
   [images]="galleryImages"
   [visible]="showGallery"
   (exitEmitter)="exitGallery()"

@@ -71,7 +71,9 @@ export class RoomsListComponent {
     });
 
     this.deleteRef.onClose.subscribe((id) => {
-      this.deleteRoom(id);
+      if (id) {
+        this.deleteRoom(id);
+      }
     });
   }
 
