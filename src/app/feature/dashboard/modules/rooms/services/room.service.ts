@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { TableColumn } from 'src/app/shared/interfaces/table-column';
@@ -53,7 +53,7 @@ export class RoomService {
         field: 'createdBy',
         objectKey: 'userName',
       },
-    
+
       {
         type: 'date',
         header: 'Created At',
@@ -91,7 +91,11 @@ export class RoomService {
   }
 
   editRoom(formData: FormData, roomId: string): Observable<any> {
-    return this._http.put(this.roomsBaseUrl + '/' + roomId, formData);
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this._http.put(this.roomsBaseUrl + '/' + roomId, formData, {
+      headers,
+    });
   }
 
   deleteRoom(roomId: string): Observable<any> {

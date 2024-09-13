@@ -1,23 +1,21 @@
-<p-image
-  [src]="''"
-  alt="Image"
-  width="120"
-  height="120"
-  [preview]="true"
-></p-image>
 <p-fileUpload
+  #fileUpload
+  id="fileUpload"
   name="demo[]"
   [customUpload]="true"
   [multiple]="multiple"
   accept="image/*"
   [maxFileSize]="1000000"
+  [files]="images"
   [showUploadButton]="false"
   [showCancelButton]="false"
   chooseIcon="pi pi-upload"
+  [customUpload]="true"
   [chooseLabel]="''"
+  [disabled]="isView"
   class="image-picker"
   [styleClass]="
-    images && images.length
+    fileUpload._files && fileUpload._files.length
       ? 'uploaded-image-container'
       : 'empty-image-container'
   "
@@ -31,22 +29,22 @@
     </div>
   </ng-template>
 
-  <ng-template pTemplate="file">
-    <div class="d-flex justify-content-center">
-      <div class="text-center mx-1" *ngFor="let image of images">
-        <!-- Image Preview -->
-        <p-image
-          [src]="image.objectURL"
-          alt="Image"
-          width="120"
-          height="120"
-          [preview]="true"
-        ></p-image>
-
-        <div class="d-flex justify-content-center mt-2">
-          <label class="mx-2">{{ image?.name }}</label>
-        </div>
-      </div>
+  <ng-template pTemplate="content">
+    <div class="row justify-content-center">
+      <p-image
+        class="col-lg-2 text-center my-1"
+        *ngFor="let image of images; let i = index; trackBy: trackByFn"
+        [src]="image.objectURL.changingThisBreaksApplicationSecurity"
+        alt="Image"
+        width="100"
+        height="100"
+        [preview]="true"
+      >
+        <ng-template pTemplate="indicator">
+          <i (click)="removeImage(i)" class="px-1 pi pi-trash"></i>
+          <i class="px-1 pi pi-eye"></i>
+        </ng-template>
+      </p-image>
     </div>
   </ng-template>
 </p-fileUpload>

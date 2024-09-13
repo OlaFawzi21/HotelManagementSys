@@ -27,7 +27,7 @@ export class AddEditRoomComponent {
   initialImages: any[] = [];
   images: any[] = [];
 
-  isViewMode: boolean = false;
+  isViewMode: boolean | undefined = undefined;
 
   roomForm = new FormGroup({
     roomNumber: new FormControl(null, [Validators.required]),
@@ -49,7 +49,6 @@ export class AddEditRoomComponent {
 
         if (this.id) {
           this.initRoom();
-          this.checkRoute();
         }
       },
     });
@@ -96,10 +95,12 @@ export class AddEditRoomComponent {
           price,
           capacity,
           discount,
-          facilities: facilities.map((facility: any) => facility._id),
+          facilities: facilities.map((facility: any) => facility._id) || [],
         });
 
         this.initialImages = images;
+
+        this.checkRoute();
       },
     });
   }
@@ -124,8 +125,8 @@ export class AddEditRoomComponent {
         }
       }
 
-      this.images.forEach((image: File, index: number) => {
-        roomFormData.append('imgs', image); // 'imgs' is the field name for images
+      this.images.forEach((image: File) => {
+        roomFormData.append('imgs', image);
       });
 
       if (this.id) {
@@ -154,7 +155,7 @@ export class AddEditRoomComponent {
     this._room.editRoom(formData, this.id).subscribe({
       next: () => {
         this.messageService.add({
-          severity: 'error',
+          severity: 'success',
           summary: 'Success',
           detail: 'Room updated successfully!',
         });

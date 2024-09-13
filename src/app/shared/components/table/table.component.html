@@ -21,7 +21,7 @@
         [frozen]="column.isFrozen"
         [alignFrozen]="column.frozenDirection"
       >
-        {{ column.header }}
+        {{ column.header | titlecase }}
       </th>
     </tr>
   </ng-template>

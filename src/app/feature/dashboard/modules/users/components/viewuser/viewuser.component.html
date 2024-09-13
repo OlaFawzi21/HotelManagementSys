@@ -1,31 +1,27 @@
 <div
   class="row mx-0 justify-content-center align-items-center dashboard-page-form"
 >
-<div  *ngIf="user.profileImage" class="d-flex justify-content-center">
+  <div *ngIf="user.profileImage" class="d-flex justify-content-center">
     <!-- <img  [src]="'https://upskilling-egypt.com:3000/'+user.profileImage" 
   
     class="w-100" > -->
-   
-    <p-avatar
-    *ngIf="user.profileImage; else noImg"
-    [image]="
 
-      user.profileImage
-    "
-    
-    size="xlarge"
-    shape="circle"
-  ></p-avatar>
-  <ng-template #noImg>
     <p-avatar
       *ngIf="user.profileImage; else noImg"
-      [image]="'../../../../../../../assets/images/global/noImg.png'"
-      size="large"
+      [image]="user.profileImage"
+      size="xlarge"
       shape="circle"
     ></p-avatar>
-  </ng-template>
-</div>
-  <form class="col-md-8 d-flex flex-column gap-3"  [formGroup]="userForm">
+    <ng-template #noImg>
+      <p-avatar
+        *ngIf="user.profileImage; else noImg"
+        [image]="'../../../../../../../assets/images/global/noImg.png'"
+        size="large"
+        shape="circle"
+      ></p-avatar>
+    </ng-template>
+  </div>
+  <form class="col-md-8 d-flex flex-column gap-3" [formGroup]="userForm">
     <div class="d-flex flex-column">
       <label>User name</label>
       <input
@@ -35,7 +31,6 @@
         aria-describedby="room-number-help"
         placeholder="Enter user name"
       />
-     
     </div>
 
     <div class="row mx-0">
@@ -48,7 +43,6 @@
           placeholder="Enter email"
           formControlName="email"
         />
-     
       </div>
 
       <div class="col-md-6 pe-md-0 d-flex flex-column">
@@ -56,12 +50,9 @@
         <input
           type="text"
           pInputText
-    
           formControlName="phoneNumber"
           placeholder="Enter phone number"
         />
-
-      
       </div>
     </div>
 
@@ -71,16 +62,11 @@
         <input
           type="text"
           pInputText
-        
           placeholder="Enter country"
           formControlName="country"
         />
-
-    
       </div>
       <div class="col-md-6 pe-md-0 d-flex flex-column">
-
-      
         <label>role</label>
         <input
           type="text"
@@ -89,21 +75,18 @@
           formControlName="role"
           placeholder="Enter role"
         />
-
-      
       </div>
     </div>
 
     <p-divider class="mt-1"></p-divider>
 
     <button
-        label="Back "
-        pButton
-        pRipple
-        class="p-button-info p-button col-md-2"
-        type="button"
-        (click)="Back()"
-      ></button>
-    
+      label="Back "
+      pButton
+      pRipple
+      class="p-button-info p-button col-md-2"
+      type="button"
+      (click)="Back()"
+    ></button>
   </form>
 </div>

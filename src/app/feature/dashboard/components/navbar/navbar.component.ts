@@ -11,7 +11,7 @@ import {
   MessageService,
   ConfirmEventType,
 } from 'primeng/api';
-import { UserDataService } from 'src/app/shared/services/userData.service';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 import { NavbarService } from '../../services/navbar.service';
 
 import { UserData } from 'src/app/shared/interfaces/userData';
