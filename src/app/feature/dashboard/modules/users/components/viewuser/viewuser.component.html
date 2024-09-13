@@ -1,12 +1,8 @@
 <div
   class="row mx-0 justify-content-center align-items-center dashboard-page-form"
 >
-<div  *ngIf="user.profileImage" class="d-flex justify-content-center">
-    <!-- <img  [src]="'https://upskilling-egypt.com:3000/'+user.profileImage" 
-  
-    class="w-100" > -->
-   
-    <p-avatar
+<!-- <div  class="d-flex justify-content-center">
+ <p-avatar
     *ngIf="user.profileImage; else noImg"
     [image]="
 
@@ -15,7 +11,7 @@
     
     size="xlarge"
     shape="circle"
-  ></p-avatar>
+></p-avatar>
   <ng-template #noImg>
     <p-avatar
       *ngIf="user.profileImage; else noImg"
@@ -24,7 +20,56 @@
       shape="circle"
     ></p-avatar>
   </ng-template>
+</div> -->
+
+  <div class="card shadow w-75 mx-auto p-5">
+    <div  class="d-flex justify-content-center">
+      <p-avatar
+         *ngIf="user.profileImage; else noImg"
+         [image]="
+     
+           user.profileImage
+         "
+         
+         size="xlarge"
+         shape="circle"
+     ></p-avatar>
+       <ng-template #noImg>
+         <p-avatar
+           *ngIf="user.profileImage; else noImg"
+           [image]="'../../../../../../../assets/images/global/noImg.png'"
+           size="large"
+           shape="circle"
+         ></p-avatar>
+       </ng-template>
+     </div >
+     <div class="row">
+      <div class="col-md-6">
+         <h3>User name : <span class=" h6">{{user.userName}}</span></h3>
+      </div>
+      <div class="col-md-6">
+         <h3>email: <span class=" h6">{{user.email}}</span></h3>
+        </div>
+     </div>
+     <div class="row">
+      <div class="col-md-6"> <h3> phone number : <span class=" h6">{{user.phoneNumber}}</span></h3> </div>
+      <div class="col-md-6"> <h3>country : <span class=" h6">{{user.country}}</span></h3> </div>
+     </div>
+   <h3>role : <span class=" h6">{{user.role}}</span></h3>
+  <button
+    label="Back "
+    pButton
+    pRipple
+    class="p-button-info p-button col-md-2 mt-2 ms-auto"
+    type="button"
+    (click)="Back()"
+  ></button>
 </div>
+
+
+
+
+<!-- 
   <form class="col-md-8 d-flex flex-column gap-3"  [formGroup]="userForm">
     <div class="d-flex flex-column">
       <label>User name</label>
@@ -105,5 +150,5 @@
         (click)="Back()"
       ></button>
     
-  </form>
-</div>
+  </form> -->
+
