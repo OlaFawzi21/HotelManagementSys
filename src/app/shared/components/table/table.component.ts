@@ -71,9 +71,5 @@ export class TableComponent {
 
   exitGallery(): void {
     this.showGallery = false;
-
-    debugger;
-
-    // this.galleryImages = [];
   }
 }
