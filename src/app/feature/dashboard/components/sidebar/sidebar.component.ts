@@ -33,7 +33,7 @@ export class SidebarComponent {
       link: '/dashboard/rooms/list',
     },
     {
-      title: 'Ads',
+      title: 'ADS',
       icon: 'pi-calendar-minus',
       link: '/dashboard/ads',
     },

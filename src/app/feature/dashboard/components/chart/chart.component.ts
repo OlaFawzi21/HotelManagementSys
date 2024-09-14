@@ -12,7 +12,8 @@ export class ChartComponent {
   dataDt: any;
   dataPie: any;
 
-  options: any;
+  optionsDt: any;
+  optionsPie: any;
 
   ngOnInit() {
     this.dtChart();
@@ -43,13 +44,23 @@ export class ChartComponent {
       ],
     };
 
-    this.options = {
+    this.optionsDt = {
       cutout: '60%',
       plugins: {
         legend: {
           labels: {
             color: textColor,
           },
+        },
+        title: {
+          display: true,
+          text: 'Booking Status',
+          color: textColor,
+          font: {
+            size: 18,
+          },
+          align: 'center',
+          position: 'bottom',
         },
       },
     };
@@ -69,23 +80,33 @@ export class ChartComponent {
           ],
           backgroundColor: [
             documentStyle.getPropertyValue('--blue-500'),
-            documentStyle.getPropertyValue('--yellow-500'),
+            documentStyle.getPropertyValue('--green-400'),
           ],
           hoverBackgroundColor: [
             documentStyle.getPropertyValue('--blue-400'),
-            documentStyle.getPropertyValue('--yellow-400'),
+            documentStyle.getPropertyValue('--green-400'),
           ],
         },
       ],
     };
 
-    this.options = {
+    this.optionsPie = {
       plugins: {
         legend: {
           labels: {
             usePointStyle: true,
             color: textColor,
           },
+        },
+        title: {
+          display: true,
+          text: 'User Roles',
+          color: textColor,
+          font: {
+            size: 18,
+          },
+          align: 'center',
+          position: 'bottom',
         },
       },
     };

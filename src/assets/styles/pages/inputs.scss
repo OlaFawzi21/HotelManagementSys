@@ -5,12 +5,16 @@
   background-color: var(--bg-gary-color) !important;
 }
 
+.p-paginator-rpp-options .p-dropdown .p-dropdown-trigger {
+  background-color: var(--bg-gary-color) !important;
+}
+
 .p-inputtext.ng-dirty.ng-invalid:focus,
 .p-password-mask.ng-invalid.ng-dirty .p-password-input:focus {
   box-shadow: 0 0 0 0.2rem rgba(254, 38, 38, 0.229) !important;
 }
 
-.p-multiselect .p-multiselect-label.p-placeholder,
+.p-placeholder,
 ::placeholder {
   font-size: 13px !important;
 }
@@ -37,4 +41,13 @@ form.p-inputs-lg input,
   color: #dc3545 !important;
   padding-top: 4px !important;
   padding-bottom: 10px !important;
+}
+
+.p-paginator-rpp-options .p-inputtext {
+  background-color: transparent !important;
+}
+
+.p-disabled,
+.p-component:disabled {
+  opacity: 1 !important;
 }
