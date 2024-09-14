@@ -46,16 +46,16 @@ export class AddEditAdsComponent {
   }
 
   submit(): void {
-    if (this.data.text) {
+    if (this.data.text === 'edit') {
       this.dialogRef.close({
-        discount: this.data.ads?.discount,
-        isActive: this.data.ads?.isActive,
+        discount: this.discount,
+        isActive: this.isActive,
       });
     } else {
       this.dialogRef.close({
-        room: this.data.ads?.room,
-        discount: this.data.ads?.discount,
-        isActive: this.data.ads?.isActive,
+        room: this.room,
+        discount: this.discount,
+        isActive: this.isActive,
       });
     }
   }

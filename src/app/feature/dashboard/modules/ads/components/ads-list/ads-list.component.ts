@@ -49,8 +49,8 @@ export class AdsListComponent {
   }
 
   onAdd(): void {
-    this.addRef = this._dialog.open( AddEditAdsComponent, {
-      data:{text:'add' ,},
+    this.addRef = this._dialog.open(AddEditAdsComponent, {
+      data: { text: 'add' },
       header: 'Add Ads',
       style: { minWidth: '35%' },
       contentStyle: { overflow: 'auto' },
