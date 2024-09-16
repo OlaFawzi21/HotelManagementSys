@@ -20,6 +20,8 @@ import { ChartModule } from 'primeng/chart';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CalendarModule } from 'primeng/calendar';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
@@ -31,7 +33,6 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
+    CalendarModule,
   ],
   exports: [
     InputTextModule,
@@ -93,6 +95,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     DropdownModule,
     MultiSelectModule,
     DynamicDialogModule,
+    ConfirmDialogModule,
+    CalendarModule,
 
     TableComponent,
     ChangePasswordComponent,
@@ -101,7 +105,6 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ImagePickerComponent,
     SpinnerComponent,
     TableHeaderComponent,
-    ConfirmDialogModule,
   ],
 })
 export class SharedModule {}

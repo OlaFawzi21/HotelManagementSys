@@ -25,6 +25,10 @@ import { BannerComponent } from './components/landing-page/banner/banner.compone
     HotelsLargeRoomsComponent,
     BannerComponent,
   ],
-  imports: [CommonModule, LandingRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    LandingRoutingModule,
+  SharedModule
+  ]
 })
-export class LandingModule {}
+export class LandingModule { }

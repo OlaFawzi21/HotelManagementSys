@@ -5,6 +5,10 @@
   color: var(--ternary-color);
 }
 
+.description {
+  color: #b0b0b0;
+}
+
 .img-container {
   width: 300px !important;
   height: 300px;
@@ -12,6 +16,7 @@
   position: relative;
 
   border: 2px solid #e5e5e5;
+  border-radius: 8px;
   border-top-left-radius: 25%;
 
   img {

@@ -18,7 +18,7 @@ export class LandingService {
   }
 
   getAds(): Observable<GetAds> {
-    return this._http.get<GetAds>('admin/ads');
+    return this._http.get<GetAds>('portal/ads');
   }
 
   getRoomsList(pageNumber: number): Observable<GetRoomsListResponse> {
