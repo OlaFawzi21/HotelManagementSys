@@ -34,6 +34,7 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     DynamicDialogModule,
     ConfirmDialogModule,
     CalendarModule,
+    TranslateModule
   ],
   exports: [
     InputTextModule,
@@ -99,7 +101,8 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     DynamicDialogModule,
     ConfirmDialogModule,
     CalendarModule,
-
+    TranslateModule,
+    
     TableComponent,
     ChangePasswordComponent,
     ProfileImagePickerComponent,

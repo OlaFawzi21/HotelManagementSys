@@ -21,7 +21,8 @@ export class GlobalInterceptor implements HttpInterceptor {
     const accessToken = localStorage.getItem('userToken') ?? '';
 
     let newRequest = request.clone({
-      url: baseUrl + '/' + request.url,
+      url: request.url.includes( 'assets' ) ? request.url :
+        baseUrl + '/' + request.url,
       headers: request.headers.set('Authorization', accessToken),
     });
 
