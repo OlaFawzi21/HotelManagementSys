@@ -32,6 +32,7 @@ import { ImagePickerComponent } from './components/image-picker/image-picker.com
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
+    RatingModule,
   ],
   exports: [
     InputTextModule,
@@ -102,6 +104,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     SpinnerComponent,
     TableHeaderComponent,
     ConfirmDialogModule,
+    RatingModule,
   ],
 })
 export class SharedModule {}
