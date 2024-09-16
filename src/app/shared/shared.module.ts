@@ -33,6 +33,11 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
+<<<<<<< HEAD
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { RatingModule } from 'primeng/rating';
+=======
+>>>>>>> 9abc3bcff6c4837a533c3394e409d0495d781211
 
 @NgModule({
   declarations: [
@@ -71,7 +76,11 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
+<<<<<<< HEAD
+    RatingModule,
+=======
     CalendarModule,
+>>>>>>> 9abc3bcff6c4837a533c3394e409d0495d781211
   ],
   exports: [
     InputTextModule,
@@ -105,6 +114,11 @@ import { TableHeaderComponent } from './components/table-header/table-header.com
     ImagePickerComponent,
     SpinnerComponent,
     TableHeaderComponent,
+<<<<<<< HEAD
+    ConfirmDialogModule,
+    RatingModule,
+=======
+>>>>>>> 9abc3bcff6c4837a533c3394e409d0495d781211
   ],
 })
 export class SharedModule {}
