@@ -1,0 +1,14 @@
+<div class="row mx-0 my-5">
+  <div class="col-12">
+    <h5 class="ternary-color">Houses with beauty backyard</h5>
+  </div>
+
+  <app-landing-card
+    class="col-md-3 mx-0 rounded-4"
+    *ngFor="let room of roomsList; let isFirst = first"
+    [badgeTitle]="isFirst ? 'Most popular' : ''"
+    [images]="room?.images"
+    [name]="room.name"
+    [location]="room.name"
+  ></app-landing-card>
+</div>
