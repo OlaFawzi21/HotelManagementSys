@@ -7,6 +7,7 @@ import { BookingComponent } from './booking.component';
 import { BookingListComponent } from './components/booking-list/booking-list.component';
 import { ViewBookingComponent } from './components/view-booking/view-booking.component';
 
+
 @NgModule({
   declarations: [BookingComponent, BookingListComponent, ViewBookingComponent],
   imports: [CommonModule, BookingRoutingModule, SharedModule],

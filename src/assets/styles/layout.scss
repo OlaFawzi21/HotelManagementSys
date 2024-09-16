@@ -9,6 +9,8 @@
 body {
   margin: 0;
   height: 100%;
+
+  font-family: Poppins !important;
 }
 
 * {
@@ -24,10 +26,20 @@ a {
   color: inherit !important;
 }
 
+h1,
+h2,
+h3 {
+  font-family: Poppins-Bold !important;
+}
+
+h5,
+h6 {
+  font-family: Poppins-Medium !important;
+}
+
 .p-scrollpanel-content {
   padding: 5px 15px 40px !important;
 }
-
 
 ul {
   margin: 0 !important;

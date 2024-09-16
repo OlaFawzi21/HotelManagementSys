@@ -20,6 +20,8 @@ import { ChartModule } from 'primeng/chart';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CalendarModule } from 'primeng/calendar';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
@@ -31,8 +33,11 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
+<<<<<<< HEAD
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { RatingModule } from 'primeng/rating';
+=======
+>>>>>>> 9abc3bcff6c4837a533c3394e409d0495d781211
 
 @NgModule({
   declarations: [
@@ -71,7 +76,11 @@ import { RatingModule } from 'primeng/rating';
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
+<<<<<<< HEAD
     RatingModule,
+=======
+    CalendarModule,
+>>>>>>> 9abc3bcff6c4837a533c3394e409d0495d781211
   ],
   exports: [
     InputTextModule,
@@ -95,6 +104,8 @@ import { RatingModule } from 'primeng/rating';
     DropdownModule,
     MultiSelectModule,
     DynamicDialogModule,
+    ConfirmDialogModule,
+    CalendarModule,
 
     TableComponent,
     ChangePasswordComponent,
@@ -103,8 +114,11 @@ import { RatingModule } from 'primeng/rating';
     ImagePickerComponent,
     SpinnerComponent,
     TableHeaderComponent,
+<<<<<<< HEAD
     ConfirmDialogModule,
     RatingModule,
+=======
+>>>>>>> 9abc3bcff6c4837a533c3394e409d0495d781211
   ],
 })
 export class SharedModule {}
