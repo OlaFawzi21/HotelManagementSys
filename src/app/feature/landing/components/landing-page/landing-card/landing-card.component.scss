@@ -43,6 +43,10 @@
       .landing-card__footer__name,
       .landing-card__footer__location {
         color: white !important;
+        padding: 2px 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
   }
