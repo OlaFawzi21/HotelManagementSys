@@ -1,3 +1,27 @@
 {
-  "hello":"أهلا"
+  "BUTTONS": {
+    "REGISTER": "تسجيل حساب",
+    "LOGIN": "تسجيل الدخول",
+    "LOGIN_NOW": "تسجيل الدخول",
+    "EXPLORE": "استكشف",
+    "LOGOUT": "الخروج",
+    "CHANGE_PASSWORD": "تغيير كلمةالسر",
+    "PROFILE": "الملف الشخصى"
+  },
+  "NAVBAR": {
+    "HOME": "الرئيسية",
+    "EXPLORE": "استكشف",
+    "REVIEWS": "التقييمات",
+    "FAVORITES": "المفضلات"
+  },
+  "LANDING_PAGE": {
+    "BANNER_TITLE_LINE_1": "ارتح من زحام العمل",
+    "BANNER_TITLE_LINE_2": "و ابدأ اجازة سعيدة",
+    "BANNER_DESCRIPTION_LINE_1": "نحن نوفر لك و لاسرتك كل ما تحتاجون لقضاء اجازة سعيدة",
+    "BANNER_DESCRIPTION_LINE_2": "انه الوقت لعمل ذكريات جديدة سعيدة لا تنسى",
+    "START_BOOKING": "بدء الحجز",
+    "PICK_DATE": "اختر الفترة",
+    "CAPACITY": "السعة",
+    "PERSON": "شخص"
+  }
 }

@@ -17,19 +17,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
-        <a class="nav-item nav-link" routerLinkActive="active">Home</a>
-        <a class="nav-item nav-link" routerLinkActive="active">Explore</a>
+        <a class="nav-item nav-link" routerLinkActive="active">{{
+          "NAVBAR.HOME" | translate
+        }}</a>
+        <a class="nav-item nav-link" routerLinkActive="active">{{
+          "NAVBAR.EXPLORE" | translate
+        }}</a>
         <button
           class="btn rounded-2 btn-color m-1 shadow-sm"
           routerLink="/auth/register"
         >
-          Register
+          {{ "BUTTONS.REGISTER" | translate }}
         </button>
         <button
           class="btn rounded-2 btn-color m-1 shadow-sm"
           routerLink="/auth/login"
         >
-          Login Now
+          {{ "BUTTONS.LOGIN_NOW" | translate }}
         </button>
       </div>
     </div>

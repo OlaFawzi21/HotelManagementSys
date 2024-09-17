@@ -1,3 +1,27 @@
 {
-  "hello":"hello"
+  "BUTTONS": {
+    "REGISTER": "Register",
+    "LOGIN": "Login",
+    "LOGIN_NOW": "Login Now",
+    "EXPLORE": "Explore",
+    "LOGOUT": "Logout",
+    "CHANGE_PASSWORD": "Change password",
+    "PROFILE": "Profile"
+  },
+  "NAVBAR": {
+    "HOME": "Home",
+    "EXPLORE": "Explore",
+    "REVIEWS": "Reviews",
+    "FAVORITES": "Favorites"
+  },
+  "LANDING_PAGE": {
+    "BANNER_TITLE_LINE_1": "Forget Busy Work,",
+    "BANNER_TITLE_LINE_2": "Start Next Vacation",
+    "BANNER_DESCRIPTION_LINE_1": "We provide what you need to enjoy your holiday with family.",
+    "BANNER_DESCRIPTION_LINE_2": "Time to make another memorable moments.",
+    "START_BOOKING": "Start Booking",
+    "PICK_DATE": "Pick a Date",
+    "CAPACITY": "Capacity",
+    "PERSON": "person"
+  }
 }

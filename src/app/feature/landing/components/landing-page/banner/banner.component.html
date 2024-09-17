@@ -1,20 +1,59 @@
 <div class="d-flex justify-content-between align-items-center">
   <div>
     <h4 class="title">
-      Forget Busy Work,<br />
-      Start Next Vacation
+      {{ "LANDING_PAGE.BANNER_TITLE_LINE_1" | translate }}<br />
+      {{ "LANDING_PAGE.BANNER_TITLE_LINE_2" | translate }}
     </h4>
     <p class="description">
-      We provide what you need to enjoy your holiday with family. <br />
-      Time to make another memorable moments.
+      {{ "LANDING_PAGE.BANNER_DESCRIPTION_LINE_1" | translate }} <br />
+      {{ "LANDING_PAGE.BANNER_DESCRIPTION_LINE_2" | translate }}
     </p>
 
-    <!-- <i class="pi pi-calendar"></i>
-    <p-calendar
-      [(ngModel)]="rangeDates"
-      selectionMode="range"
-      [readonlyInput]="true"
-    ></p-calendar> -->
+    <h5>{{ "LANDING_PAGE.START_BOOKING" | translate }}</h5>
+    <form class="landing-form">
+      <label>{{ "LANDING_PAGE.PICK_DATE" | translate }}</label>
+      <p-calendar
+        dateFormat="d M yy"
+        [(ngModel)]="rangeDates"
+        selectionMode="range"
+        [readonlyInput]="true"
+        [showIcon]="true"
+        (ngModelChange)="test()"
+        styleClass="w-100 h-38"
+        inputStyleClass="w-100 h-38"
+      ></p-calendar>
+
+      <label class="mt-2">Capacity</label>
+
+      <div class="p-inputgroup">
+        <button
+          type="button"
+          pButton
+          icon="pi pi-minus"
+          styleClass="p-button-success"
+          (click)="decrementCapacity()"
+        ></button>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="capacity"
+          [placeholder]="
+            capacity + ' ' + _translate.instant('LANDING_PAGE.PERSON')
+          "
+        />
+        <button
+          type="button"
+          pButton
+          icon="pi pi-plus"
+          styleClass="p-button-danger"
+          (click)="incrementCapacity()"
+        ></button>
+      </div>
+
+      <button pButton class="p-button-primary px-5 mt-3 me-2">
+        {{ "BUTTONS.EXPLORE" | translate }}
+      </button>
+    </form>
   </div>
   <div class="w-100 img-container">
     <img
