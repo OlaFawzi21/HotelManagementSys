@@ -1,3 +1,36 @@
 {
-  "hello":"hello"
+  "reviews": {
+    "happyFamily":"Happy Family",
+    "rating1": 5,
+    "userName1": "John, Software Engineer",
+    "review1": "Amazing experience! I loved every moment and will definitely be back!",
+    "rating2": 4,
+    "userName2": "Jane, Marketing Specialist",
+    "review2": "Great service and beautiful location. Highly recommended!",
+    "rating3": 3,
+    "userName3": "Angga, Product Designer",
+    "review3": "What a great trip with my family and I should try again next time soon ...",
+    "rating4": 2,
+    "userName4": "Michael, Project Manager",
+    "review4": "It was okay, but there were some issues with the booking process.",
+    "rating5": 4,
+    "userName5": "Sarah, UX Designer",
+    "review5": "One of the best trips ever! Everything was well organized and enjoyable."
+  },
+  "footer": {
+    "subTitle": "We kaboom your beauty holiday instantly and memorable.",
+    "forBeginners": "For Beginners",
+    "newAccount": "New Account",
+    "startBooking": "Start Booking a Room",
+    "usePayments": "Use Payments",
+    "exploreUs": "Explore Us",
+    "ourCareers": "Our Careers",
+    "privacy": "Privacy",
+    "termsConditions": "Terms & Conditions",
+    "connectUs": "Connect Us",
+    "support": "support staycation.id",
+    "phone": "021 - 2208 - 1996",
+    "address": "Staycation, Kemang, Jakarta",
+    "copyright": "Copyright 2024 • All rights reserved • Staycation"
+  }
 }

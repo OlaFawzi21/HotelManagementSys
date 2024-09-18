@@ -23,6 +23,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CalendarModule } from 'primeng/calendar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { RatingModule } from 'primeng/rating';
+import { CarouselModule } from 'primeng/carousel';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
@@ -75,6 +76,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DynamicDialogModule,
     ConfirmDialogModule,
     CalendarModule,
+    CarouselModule,
     TranslateModule
   ],
   exports: [
@@ -101,6 +103,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DynamicDialogModule,
     ConfirmDialogModule,
     CalendarModule,
+    CarouselModule,
     TranslateModule,
     
     TableComponent,
