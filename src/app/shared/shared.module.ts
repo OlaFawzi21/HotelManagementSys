@@ -76,6 +76,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ConfirmDialogModule,
     CalendarModule,
     TranslateModule
+  
   ],
   exports: [
     InputTextModule,

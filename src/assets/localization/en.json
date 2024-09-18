@@ -1,3 +1,46 @@
 {
-  "hello":"hello"
+  "ads":"Most popular ads",
+"backyard":"Houses with beauty backyard",
+"living rooms":"Houses with large living rooms",
+
+  "rooms": [
+    { "name": "Hotel Nile View", "location": "Cairo, Egypt", "image": "../../../../assets/images/New folder (2)/pic (1).png" },
+    { "name": "The Royal Pyramid", "location": "Giza, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (2).png" },
+    { "name": "Desert Sands Resort", "location": "Luxor, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (4).png" },
+    { "name": "Red Sea Breeze", "location": "Hurghada, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (7).png" },
+    { "name": "Oasis Hotel", "location": "Alexandria, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (8).png" },
+    { "name": "Pharaoh's Palace", "location": "Cairo, Egypt", "image": "../../../../assets/images/New folder (2)/pic (9).png" },
+    { "name": "Temple View Hotel", "location": "Aswan, Egypt", "image": "../../../../assets/images/New folder (2)/pic (10).png" },
+    { "name": "Sphinx Suites", "location": "Giza, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (12).png" },
+    { "name": "Blue Nile Inn", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (13).png" },
+    { "name": "Mediterranean Breeze", "location": "Alexandria, Egypt", "image": "../.../../../../../assets/images/New folder (14)/pic.png" },
+    { "name": "Luxor Grand Hotel", "location": "Luxor, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (15).png" },
+    { "name": "Sharm Paradise Resort", "location": "Sharm El-Sheikh, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (16).png" },
+    { "name": "Cairo Sunset Hotel", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (17).png" },
+    { "name": "Ancient Sands Resort", "location": "Hurghada, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (18).png" },
+    { "name": "Pyramid Peak Inn", "location": "Giza, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (19).png" },
+    { "name": "The Nile Palace", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (1).png" },
+    { "name": "Horizon Nile View", "location": "Aswan, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (2).png" },
+    { "name": "The Alexandria Inn", "location": "Alexandria, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (4).png" },
+    { "name": "Golden Sands Hotel", "location": "Hurghada, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (7).png" },
+    { "name": "Cairo Sky Suites", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (8).png" },
+    { "name": "Sahara Oasis Resort", "location": "Luxor, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (9).png" },
+    { "name": "The Royal Pharaoh", "location": "Giza, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (10).png" },
+    { "name": "The Blue Pyramid", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (12).png" },
+    { "name": "Tahrir Square Hotel", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (13).png" },
+    { "name": "Golden Nile Suites", "location": "Aswan, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (14).png" },
+    { "name": "Mediterranean Sands Resort", "location": "Alexandria, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (15).png" },
+    { "name": "Sharm Blue Bay", "location": "Sharm El-Sheikh, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (16).png" },
+    { "name": "Luxor Horizon", "location": "Luxor, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (17).png" },
+    { "name": "Pyramid Valley Resort", "location": "Giza, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (19).png" },
+    { "name": "Red Sea Horizon", "location": "Hurghada, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (2).png" },
+    { "name": "The Grand Nile", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (1).png" },
+    { "name": "Temple Sands Hotel", "location": "Aswan, Egypt", "image": "../.../../../../../assets/images/New folder (4)/pic (2).png" },
+    { "name": "The Mediterranean Pearl", "location": "Alexandria, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (10).png" },
+    { "name": "Giza Heights Resort", "location": "Giza, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (12).png" },
+    { "name": "The Pharaoh's Retreat", "location": "Cairo, Egypt", "image": "../.../../../../../assets/images/New folder (2)/pic (15).png" }
+  ],
+  "sub tittel":"per night",
+  "Most popular":"Most popular"
+  
 }

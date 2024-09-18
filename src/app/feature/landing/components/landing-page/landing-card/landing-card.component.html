@@ -2,8 +2,10 @@
   <span class="landing-card__badge" *ngIf="badgeTitle">
     <strong>{{ badgeTitle }}</strong>
   </span>
-  <p-image
-    [src]="images && images.length && images[0]"
+  <div class="port-item">
+    <div class="inner">
+    <p-image
+    [src]="image"
     alt="Image"
     width="100%"
     height="215px"
@@ -11,11 +13,120 @@
     imageClass="rounded-4"
   >
   </p-image>
+  <div class="layer d-flex justify-content-center align-content-center align-items-center">
+    <i class="pi pi-heart-fill" style="font-size: 2.5rem; padding: 5px;color: white"></i>
+    <a routerLink="details"><i class="pi pi-eye" style="font-size: 2.5rem;color: white" ></i></a>
+    
+  </div>
+  </div>
+</div>
+  
+ 
   <div
     class="landing-card__footer"
     [class.landing-card__footer-floated]="isFloatedFooter"
   >
+  
     <span class="landing-card__footer__name"> {{ name }} </span>
     <span class="landing-card__footer__location"> {{ location }} </span>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
