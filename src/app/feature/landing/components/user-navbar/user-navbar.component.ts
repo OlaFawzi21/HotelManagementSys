@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { MenuItem, MessageService, ConfirmationService } from 'primeng/api';
-import { ChangePassword } from 'src/app/feature/dashboard/interfaces/change-password';
+import { AppService } from 'src/app/app.service';
 import { NavbarService } from 'src/app/feature/dashboard/services/navbar.service';
-import { UserData } from 'src/app/shared/interfaces/userData';
 import { UserDataService } from 'src/app/shared/services/user-data.service';
+
+import { ChangePassword } from 'src/app/feature/dashboard/interfaces/change-password';
+import { UserData } from 'src/app/shared/interfaces/userData';
 
 @Component({
   selector: 'app-user-navbar',
@@ -16,6 +19,14 @@ export class UserNavbarComponent {
   userProfile: UserData;
   displayDialog: boolean = false;
   items: MenuItem[] | undefined;
+
+  formGroup: FormGroup;
+
+  stateOptions: any[] = [
+    { label: 'Ar', value: 'ar' },
+    { label: 'En', value: 'en' },
+  ];
+
   changePasswordForm = new FormGroup({
     oldPassword: new FormControl('', Validators.required),
     newPassword: new FormControl('', Validators.required),
@@ -26,9 +37,17 @@ export class UserNavbarComponent {
     private userData: UserDataService,
     private messageService: MessageService,
     private _Router: Router,
-    private navbarService: NavbarService
+    private navbarService: NavbarService,
+    private _app: AppService
   ) {}
+
   ngOnInit() {
+    const language = localStorage.getItem('language');
+
+    this.formGroup = new FormGroup({
+      language: new FormControl(language),
+    });
+
     this.getProfile();
     this.items = [
       {
@@ -86,5 +105,9 @@ export class UserNavbarComponent {
   logout() {
     localStorage.clear();
     window.location.reload();
+  }
+
+  toggleLanguage(): void {
+    this._app.setDirection(this.formGroup.controls?.['language'].value);
   }
 }

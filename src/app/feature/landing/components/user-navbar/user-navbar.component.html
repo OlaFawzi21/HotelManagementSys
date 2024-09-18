@@ -29,6 +29,15 @@
         <a class="nav-item nav-link" routerLinkActive="active">{{
           "NAVBAR.FAVORITES" | translate
         }}</a>
+        <form [formGroup]="formGroup" class="select-button mx-2">
+          <p-selectButton
+            [options]="stateOptions"
+            formControlName="language"
+            optionLabel="label"
+            optionValue="value"
+            (ngModelChange)="toggleLanguage()"
+          ></p-selectButton>
+        </form>
       </div>
 
       <div
