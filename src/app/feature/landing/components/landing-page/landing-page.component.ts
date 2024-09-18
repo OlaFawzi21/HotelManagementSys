@@ -18,7 +18,10 @@ export class LandingPageComponent {
   largeRooomsList: any[] = [];
   adslist: any;
   checked: boolean = false;
-  constructor(private _landing: LandingService,private translate: TranslateService) {}
+  constructor(
+    private _landing: LandingService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.getAds();
@@ -29,25 +32,7 @@ export class LandingPageComponent {
   getAds(): void {
     this._landing.getAds().subscribe({
       next: ({ data }) => {
-        this.adslist = data.ads;
-
-        console.log(this.adslist);
-        
-        this.translate.get('rooms').subscribe((items: any[]) => {
-         
-          const roomsExtraData = this._landing.getRandomData(items, 4);
-
-          roomsExtraData.forEach((room, index) => {
-            this.popularAdsList.push({
-  
-              ...data.ads[index],
-                name: room.name,
-              image:room.image,
-              location: room.location,
-            });
-          });
-        });
-       
+        this.popularAdsList = this._landing.getRandomData(data.ads, 4);
       },
     });
   }
@@ -55,19 +40,10 @@ export class LandingPageComponent {
   getRooms(): void {
     this._landing.getRoomsList(1).subscribe({
       next: ({ data }) => {
-        this.translate.get('rooms').subscribe((items: any[]) => {
-          const roomsExtraData = this._landing.getRandomData(items, 4);
-
-          roomsExtraData.forEach((room, index) => {
-            this.beautyBackyardRoomsList.push({
-              ...data.rooms[index],
-              name: room.name,
-              image:room.image,
-              location: room.location,
-            });
-          });
-        });
-     
+        this.beautyBackyardRoomsList = this._landing.getRandomData(
+          data.rooms,
+          4
+        );
       },
     });
   }
@@ -75,20 +51,7 @@ export class LandingPageComponent {
   getLargeRooms(): void {
     this._landing.getRoomsList(2).subscribe({
       next: ({ data }) => {
-        this.translate.get('rooms').subscribe((items: any[]) => {
-          const roomsExtraData = this._landing.getRandomData(items, 4);
-          roomsExtraData.forEach((room, index) => {
-            this.largeRooomsList.push({
-              ...data.rooms[index],
-              name: room.name,
-              image:room.image,
-              location: room.location,
-            });
-          });
-        });
-        
-
-      
+        this.largeRooomsList = this._landing.getRandomData(data.rooms, 4);
       },
     });
   }
