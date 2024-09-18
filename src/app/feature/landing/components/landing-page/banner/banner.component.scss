@@ -29,3 +29,17 @@
     border-top-left-radius: 25%;
   }
 }
+
+.h-38 {
+  height: 38px !important;
+}
+
+.landing-form {
+  ::ng-deep .p-inputtext,
+  ::ng-deep .p-button {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: 38px !important;
+    text-align: center;
+  }
+}

@@ -39,6 +39,9 @@ export class LoginComponent {
       next: (res) => {
         this.response = res;
       },
+       error: () => {
+        this.loading = false;
+      },
       complete: () => {
         this.loading = false;
         this.messageService.add({

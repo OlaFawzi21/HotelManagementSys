@@ -4,33 +4,49 @@
       class="navbar-brand"
       src="../../../../../assets/images/landing/Staycation.svg"
     />
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ms-auto">
-        <a class="nav-item nav-link" routerLinkActive="active">Home</a>
-        <a class="nav-item nav-link" routerLinkActive="active">Explore</a>
-        <button
-          class="btn rounded-2 btn-color m-1 shadow-sm"
-          routerLink="/auth/register"
-        >
-          Register
-        </button>
-        <button
-          class="btn rounded-2 btn-color m-1 shadow-sm"
-          routerLink="/auth/login"
-        >
-          Login Now
-        </button>
+    <div class="d-flex align-items-center">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto d-flex align-items-center">
+          <a class="nav-item nav-link" routerLinkActive="active">{{
+            "NAVBAR.HOME" | translate
+          }}</a>
+          <a class="nav-item nav-link" routerLinkActive="active">{{
+            "NAVBAR.EXPLORE" | translate
+          }}</a>
+          <form [formGroup]="formGroup" class="select-button mx-2">
+            <p-selectButton
+              [options]="stateOptions"
+              formControlName="language"
+              optionLabel="label"
+              optionValue="value"
+              (ngModelChange)="toggleLanguage()"
+            ></p-selectButton>
+          </form>
+          <button
+            class="btn rounded-2 btn-color m-1 shadow-sm"
+            routerLink="/auth/register"
+          >
+            {{ "BUTTONS.REGISTER" | translate }}
+          </button>
+          <button
+            class="btn rounded-2 btn-color m-1 shadow-sm"
+            routerLink="/auth/login"
+          >
+            {{ "BUTTONS.LOGIN_NOW" | translate }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -23,10 +23,15 @@ button {
   }
 }
 
-.btn-danger .p-button {
-  background-color: #dc3545 !important;
-  border: #dc3545 !important;
+.btn-danger .p-button,
+.p-button-danger .p-button{
+  background-color: var(--danger-bg) !important;
+  border: var(--danger-bg) !important;
   color: white !important;
+}
+
+.p-button-success .p-button {
+  background-color: #1abc9c !important;
 }
 
 .p-button,

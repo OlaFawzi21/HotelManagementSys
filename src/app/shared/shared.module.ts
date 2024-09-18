@@ -23,6 +23,8 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CalendarModule } from 'primeng/calendar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { RatingModule } from 'primeng/rating';
+import { CarouselModule } from 'primeng/carousel';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
@@ -35,7 +37,6 @@ import { ImagePickerComponent } from './components/image-picker/image-picker.com
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { TranslateModule } from '@ngx-translate/core';
-
 
 @NgModule({
   declarations: [
@@ -74,9 +75,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
-    CalendarModule,
-    TranslateModule
-  
+    CalendarModule,  
+    CarouselModule,
+    TranslateModule,
+    SelectButtonModule,
   ],
   exports: [
     InputTextModule,
@@ -102,8 +104,10 @@ import { TranslateModule } from '@ngx-translate/core';
     DynamicDialogModule,
     ConfirmDialogModule,
     CalendarModule,
+    CarouselModule,
     TranslateModule,
-    
+    SelectButtonModule,
+
     TableComponent,
     ChangePasswordComponent,
     ProfileImagePickerComponent,
