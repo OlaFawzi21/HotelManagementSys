@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { GetAds } from '../interfaces/get-ads';
 import { GetRoomsListResponse } from '../../dashboard/modules/rooms/interfaces/get-rooms-list-response';
+import { GetReviews } from '../interfaces/get-reviews';
 
 @Injectable({
   providedIn: 'root',
@@ -26,4 +27,10 @@ export class LandingService {
       'portal/rooms/available?page=' + pageNumber + '&size=5'
     );
   }
+
+  // getReview(): Observable<GetReviews>{
+  //   return this._http.get<GetReviews>(
+  //     'portal/room-reviews/65ab7b10e815336ace2064d8'
+  //   );
+  // }
 }

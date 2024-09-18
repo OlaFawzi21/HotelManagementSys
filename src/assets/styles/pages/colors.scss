@@ -3,6 +3,7 @@
   --main-color: #fff;
   --secondary-color: #203fc7;
   --ternary-color: #152c5b;
+  --gary-color: #B0B0B0;
   --bg-main-color: #fff;
   --bg-secondary-color: #203fc7;
   --bg-gary-color: #f5f6f8;
@@ -34,6 +35,10 @@
 
 .ternary-color {
   color: var(--ternary-color);
+}
+
+.gray-color {
+  color: var(--gary-color);
 }
 
 .bg-main-color {

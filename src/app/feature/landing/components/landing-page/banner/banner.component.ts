@@ -13,10 +13,6 @@ export class BannerComponent {
 
   constructor(public _translate: TranslateService) {}
 
-  test() {
-    console.log('rangeDates', this.rangeDates);
-  }
-
   decrementCapacity(): void {
     if (this.capacity > 1) {
       this.capacity--;

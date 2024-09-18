@@ -18,12 +18,11 @@
         selectionMode="range"
         [readonlyInput]="true"
         [showIcon]="true"
-        (ngModelChange)="test()"
         styleClass="w-100 h-38"
         inputStyleClass="w-100 h-38"
       ></p-calendar>
 
-      <label class="mt-2">Capacity</label>
+      <label class="mt-2">{{ "LANDING_PAGE.CAPACITY" | translate }}</label>
 
       <div class="p-inputgroup">
         <button
