@@ -20,7 +20,7 @@ export class ReviewsComponent {
     },
     {
       rating: +this.translate.instant('reviews.rating13'),
-      userName: this.translate.instant('reviews.userName13'),
+      userName: this.translate.instant('reviews.userName3'),
       review: this.translate.instant('reviews.review3'),
     },
     {
@@ -34,10 +34,12 @@ export class ReviewsComponent {
       review: this.translate.instant('reviews.review5'),
     },
   ];
-
+  isArabic: boolean;
   responsiveOptions: any[];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService) {
+    this.isArabic = this.translate.currentLang === 'ar';
+  }
 
   ngOnInit() {
     this.responsiveOptions = [

@@ -9,6 +9,7 @@ import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 import { ChangePassword } from 'src/app/feature/dashboard/interfaces/change-password';
 import { UserData } from 'src/app/shared/interfaces/userData';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-navbar',
@@ -21,6 +22,7 @@ export class UserNavbarComponent {
   items: MenuItem[] | undefined;
 
   formGroup: FormGroup;
+  lang = 'en';
 
   stateOptions: any[] = [
     { label: 'Ar', value: 'ar' },
@@ -38,14 +40,14 @@ export class UserNavbarComponent {
     private messageService: MessageService,
     private _Router: Router,
     private navbarService: NavbarService,
-    private _app: AppService
-  ) {}
+    private translateService: TranslateService
+  ) {
+    this.lang = this.translateService.currentLang;
+  }
 
   ngOnInit() {
-    const language = localStorage.getItem('language');
-
     this.formGroup = new FormGroup({
-      language: new FormControl(language),
+      language: new FormControl(this.lang),
     });
 
     this.getProfile();
@@ -67,6 +69,15 @@ export class UserNavbarComponent {
         },
       },
     ];
+  }
+
+  changeLang() {
+    if (this.lang === 'ar') {
+      localStorage.setItem('language', 'en');
+    } else {
+      localStorage.setItem('language', 'ar');
+    }
+    window.location.reload();
   }
 
   getProfile() {
@@ -105,9 +116,5 @@ export class UserNavbarComponent {
   logout() {
     localStorage.clear();
     window.location.reload();
-  }
-
-  toggleLanguage(): void {
-    this._app.setDirection(this.formGroup.controls?.['language'].value);
   }
 }

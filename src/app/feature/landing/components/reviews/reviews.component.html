@@ -10,6 +10,7 @@
 
       <div class="col-md-6 d-flex flex-column gap-5 justify-content-center">
         <p-carousel
+          [ngClass]="{ 'ltr-carousel': isArabic }"
           [value]="data"
           [numVisible]="1"
           [numScroll]="1"
@@ -23,7 +24,9 @@
             <div class="product-item">
               <div class="product-item-content">
                 <div class="d-flex flex-column gap-3 px-4">
-                  <h2 class="mb-md-5 mb-3">{{ "reviews.happyFamily" | translate }}</h2>
+                  <h2 class="mb-md-5 mb-3">
+                    {{ "reviews.happyFamily" | translate }}
+                  </h2>
                   <h4 class="mb-1">{{ item.review }}</h4>
                   <p-rating
                     [(ngModel)]="item.rating"
@@ -35,11 +38,6 @@
               </div>
             </div>
           </ng-template>
-
-          <ng-template let-item pTemplate="previousicon">
-            
-          </ng-template>
-          
         </p-carousel>
       </div>
     </div>

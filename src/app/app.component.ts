@@ -9,13 +9,21 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
+  lang: any;
   title = 'HotelManagementSys';
-  
-  constructor(private translate: TranslateService, private _app: AppService) {
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
 
-    this._app.setDirection('en');
+  constructor(private translate: TranslateService, private _app: AppService) {
+    if ('language' in localStorage) {
+      this.lang = localStorage.getItem('language');
+      this.translate.use(this.lang);
+    } else {
+      this.translate.use(this.translate.defaultLang);
+    }
+  }
+
+  ngOnInit() {
+    this.translate.onLangChange.subscribe((event) => {
+      this._app.setDirection(event.lang);
+    });
   }
 }
