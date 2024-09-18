@@ -13,6 +13,7 @@ import { HousesWithBeautyBackyardComponent } from './components/landing-page/hou
 import { HotelsLargeRoomsComponent } from './components/landing-page/hotels-large-rooms/hotels-large-rooms.component';
 import { BannerComponent } from './components/landing-page/banner/banner.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     HousesWithBeautyBackyardComponent,
     HotelsLargeRoomsComponent,
     BannerComponent,
+    DetailsComponent,
   ],
   imports: [CommonModule, LandingRoutingModule, SharedModule],
 })

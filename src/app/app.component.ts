@@ -9,8 +9,9 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'HotelManagementSys';
 
+  title = 'HotelManagementSys';
+  
   constructor(private translate: TranslateService, private _app: AppService) {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
