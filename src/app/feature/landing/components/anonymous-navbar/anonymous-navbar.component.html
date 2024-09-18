@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-4 border-bottom">
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 border-bottom">
   <div class="container-fluid mx-5">
     <img
       class="navbar-brand"
@@ -25,15 +25,6 @@
           <a class="nav-item nav-link" routerLinkActive="active">{{
             "NAVBAR.EXPLORE" | translate
           }}</a>
-          <form [formGroup]="formGroup" class="select-button mx-2">
-            <p-selectButton
-              [options]="stateOptions"
-              formControlName="language"
-              optionLabel="label"
-              optionValue="value"
-              (ngModelChange)="toggleLanguage()"
-            ></p-selectButton>
-          </form>
           <button
             class="btn rounded-2 btn-color m-1 shadow-sm"
             routerLink="/auth/register"
@@ -46,6 +37,15 @@
           >
             {{ "BUTTONS.LOGIN_NOW" | translate }}
           </button>
+          <form [formGroup]="formGroup" class="select-button mx-2">
+            <p-selectButton
+              [options]="stateOptions"
+              formControlName="language"
+              optionLabel="label"
+              optionValue="value"
+              (ngModelChange)="changeLang()"
+            ></p-selectButton>
+          </form>
         </div>
       </div>
     </div>

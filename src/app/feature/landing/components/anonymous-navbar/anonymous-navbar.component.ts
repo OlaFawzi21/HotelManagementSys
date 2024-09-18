@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { FormControl, FormGroup } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-anonymous-navbar',
@@ -10,23 +11,31 @@ import { AppService } from 'src/app/app.service';
 })
 export class AnonymousNavbarComponent {
   formGroup: FormGroup;
-
+  lang = 'en';
   stateOptions: any[] = [
     { label: 'Ar', value: 'ar' },
     { label: 'En', value: 'en' },
   ];
 
-  constructor(private _app: AppService) {}
+  constructor(
+    private translateService: TranslateService
+  ) {
+    this.lang = this.translateService.currentLang;
+  }
 
   ngOnInit() {
-    const language = localStorage.getItem('language');
-
     this.formGroup = new FormGroup({
-      language: new FormControl(language),
+      language: new FormControl(this.lang),
     });
   }
 
-  toggleLanguage(): void {
-    this._app.setDirection(this.formGroup.controls?.['language'].value);
+  changeLang() {
+    if (this.lang === 'ar') {
+      localStorage.setItem('language', 'en');
+    } else {
+      localStorage.setItem('language', 'ar');
+    }
+    window.location.reload();
   }
+
 }

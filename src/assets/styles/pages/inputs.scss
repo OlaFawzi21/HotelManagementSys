@@ -57,3 +57,12 @@ form.p-inputs-lg input,
 .p-component:disabled {
   opacity: 1 !important;
 }
+
+.p-menuitem-text {
+  font-size: 13px !important;
+}
+
+.p-tieredmenu {
+  padding: 0 !important;
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white py-4 border-bottom">
+<nav class="navbar navbar-expand-lg bg-white py-3 border-bottom">
   <div class="container-fluid mx-5">
     <img
       class="navbar-brand"
@@ -29,22 +29,12 @@
         <a class="nav-item nav-link" routerLinkActive="active">{{
           "NAVBAR.FAVORITES" | translate
         }}</a>
-        <form [formGroup]="formGroup" class="select-button mx-2">
-          <p-selectButton
-            [options]="stateOptions"
-            formControlName="language"
-            optionLabel="label"
-            optionValue="value"
-            (ngModelChange)="toggleLanguage()"
-          ></p-selectButton>
-        </form>
       </div>
-
       <div
         class="d-flex justify-content-end align-items-center gap-4"
         *ngIf="userProfile"
       >
-        <div>
+        <div class="avatar">
           <p-avatar
             *ngIf="userProfile.data.user.profileImage; else noImg"
             [image]="userProfile.data.user.profileImage"
@@ -61,6 +51,19 @@
           </ng-template>
         </div>
         <h6>{{ userProfile.data.user.userName }}</h6>
+        <a (click)="menu.toggle($event)" class="pointer"
+          ><i class="pi pi-chevron-down"></i
+        ></a>
+        <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
+        <form [formGroup]="formGroup" class="select-button">
+          <p-selectButton
+            [options]="stateOptions"
+            formControlName="language"
+            optionLabel="label"
+            optionValue="value"
+            (ngModelChange)="changeLang()"
+          ></p-selectButton>
+        </form>
       </div>
     </div>
   </div>
