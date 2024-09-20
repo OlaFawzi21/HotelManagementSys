@@ -1,5 +1,5 @@
 import { AdsResponse } from './../../../../dashboard/modules/ads/interfaces/ads-response';
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LandingService } from '../../../services/landing.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -10,6 +10,8 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./landing-card.component.scss'],
 })
 export class LandingCardComponent implements OnInit {
+  @Output() removeFromFavorites = new EventEmitter();
+
   // roomId: number = 0;
   @Input() badgeTitle: string;
   @Input() name: string;
@@ -18,9 +20,9 @@ export class LandingCardComponent implements OnInit {
   @Input() type: string;
   @Input() id: string;
   @Input() isFavorite: boolean = true;
+
   constructor(
     private _LandingService: LandingService,
-    private _ActivatedRoute: ActivatedRoute,
     private MessageService: MessageService
   ) {
     // this.roomId = this._ActivatedRoute.snapshot.params['_id'];
@@ -62,6 +64,8 @@ export class LandingCardComponent implements OnInit {
       },
       error: () => {},
       complete: () => {
+        this.removeFromFavorites.emit();
+
         this.MessageService.add({
           severity: 'success',
           summary: 'Success',

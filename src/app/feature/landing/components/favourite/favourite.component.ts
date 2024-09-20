@@ -15,9 +15,11 @@ export class FavouriteComponent implements OnInit {
   first: number = 0;
   rows: number = 10;
   TotalPages: number = 0;
+
   constructor(private _LandingService: LandingService) {}
+
   ngOnInit(): void {
-    this.getFavouriteRooms();
+    // this.getFavouriteRooms();
     this.Pagination();
   }
 
@@ -31,17 +33,18 @@ export class FavouriteComponent implements OnInit {
       next: (data) => {
         this.roomsList = data.data.favoriteRooms;
       },
-      error: () => {},
-      complete: () => {},
     });
   }
+
   Pagination() {
     this._LandingService.Pagination(this.first, this.rows).subscribe({
-      next: (data) => {
-        this.roomsList = data.favoriteRooms.totalCount;
+      next: ({ data }) => {
+        this.roomsList =
+          data.favoriteRooms &&
+          data.favoriteRooms.length &&
+          data.favoriteRooms[0].rooms;
+        this.TotalPages = data.totalCount;
       },
-      error: () => {},
-      complete: () => {},
     });
   }
 }
