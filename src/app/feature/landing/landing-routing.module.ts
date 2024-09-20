@@ -15,7 +15,7 @@ const routes: Routes = [
       { path: '', component: LandingPageComponent },
       { path: 'favourite', component: FavouriteComponent },
       { path: 'favourite/:_id', component: FavouriteComponent },
-      { path: 'details/:_id', component: DetailsComponent },
+      { path: 'details/:id', component: DetailsComponent },
     ],
   },
 ];

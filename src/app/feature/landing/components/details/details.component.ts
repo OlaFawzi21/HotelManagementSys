@@ -22,6 +22,7 @@ concat:any
  responsiveOptions: any[] | undefined;
 constructor(private _LandingService:LandingService ,private _ActivatedRoute:ActivatedRoute){
   this.pageid=this._ActivatedRoute.snapshot.params['id']
+  console.log(this.pageid)
 }
 
 ngOnInit(): void {
