@@ -77,10 +77,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
-    CalendarModule,  
+    CalendarModule,
     CarouselModule,
     TranslateModule,
     SelectButtonModule,
+    RatingModule,
   ],
   exports: [
     InputTextModule,
