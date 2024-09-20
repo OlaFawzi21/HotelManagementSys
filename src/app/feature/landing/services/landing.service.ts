@@ -46,13 +46,15 @@ export class LandingService {
   }
 
   deleteFromFavourites(id: string): Observable<any> {
-    return this._http.delete(`portal/favorite-rooms/${id}`);
+    return this._http.delete(`portal/favorite-rooms/${id}`, {
+      body: { roomId: id },
+    });
   }
 
   Pagination(first: number, rows: number): Observable<any> {
     const pageIndex = first / rows;
     return this._http.get(
-      `portal/favorite-rooms?page=${pageIndex}&limit=${rows}`
+      `portal/favorite-rooms?page=${pageIndex + 1}&size=${rows}`
     );
   }
 
