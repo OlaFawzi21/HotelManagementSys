@@ -14,8 +14,10 @@ import { HotelsLargeRoomsComponent } from './components/landing-page/hotels-larg
 import { BannerComponent } from './components/landing-page/banner/banner.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { DetailsComponent } from './components/details/details.component';
+import { FavouriteComponent } from './components/favourite/favourite.component';
 import { RoomReviewsComponent } from './components/details/room-reviews/room-reviews.component';
 import { RoomCommentsComponent } from './components/details/room-comments/room-comments.component';
+import { BookRoomInDetailsComponent } from './components/details/book-room-in-details/book-room-in-details.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,10 @@ import { RoomCommentsComponent } from './components/details/room-comments/room-c
     HotelsLargeRoomsComponent,
     BannerComponent,
     DetailsComponent,
+    FavouriteComponent,
     RoomReviewsComponent,
     RoomCommentsComponent,
+    BookRoomInDetailsComponent,
   ],
   imports: [CommonModule, LandingRoutingModule, SharedModule],
 })

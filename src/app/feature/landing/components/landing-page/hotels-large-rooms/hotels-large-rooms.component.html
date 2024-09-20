@@ -2,7 +2,7 @@
   <div class="col-12">
     <h5 class="ternary-color">{{"living rooms"|translate}}</h5>
   </div>
-
+  
   <app-landing-card
     class="col-md-3 mx-0 rounded-4"
     *ngFor="let room of roomsList; let isLast = last"
@@ -10,6 +10,5 @@
     [images]="room?.images"
     [name]="room?.roomNumber"
     [id]="room?._id"
-  
   ></app-landing-card>
 </div>
