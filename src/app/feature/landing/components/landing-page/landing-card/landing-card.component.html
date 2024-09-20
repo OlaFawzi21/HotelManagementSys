@@ -17,8 +17,8 @@
         class="layer d-flex justify-content-center align-content-center align-items-center"
       >
         <i
-          (click)="addToFavourite(roomId)"
-          routerLink="favourite"
+          (click)="addAndRemoveFavourite()"
+          [ngClass]="isFavorite ? 'pi pi-heart-fill' : 'pi pi-heart'"
           class="pi pi-heart-fill"
           style="font-size: 2.5rem; padding: 5px; color: white"
         ></i>

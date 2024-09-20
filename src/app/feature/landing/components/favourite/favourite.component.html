@@ -9,14 +9,15 @@
       </div>
       <div class="row">
         <app-landing-card
-          class="col-md-3 mx-0 rounded-4 py-5"
           *ngFor="let room of roomsList"
+          class="col-md-3 mx-0 rounded-4 py-5"
           [images]="room?.images"
           [name]="room?.roomNumber"
           [isFloatedFooter]="true"
           [badgeTitle]="'$' + room?.price + ' ' + ('sub tittel' | translate)"
           [type]="'room'"
           [id]="room?._id"
+          [isFavorite]="false"
         ></app-landing-card>
       </div>
     </div>

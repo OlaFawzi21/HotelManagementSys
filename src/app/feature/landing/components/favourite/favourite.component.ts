@@ -1,3 +1,4 @@
+import { PaginatorModule } from 'primeng/paginator';
 import { rooms } from './../../constants/rooms';
 import { RoomService } from 'src/app/feature/dashboard/modules/rooms/services/room.service';
 import { LandingService } from './../../services/landing.service';
@@ -11,18 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FavouriteComponent implements OnInit {
   roomsList: any[] = [];
-  roomId: number = 0;
   first: number = 0;
   rows: number = 10;
-  constructor(
-    private _LandingService: LandingService,
-    private _ActivatedRoute: ActivatedRoute
-  ) {
-    this.roomId = this._ActivatedRoute.snapshot.params['_id'];
-    console.log(this.roomId);
-  }
+  TotalPages: number = 0;
+  constructor(private _LandingService: LandingService) {}
   ngOnInit(): void {
-    this.getFavouriteRooms(this.roomId);
+    this.getFavouriteRooms();
+    this.Pagination();
   }
 
   onPageChange(event: any) {
@@ -30,8 +26,7 @@ export class FavouriteComponent implements OnInit {
     this.rows = event.rows;
   }
 
-  getFavouriteRooms(id: number) {
-    id = this.roomId;
+  getFavouriteRooms() {
     this._LandingService.getFavouriteRooms().subscribe({
       next: (data) => {
         this.roomsList = data.data.favoriteRooms;
@@ -40,16 +35,13 @@ export class FavouriteComponent implements OnInit {
       complete: () => {},
     });
   }
-
-  removeFromFavourite(id: number) {
-    this._LandingService.deleteFromFavourites(id).subscribe({
+  Pagination() {
+    this._LandingService.Pagination(this.first, this.rows).subscribe({
       next: (data) => {
-        console.log(data);
+        this.roomsList = data.favoriteRooms.totalCount;
       },
       error: () => {},
-      complete: () => {
-        this.getFavouriteRooms(this.roomId);
-      },
+      complete: () => {},
     });
   }
 }

@@ -1,3 +1,4 @@
+import { PaginatorModule } from 'primeng/paginator';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
@@ -30,13 +31,20 @@ export class LandingService {
   getFavouriteRooms(): Observable<any> {
     return this._http.get('portal/favorite-rooms');
   }
-  addToFavourites(id: Number): Observable<any> {
-    return this._http.post('portal/favorite-rooms', id);
-  }
-  deleteFromFavourites(id: Number): Observable<any> {
-    return this._http.delete(`portal/favorite-rooms${id}`);
-  }
+  addToFavourites(id: string): Observable<any> {
+    console.log(id);
 
+    return this._http.post('portal/favorite-rooms', { roomId: id });
+  }
+  deleteFromFavourites(id: string): Observable<any> {
+    return this._http.delete(`portal/favorite-rooms/${id}`);
+  }
+  Pagination(first: number, rows: number): Observable<any> {
+    const pageIndex = first / rows;
+    return this._http.get(
+      `portal/favorite-rooms?page=${pageIndex}&limit=${rows}`
+    );
+  }
   // getReview(): Observable<GetReviews>{
   //   return this._http.get<GetReviews>(
   //     'portal/room-reviews/65ab7b10e815336ace2064d8'
