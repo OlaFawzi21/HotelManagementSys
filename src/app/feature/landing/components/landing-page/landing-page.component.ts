@@ -18,10 +18,14 @@ export class LandingPageComponent {
   largeRooomsList: any[] = [];
   adslist: any;
   checked: boolean = false;
+  roomId: number = 0;
   constructor(
     private _landing: LandingService,
-    private translate: TranslateService
-  ) {}
+    private translate: TranslateService,
+
+  ) {
+
+  }
 
   ngOnInit() {
     this.getAds();
@@ -55,4 +59,5 @@ export class LandingPageComponent {
       },
     });
   }
+
 }

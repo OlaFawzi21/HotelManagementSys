@@ -1,3 +1,4 @@
+import { PaginatorModule } from 'primeng/paginator';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
@@ -16,6 +17,9 @@ import { AddCommentResponse } from '../interfaces/add-comment-response';
   providedIn: 'root',
 })
 export class LandingService {
+  adsBaseUrl = 'portal/ads';
+  roomBaseUrl = 'portal/rooms';
+  
   constructor(private _http: HttpClient) {}
 
   getRandomData(data: any[], count = 5) {
@@ -32,24 +36,36 @@ export class LandingService {
       'portal/rooms/available?page=' + pageNumber + '&size=5'
     );
   }
+  
+  getFavouriteRooms(): Observable<any> {
+    return this._http.get('portal/favorite-rooms');
+  }
+  
+  addToFavourites(id: string): Observable<any> {
+    console.log(id);
 
-
-  // getReview(): Observable<GetReviews>{
-  //   return this._http.get<GetReviews>(
-  //     'portal/room-reviews/65ab7b10e815336ace2064d8'
-  //   );
-  // }
-  adsBaseUrl = 'portal/ads';
-  roomBaseUrl = 'portal/rooms';
+    return this._http.post('portal/favorite-rooms', { roomId: id });
+  }
+  
+  deleteFromFavourites(id: string): Observable<any> {
+    return this._http.delete(`portal/favorite-rooms/${id}`);
+  }
+  
+  Pagination(first: number, rows: number): Observable<any> {
+    const pageIndex = first / rows;
+    return this._http.get(
+      `portal/favorite-rooms?page=${pageIndex}&limit=${rows}`
+    );
+  }
   
   getAdsDetails(id:string){
-return this._http.get(this.adsBaseUrl+'/'+id)
-}
-getRoomDetails(id:string){
-  return this._http.get(this.roomBaseUrl+'/'+id)
+    return this._http.get(this.adsBaseUrl+'/'+id)
   }
-
-
+  
+  getRoomDetails(id:string){
+    return this._http.get(this.roomBaseUrl+'/'+id)
+  }
+  
   getReviews(): Observable<GetRoomReviewsResponse> {
     return this._http.get<GetRoomReviewsResponse>(
       'portal/room-reviews/65ad4fc8e815336ace20cd56'
@@ -69,5 +85,4 @@ getRoomDetails(id:string){
   addComment(comment: AddComment): Observable<AddCommentResponse> {
     return this._http.post<AddCommentResponse>('portal/room-reviews', comment);
   }
-
 }
