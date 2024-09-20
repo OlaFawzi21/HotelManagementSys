@@ -25,6 +25,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { RatingModule } from 'primeng/rating';
 import { CarouselModule } from 'primeng/carousel';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { PaginatorModule } from 'primeng/paginator';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
@@ -64,6 +65,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ImageModule,
     TableModule,
     DividerModule,
+    PaginatorModule,
     AvatarModule,
     AvatarGroupModule,
     GalleriaModule,
@@ -83,6 +85,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   exports: [
     InputTextModule,
+    PaginatorModule,
     FormsModule,
     ReactiveFormsModule,
     PasswordModule,

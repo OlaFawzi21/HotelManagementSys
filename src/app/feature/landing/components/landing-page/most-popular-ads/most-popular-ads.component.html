@@ -6,10 +6,10 @@
   <app-landing-card
     class="col-md-3 mx-0 rounded-4"
     *ngFor="let ad of adsList"
-    [badgeTitle]="'$' + ad.room?.price + ' ' + ('sub tittel' | translate)"    
+    [badgeTitle]="'$' + ad.room?.price + ' ' + ('sub tittel' | translate)"
     [images]="ad.room?.images"
     [name]="ad.room?.roomNumber"
     [isFloatedFooter]="true"
-    [id]="ad.room._id"
+    [id]="ad.room?._id"
   ></app-landing-card>
 </div>
