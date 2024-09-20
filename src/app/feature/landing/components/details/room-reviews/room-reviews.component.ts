@@ -50,11 +50,16 @@ export class RoomReviewsComponent {
 
       this._landing.addReview(review).subscribe({
         next: () => {
+          this.rateValue = 0;
+          this.rateText = '';
+          
           this._message.add({
             severity: 'success',
             summary: 'Success',
             detail: 'Thank you for your review',
           });
+
+          this.getReviews();
         },
       });
     }

@@ -1,69 +1,81 @@
-
-
 <section>
 
   <div class="container">
     <h1 class="mt-2 text-info ">{{listroomdetails.data.room.roomNumber}}</h1>
     <div class="d-flex justify-content-center m-5">
-     
-    <div class="card w-50">
-      <p-galleria 
-          [value]="images" 
-          [responsiveOptions]="responsiveOptions" 
-          [containerStyle]="{ 'max-width': '100%' }" 
-          [numVisible]="5">
-          
+      <div class="card w-50">
+        <p-galleria
+          [value]="images"
+          [responsiveOptions]="responsiveOptions"
+          [containerStyle]="{ 'max-width': '100%' }"
+          [numVisible]="5"
+        >
           <ng-template pTemplate="item" let-item>
-              <img [src]="item" style="width: 100%; height: auto; max-height: 150px; object-fit: cover;" />
+            <img
+              [src]="item"
+              style="
+                width: 100%;
+                height: auto;
+                max-height: 150px;
+                object-fit: cover;
+              "
+            />
           </ng-template>
-          
-          <ng-template pTemplate="thumbnail" let-item>
-              <div class="grid grid-nogutter justify-content-center " >
-                  <img [src]="item" style="width: 60px; height: 60px; object-fit: cover;" />
-              </div>
-          </ng-template>
-      </p-galleria>
-    
-    
 
-  </div>
-  
+          <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+              <img
+                [src]="item"
+                style="width: 60px; height: 60px; object-fit: cover"
+              />
+            </div>
+          </ng-template>
+        </p-galleria>
+      </div>
     </div>
-   
-  
+
     <div class="row">
       <div class="col-md-6">
-        <div class="text mt-2 stable-text ">
+        <div class="text mt-2 stable-text">
           <p class="stable-text">
-            Minimal techno is a minimalist subgenre
-             of techno music. It is characterized by a
-              stripped-down aesthetic that exploits the 
-              use of repetition and understated development.
-               Minimal techno is thought to have been originally developed in the early 
-            1990s by Detroit-based producers Robert Hood and Daniel Bell.</p>
-            <p>Such trends saw the demise of the soul-infused techno that typified 
-              the original Detroit sound. Robert Hood has noted that he and Daniel Bell
-               both realized something was missing from techno in the post-rave era.</p>
-               <p>Design is a plan or specification for the
-        construction of an object or system or for the implementation of an
-         activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic
-                 growth and to make lives better.</p>
+            Minimal techno is a minimalist subgenre of techno music. It is
+            characterized by a stripped-down aesthetic that exploits the use of
+            repetition and understated development. Minimal techno is thought to
+            have been originally developed in the early 1990s by Detroit-based
+            producers Robert Hood and Daniel Bell.
+          </p>
+          <p>
+            Such trends saw the demise of the soul-infused techno that typified
+            the original Detroit sound. Robert Hood has noted that he and Daniel
+            Bell both realized something was missing from techno in the
+            post-rave era.
+          </p>
+          <p>
+            Design is a plan or specification for the construction of an object
+            or system or for the implementation of an activity or process, or
+            the result of that plan or specification in the form of a prototype,
+            product or process. The national agency for design: enabling
+            Singapore to use design for economic growth and to make lives
+            better.
+          </p>
         </div>
         <div class="row mt-5">
-        <div class="col-md-3" *ngFor="let item of facilities">
-         
-          <p-dropdown>
-            <ng-template pTemplate="dropdownicon">
-                <i [class]="getFacilityIcon(item.name)" style="font-size: 2.5rem; color:blue;padding-right:10px;"></i>
-            </ng-template>
-        </p-dropdown>
-          <span class="stable-text d-block">{{item.name}}</span>
+          <div class="col-md-3" *ngFor="let item of facilities">
+            <i
+              [class]="getFacilityIcon(item.name)"
+              style="font-size: 2.5rem; color: blue; padding-right: 10px"
+            ></i>
+            <span class="stable-text">{{ item.name }}</span>
+          </div>
         </div>
-        </div>
+      </div>
+      <div class="col-md-6">
+        <app-book-room-in-details
+          [room]="listroomdetails"
+        ></app-book-room-in-details>
       </div>
     </div>
   </div>
-
 </section>
 
 
@@ -72,15 +84,14 @@
   <div class="py-5 reviews-comments-container">
     <div class="row justify-content-center mx-0">
       <div class="col-md-5">
-        <app-room-reviews></app-room-reviews>
+        <app-room-reviews [roomId]="pageid"></app-room-reviews>
       </div>
       <div class="col-md-1">
         <p-divider layout="vertical"></p-divider>
       </div>
       <div class="col-md-5">
-        <app-room-comments></app-room-comments>
+        <app-room-comments [roomId]="pageid"></app-room-comments>
       </div>
     </div>
   </div>
 </div>
-
