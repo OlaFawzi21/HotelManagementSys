@@ -3,7 +3,8 @@ import { rooms } from './../../constants/rooms';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from '../../services/landing.service';
-
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -22,6 +23,7 @@ concat:any
 constructor(private _LandingService:LandingService ,private _ActivatedRoute:ActivatedRoute){
   this.pageid=this._ActivatedRoute.snapshot.params['id']
 }
+
 ngOnInit(): void {
   this.getroomdetails(this.pageid)
 
@@ -56,15 +58,36 @@ getroomdetails(id:string){
   getFacilityIcon(facilityName: string): string {
     switch (facilityName) {
       case "Pets allowed":
-        return "pi pi-dog"; 
+        return "fa-solid fa-paw"; 
+        case "pets":
+        return "fa-solid fa-paw"; 
       case "Lounges":
-        return "pi pi-users"; 
+        return "fa-solid fa-couch"; 
       case "Dining & Restaurants":
-        return "pi pi-utensils"; 
+        return "fa-solid fa-utensils"; 
       case "Kitchen":
-        return "pi pi-home"; 
-      case "Air conditioner":
-        return "pi pi-snowflake"; 
+        return "fa-solid fa-kitchen-set"; 
+      case "bathroom6":
+        return "fa-solid fa-toilet";
+        case "Kids area":
+          return "fa-solid fa-gamepad";
+          case "Air conditioner":
+            return "fa-solid fa-fan"; 
+        case "air conditioning":
+        return "fa-solid fa-fan";
+        case "Free Wi-Fi":
+        return "fa-solid fa-wifi";
+        case "Laundry & ironing":
+          return "fa-solid  fa-soap";
+          case "Wifi":
+            return "fa-solid fa-wifi";
+           case "TV and telephone":
+          return "fa-solid fa-tv";
+          case "Cups":
+          return "fa-solid fa-mug-hot";
+          case "Coffee maker":
+            return "fa-solid fa-mug-hot";
+          
       default:
         return "pi pi-question"; 
     }
