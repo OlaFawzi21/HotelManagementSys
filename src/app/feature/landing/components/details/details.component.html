@@ -1,6 +1,12 @@
 <section>
+
   <div class="container">
+    <h1 class="mt-2 text-info">{{listroomdetails?.data?.room.roomNumber}}</h1>
     <div class="d-flex justify-content-center m-5">
+
+     
+ 
+          
       <div class="card w-50">
         <p-galleria
           [value]="images"
@@ -8,6 +14,7 @@
           [containerStyle]="{ 'max-width': '100%' }"
           [numVisible]="5"
         >
+
           <ng-template pTemplate="item" let-item>
             <img
               [src]="item"
@@ -58,13 +65,19 @@
           </p>
         </div>
         <div class="row mt-5">
-          <div class="col-md-3" *ngFor="let item of facilities">
-            <i
-              [class]="getFacilityIcon(item.name)"
-              style="font-size: 2.5rem; color: blue; padding-right: 10px"
-            ></i>
-            <span class="stable-text">{{ item.name }}</span>
-          </div>
+
+        <div class="col-md-3" *ngFor="let item of facilities">
+         
+          <p-dropdown>
+            <ng-template pTemplate="dropdownicon">
+                <i [class]="getFacilityIcon(item.name)" style="font-size: 2.5rem; color:blue;padding-right:10px;"></i>
+            </ng-template>
+        </p-dropdown>
+          <span class="stable-text d-block">{{item.name}}</span>
+        </div>
+
+        
+
         </div>
       </div>
       <div class="col-md-6">

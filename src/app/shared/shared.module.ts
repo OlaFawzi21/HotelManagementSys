@@ -38,6 +38,7 @@ import { ImagePickerComponent } from './components/image-picker/image-picker.com
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TableHeaderComponent,
   ],
   imports: [
+    RadioButtonModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -111,7 +113,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CarouselModule,
     TranslateModule,
     SelectButtonModule,
-
+    RadioButtonModule,
     TableComponent,
     ChangePasswordComponent,
     ProfileImagePickerComponent,
