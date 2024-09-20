@@ -1,0 +1,11 @@
+.reviews-comments-container {
+  border: 1px solid var(--card-border-color);
+
+  ::ng-deep textarea {
+    border-color: #203fc7 !important;
+  }
+
+  ::ng-deep .p-scrollpanel-content {
+    padding-inline-start: 0 !important;
+  }
+}

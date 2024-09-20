@@ -75,10 +75,11 @@ import { TranslateModule } from '@ngx-translate/core';
     MultiSelectModule,
     DynamicDialogModule,
     ConfirmDialogModule,
-    CalendarModule,  
+    CalendarModule,
     CarouselModule,
     TranslateModule,
     SelectButtonModule,
+    RatingModule,
   ],
   exports: [
     InputTextModule,
