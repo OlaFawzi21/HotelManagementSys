@@ -10,9 +10,9 @@ const routes: Routes = [
   {
     path: '',
     component: LandingComponent,
+
     children: [
       { path: '', component: LandingPageComponent },
-      { path: 'details', component: DetailsComponent },
       { path: 'favourite', component: FavouriteComponent },
       { path: 'favourite/:_id', component: FavouriteComponent },
     ],

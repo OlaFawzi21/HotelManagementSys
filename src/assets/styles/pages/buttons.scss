@@ -24,7 +24,7 @@ button {
 }
 
 .btn-danger .p-button,
-.p-button-danger .p-button{
+.p-button-danger .p-button {
   background-color: var(--danger-bg) !important;
   border: var(--danger-bg) !important;
   color: white !important;
@@ -41,4 +41,18 @@ button {
 
 .p-button.p-button-lg {
   height: 50px !important;
+}
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+  color: var(--yellow-color) !important;
+}
+
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item .p-rating-icon {
+  color: var(--yellow-color) !important;
+}
+
+.p-rating:not(.p-disabled):not(.p-readonly)
+  .p-rating-item:hover
+  .p-rating-icon {
+  color: var(--yellow-color) !important;
 }

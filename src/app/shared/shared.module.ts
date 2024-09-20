@@ -81,6 +81,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CarouselModule,
     TranslateModule,
     SelectButtonModule,
+    RatingModule,
   ],
   exports: [
     InputTextModule,

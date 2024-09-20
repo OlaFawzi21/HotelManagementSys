@@ -15,6 +15,8 @@ import { BannerComponent } from './components/landing-page/banner/banner.compone
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { DetailsComponent } from './components/details/details.component';
 import { FavouriteComponent } from './components/favourite/favourite.component';
+import { RoomReviewsComponent } from './components/details/room-reviews/room-reviews.component';
+import { RoomCommentsComponent } from './components/details/room-comments/room-comments.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FavouriteComponent } from './components/favourite/favourite.component';
     BannerComponent,
     DetailsComponent,
     FavouriteComponent,
+    RoomReviewsComponent,
+    RoomCommentsComponent,
   ],
   imports: [CommonModule, LandingRoutingModule, SharedModule],
 })
