@@ -33,6 +33,23 @@ export class LandingService {
     );
   }
 
+
+  // getReview(): Observable<GetReviews>{
+  //   return this._http.get<GetReviews>(
+  //     'portal/room-reviews/65ab7b10e815336ace2064d8'
+  //   );
+  // }
+  adsBaseUrl = 'portal/ads';
+  roomBaseUrl = 'portal/rooms';
+  
+  getAdsDetails(id:string){
+return this._http.get(this.adsBaseUrl+'/'+id)
+}
+getRoomDetails(id:string){
+  return this._http.get(this.roomBaseUrl+'/'+id)
+  }
+
+
   getReviews(): Observable<GetRoomReviewsResponse> {
     return this._http.get<GetRoomReviewsResponse>(
       'portal/room-reviews/65ad4fc8e815336ace20cd56'
@@ -52,4 +69,5 @@ export class LandingService {
   addComment(comment: AddComment): Observable<AddCommentResponse> {
     return this._http.post<AddCommentResponse>('portal/room-reviews', comment);
   }
+
 }
