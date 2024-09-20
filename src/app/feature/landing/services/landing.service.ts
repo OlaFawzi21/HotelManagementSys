@@ -33,4 +33,14 @@ export class LandingService {
   //     'portal/room-reviews/65ab7b10e815336ace2064d8'
   //   );
   // }
+  adsBaseUrl = 'portal/ads';
+  roomBaseUrl = 'portal/rooms';
+  
+  getAdsDetails(id:string){
+return this._http.get(this.adsBaseUrl+'/'+id)
+}
+getRoomDetails(id:string){
+  return this._http.get(this.roomBaseUrl+'/'+id)
+  }
+
 }
