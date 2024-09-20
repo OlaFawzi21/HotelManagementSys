@@ -27,6 +27,15 @@ export class LandingService {
       'portal/rooms/available?page=' + pageNumber + '&size=5'
     );
   }
+  getFavouriteRooms(): Observable<any> {
+    return this._http.get('portal/favorite-rooms');
+  }
+  addToFavourites(id: Number): Observable<any> {
+    return this._http.post('portal/favorite-rooms', id);
+  }
+  deleteFromFavourites(id: Number): Observable<any> {
+    return this._http.delete(`portal/favorite-rooms${id}`);
+  }
 
   // getReview(): Observable<GetReviews>{
   //   return this._http.get<GetReviews>(

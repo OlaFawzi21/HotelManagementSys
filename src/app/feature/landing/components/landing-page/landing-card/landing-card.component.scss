@@ -53,7 +53,7 @@
   .inner{
     position: relative;
  }
- 
+
  .port-item img{
     width: 100%;
  }
@@ -63,7 +63,8 @@
     background-color: rgba(0, 0, 0, 0.377);
    opacity: 0;
    transition: 0.3s;
- 
+   
+
  }
  .port-item:hover .layer{
     opacity: 1;

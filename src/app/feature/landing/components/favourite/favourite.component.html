@@ -1,0 +1,34 @@
+<section>
+  <div class="container">
+    <div class="header text-center py-4 ternary-color">
+      <h1>Your Favorites</h1>
+    </div>
+    <div class="rooms py-4">
+      <div class="roomsHeader">
+        <h3 class="ternary-color">Your rooms</h3>
+      </div>
+      <div class="row">
+        <app-landing-card
+          class="col-md-3 mx-0 rounded-4 py-5"
+          *ngFor="let room of roomsList"
+          [images]="room?.images"
+          [name]="room?.roomNumber"
+          [isFloatedFooter]="true"
+          [badgeTitle]="'$' + room?.price + ' ' + ('sub tittel' | translate)"
+          [type]="'room'"
+          [id]="room?._id"
+        ></app-landing-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="card flex justify-content-center">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="120"
+      [rowsPerPageOptions]="[5, 10, 15]"
+    ></p-paginator>
+  </div>
+</section>

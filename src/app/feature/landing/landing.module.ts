@@ -14,6 +14,7 @@ import { HotelsLargeRoomsComponent } from './components/landing-page/hotels-larg
 import { BannerComponent } from './components/landing-page/banner/banner.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { DetailsComponent } from './components/details/details.component';
+import { FavouriteComponent } from './components/favourite/favourite.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DetailsComponent } from './components/details/details.component';
     HotelsLargeRoomsComponent,
     BannerComponent,
     DetailsComponent,
+    FavouriteComponent,
   ],
   imports: [CommonModule, LandingRoutingModule, SharedModule],
 })
