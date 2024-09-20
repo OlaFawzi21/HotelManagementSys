@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+
 import { LandingService } from '../../../services/landing.service';
+import { MessageService } from 'primeng/api';
+
 import { RoomComment } from '../../../interfaces/room-comment';
 
 @Component({
@@ -15,7 +18,10 @@ export class RoomCommentsComponent {
 
   isLoggedIn: boolean = false;
 
-  constructor(private _landing: LandingService) {
+  constructor(
+    private _landing: LandingService,
+    private _message: MessageService
+  ) {
     this.isLoggedIn = localStorage.getItem('userToken') ? true : false;
   }
 
@@ -34,6 +40,25 @@ export class RoomCommentsComponent {
   }
 
   onComment(): void {
-    
+    if (this.comment) {
+      const roomComment = {
+        roomId: this.roomId,
+        comment: this.comment,
+      };
+
+      this._landing.addComment(roomComment).subscribe({
+        next: () => {
+          this.comment = '';
+
+          this._message.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Thank you for your comment',
+          });
+
+          this.getComments();
+        },
+      });
+    }
   }
 }
