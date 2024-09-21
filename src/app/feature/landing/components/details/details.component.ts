@@ -17,6 +17,7 @@ export class DetailsComponent implements OnInit {
   facilities: any[] | undefined;
 
   concat: any;
+  position: string = 'bottom';
 
   responsiveOptions: any[] | undefined;
   constructor(

@@ -1,4 +1,4 @@
-<div class="mb-5">
+<div>
   <h5>{{ "LANDING_PAGE.START_BOOKING" | translate }}</h5>
 
   <p>
@@ -12,7 +12,7 @@
   </p>
 </div>
 
-<form class="booking-form mt-3">
+<form class="booking-form mt-3" #bookingForm="ngForm" (ngSubmit)="onSubmit()">
   <label>{{ "LANDING_PAGE.PICK_DATE" | translate }}</label>
   <p-calendar
     dateFormat="d M yy"
@@ -23,36 +23,16 @@
     styleClass="w-100"
     inputStyleClass="w-100"
     name="rangeDates"
+    [required]="true"
   ></p-calendar>
 
-  <label class="mt-2">{{ "LANDING_PAGE.CAPACITY" | translate }}</label>
-
-  <div class="p-inputgroup">
-    <button
-      type="button"
-      pButton
-      icon="pi pi-minus"
-      class="p-button-danger"
-      (click)="decrementCapacity()"
-    ></button>
-    <input
-      type="text"
-      pInputText
-      [(ngModel)]="capacity"
-      [placeholder]="capacity + ' ' + _translate.instant('LANDING_PAGE.PERSON')"
-      name="capacity"
-    />
-    <button
-      type="button"
-      pButton
-      icon="pi pi-plus"
-      class="p-button-success"
-      (click)="incrementCapacity()"
-    ></button>
-  </div>
-
   <div class="d-flex justify-content-center">
-    <button pButton class="p-button-primary px-5 mt-3">
+    <button
+      pButton
+      class="p-button-primary px-5 mt-3"
+      type="submit"
+      [disabled]="bookingForm.invalid"
+    >
       {{ "BUTTONS.CONTINUE_BOOK" | translate }}
     </button>
   </div>
