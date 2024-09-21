@@ -12,6 +12,7 @@ import { GetRoomsCommentsResponse } from '../interfaces/get-room-comments-respon
 import { AddComment } from '../interfaces/add-comment';
 import { AddCommentResponse } from '../interfaces/add-comment-response';
 import { Params } from '@angular/router';
+import { RoomComment } from '../interfaces/room-comment';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,7 @@ export class LandingService {
     );
   }
   getFavouriteRooms(myParams: Params): Observable<any> {
-    return this._http.get('portal/favorite-rooms' , {params: myParams});
+    return this._http.get('portal/favorite-rooms', { params: myParams });
   }
 
   addToFavourites(id: string): Observable<any> {
@@ -67,9 +68,9 @@ export class LandingService {
     return this._http.get(this.roomBaseUrl + '/' + id);
   }
 
-  getReviews(): Observable<GetRoomReviewsResponse> {
+  getReviews(roomId: string): Observable<GetRoomReviewsResponse> {
     return this._http.get<GetRoomReviewsResponse>(
-      'portal/room-reviews/65ad4fc8e815336ace20cd56'
+      'portal/room-reviews/' + roomId
     );
   }
 
@@ -77,14 +78,32 @@ export class LandingService {
     return this._http.post<AddReviewResponse>('portal/room-reviews', review);
   }
 
-  getComments(): Observable<GetRoomsCommentsResponse> {
+  getComments(roomId: string): Observable<GetRoomsCommentsResponse> {
     return this._http.get<GetRoomsCommentsResponse>(
-      'portal/room-comments/65ad4fc8e815336ace20cd56'
+      'portal/room-comments/' + roomId
     );
   }
 
   addComment(comment: AddComment): Observable<AddCommentResponse> {
     return this._http.post<AddCommentResponse>('portal/room-comments', comment);
+  }
+
+  updateComment(
+    commentId: string | boolean,
+    comment: string
+  ): Observable<AddCommentResponse> {
+    return this._http.patch<AddCommentResponse>(
+      'portal/room-comments/' + commentId,
+      {
+        comment: comment,
+      }
+    );
+  }
+
+  deleteComment(comment: RoomComment): Observable<any> {
+    return this._http.delete<any>('portal/room-comments/' + comment._id, {
+      body: { roomId: comment.room._id },
+    });
   }
 
   getRoomsExplore(

@@ -37,6 +37,7 @@
           class="nav-item nav-link"
           routerLink="/landing/favourite"
           routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
           >{{ "NAVBAR.FAVORITES" | translate }}</a
         >
       </div>

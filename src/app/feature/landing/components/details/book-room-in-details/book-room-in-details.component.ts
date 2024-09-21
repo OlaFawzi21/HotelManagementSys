@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+
+import { TranslateService } from '@ngx-translate/core';
+
 import { Room } from 'src/app/feature/dashboard/modules/rooms/interfaces/room';
 
 @Component({
@@ -7,5 +10,20 @@ import { Room } from 'src/app/feature/dashboard/modules/rooms/interfaces/room';
   styleUrls: ['./book-room-in-details.component.scss'],
 })
 export class BookRoomInDetailsComponent {
-  @Input() room: Room;
+  @Input() room: any;
+
+  rangeDates: any[];
+  capacity: number = 1;
+
+  constructor(public _translate: TranslateService) {}
+
+  decrementCapacity(): void {
+    if (this.capacity > 1) {
+      this.capacity--;
+    }
+  }
+
+  incrementCapacity(): void {
+    this.capacity++;
+  }
 }

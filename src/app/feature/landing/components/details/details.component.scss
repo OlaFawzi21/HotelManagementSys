@@ -6,9 +6,11 @@
   padding: 5px 0; /* Add vertical padding */
 }
 
-.reviews-comments-container {
-  border: 1px solid var(--card-border-color);
+.details-card {
+  border: 1px solid var(--card-border-color) !important;
+}
 
+.reviews-comments-container {
   ::ng-deep textarea {
     border-color: #203fc7 !important;
   }

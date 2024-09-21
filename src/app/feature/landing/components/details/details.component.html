@@ -1,12 +1,7 @@
 <section>
-
   <div class="container">
-    <h1 class="mt-2 text-info">{{listroomdetails?.data?.room.roomNumber}}</h1>
+    <h1 class="mt-2 text-info">{{ listroomdetails?.data?.room.roomNumber }}</h1>
     <div class="d-flex justify-content-center m-5">
-
-     
- 
-          
       <div class="card w-50">
         <p-galleria
           [value]="images"
@@ -14,7 +9,6 @@
           [containerStyle]="{ 'max-width': '100%' }"
           [numVisible]="5"
         >
-
           <ng-template pTemplate="item" let-item>
             <img
               [src]="item"
@@ -40,7 +34,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="text mt-2 stable-text">
           <p class="stable-text">
             Minimal techno is a minimalist subgenre of techno music. It is
@@ -65,32 +59,39 @@
           </p>
         </div>
         <div class="row mt-5">
-
-        <div class="col-md-3" *ngFor="let item of facilities">
-         
-          <p-dropdown>
-            <ng-template pTemplate="dropdownicon">
-                <i [class]="getFacilityIcon(item.name)" style="font-size: 2.5rem; color:blue;padding-right:10px;"></i>
-            </ng-template>
-        </p-dropdown>
-          <span class="stable-text d-block">{{item.name}}</span>
-        </div>
-
-        
-
+          <div class="col-md-3" *ngFor="let item of facilities">
+            <!-- <p-dropdown>
+              <ng-template pTemplate="dropdownicon">
+                <i
+                  [class]="getFacilityIcon(item.name) + ' px-0'"
+                  style="font-size: 2.5rem; color: blue"
+                ></i>
+              </ng-template>
+            </p-dropdown> -->
+            <i
+              [class]="getFacilityIcon(item.name) + ' px-0'"
+              style="font-size: 2rem; color: blue"
+            ></i>
+            <span class="stable-text d-block">{{ item.name }}</span>
+          </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <app-book-room-in-details
-          [room]="listroomdetails"
-        ></app-book-room-in-details>
+      <div class="col-md-4">
+        <div
+          class="card details-card p-5 rounded-3"
+          *ngIf="listroomdetails.data?.room"
+        >
+          <app-book-room-in-details
+            [room]="listroomdetails.data?.room"
+          ></app-book-room-in-details>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <div class="container py-5">
-  <div class="py-5 reviews-comments-container">
+  <div class="py-5 reviews-comments-container rounded-3">
     <div class="row justify-content-center mx-0">
       <div class="col-md-5">
         <app-room-reviews [roomId]="pageid"></app-room-reviews>
