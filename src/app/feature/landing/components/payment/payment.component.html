@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <h2>Card Example</h2>
+    <div [formGroup]="checkoutForm">
+      <input
+        placeholder="name"
+        formControlName="name"
+        pInputText
+        class="mb-3"
+      />
+      <input
+        placeholder="Email"
+        type="email"
+        formControlName="email"
+        pInputText
+        class="mb-3"
+      />
+
+      <ngx-stripe-elements
+        [stripe]="stripe"
+        [elementsOptions]="elementsOptions"
+      >
+        <ngx-stripe-card [options]="cardOptions" />
+      </ngx-stripe-elements>
+    </div>
+    <p-button
+      label="CREATE TOKEN"
+      class="btn-main mt-3"
+      type="submit"
+      (click)="createToken()"
+    ></p-button>
+  </div>
+</div>

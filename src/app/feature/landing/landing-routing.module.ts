@@ -7,6 +7,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { userGuard } from 'src/app/core/guards/user.guard';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
       {
         path: 'explore',
         component: ExploreComponent,
+        canActivate: [userGuard],
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
         canActivate: [userGuard],
       },
     ],

@@ -20,7 +20,8 @@ import { RoomCommentsComponent } from './components/details/room-comments/room-c
 import { BookRoomInDetailsComponent } from './components/details/book-room-in-details/book-room-in-details.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { PaymentComponent } from './components/payment/payment.component';
+import { NgxStripeModule } from 'ngx-stripe';
 @NgModule({
   declarations: [
     LandingComponent,
@@ -40,7 +41,15 @@ import { FooterComponent } from './components/footer/footer.component';
     BookRoomInDetailsComponent,
     ExploreComponent,
     FooterComponent,
+    PaymentComponent,
   ],
-  imports: [CommonModule, LandingRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    LandingRoutingModule,
+    SharedModule,
+    NgxStripeModule.forRoot(
+      'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
+    ),
+  ],
 })
 export class LandingModule {}
