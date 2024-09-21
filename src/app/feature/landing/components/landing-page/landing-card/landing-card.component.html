@@ -16,14 +16,15 @@
       <div
         class="layer d-flex justify-content-center align-content-center align-items-center"
       >
-        <i
-          (click)="addAndRemoveFavourite()"
-          [ngClass]="isFavorite ? 'pi pi-heart-fill' : 'pi pi-heart'"
-          class="pi pi-heart-fill pointer"
-          style="font-size: 1.3rem; padding: 5px; color: white"
-        ></i>
-        <a [routerLink]="['details', id]"
-          ><i class="pi pi-eye" style="font-size: 1.3rem; color: white"></i
+        <a (click)="addAndRemoveFavourite()" class="pointer">
+          <i
+            [ngClass]="isFavorite ? 'pi pi-heart-fill' : 'pi pi-heart'"
+            class="pi pi-heart-fill"
+            style="font-size: 1.3rem; padding: 5px; color: white"
+          ></i
+        ></a>
+        <a [routerLink]="['/landing/room/details', id]"
+          ><i class="pi pi-eye" style="font-size: 1.5rem; color: white"></i
         ></a>
       </div>
     </div>

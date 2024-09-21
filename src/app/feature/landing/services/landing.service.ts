@@ -11,6 +11,7 @@ import { AddReviewResponse } from '../interfaces/add-review-response';
 import { GetRoomsCommentsResponse } from '../interfaces/get-room-comments-response';
 import { AddComment } from '../interfaces/add-comment';
 import { AddCommentResponse } from '../interfaces/add-comment-response';
+import { Params } from '@angular/router';
 import { RoomComment } from '../interfaces/room-comment';
 
 @Injectable({
@@ -36,8 +37,8 @@ export class LandingService {
       'portal/rooms/available?page=' + pageNumber + '&size=5'
     );
   }
-  getFavouriteRooms(): Observable<any> {
-    return this._http.get('portal/favorite-rooms');
+  getFavouriteRooms(myParams: Params): Observable<any> {
+    return this._http.get('portal/favorite-rooms', { params: myParams });
   }
 
   addToFavourites(id: string): Observable<any> {
@@ -102,6 +103,21 @@ export class LandingService {
   deleteComment(comment: RoomComment): Observable<any> {
     return this._http.delete<any>('portal/room-comments/' + comment._id, {
       body: { roomId: comment.room._id },
+    });
+  }
+
+  getRoomsExplore(
+    pageNumber: number,
+    rows: number
+  ): Observable<GetRoomsListResponse> {
+    return this._http.get<GetRoomsListResponse>(
+      'portal/rooms/available?page=' + pageNumber + '&size=' + rows
+    );
+  }
+
+  getRoomsExploreFilter(myParams: Params): Observable<GetRoomsListResponse> {
+    return this._http.get<GetRoomsListResponse>('portal/rooms/available', {
+      params: myParams,
     });
   }
 }

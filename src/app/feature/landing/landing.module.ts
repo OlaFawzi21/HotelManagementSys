@@ -18,6 +18,8 @@ import { FavouriteComponent } from './components/favourite/favourite.component';
 import { RoomReviewsComponent } from './components/details/room-reviews/room-reviews.component';
 import { RoomCommentsComponent } from './components/details/room-comments/room-comments.component';
 import { BookRoomInDetailsComponent } from './components/details/book-room-in-details/book-room-in-details.component';
+import { ExploreComponent } from './components/explore/explore.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { BookRoomInDetailsComponent } from './components/details/book-room-in-de
     RoomReviewsComponent,
     RoomCommentsComponent,
     BookRoomInDetailsComponent,
+    ExploreComponent,
+    FooterComponent,
   ],
   imports: [CommonModule, LandingRoutingModule, SharedModule],
 })

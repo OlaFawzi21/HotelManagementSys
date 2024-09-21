@@ -19,17 +19,20 @@
       <div class="navbar-nav ms-auto mx-3">
         <a
           class="nav-item nav-link"
-          routerLink="/landing"
           routerLinkActive="active"
+          routerLink="/landing"
           [routerLinkActiveOptions]="{ exact: true }"
           >{{ "NAVBAR.HOME" | translate }}</a
         >
         <a
           class="nav-item nav-link"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/landing/explore"
           >{{ "NAVBAR.EXPLORE" | translate }}</a
         >
+        <a class="nav-item nav-link" routerLinkActive="active">{{
+          "NAVBAR.REVIEWS" | translate
+        }}</a>
         <a
           class="nav-item nav-link"
           routerLink="/landing/favourite"

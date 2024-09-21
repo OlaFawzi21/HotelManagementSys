@@ -12,39 +12,35 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FavouriteComponent implements OnInit {
   roomsList: any[] = [];
+  roomsData: any;
   first: number = 0;
-  rows: number = 10;
-  TotalPages: number = 0;
+  rows: number = 6;
+  totalPages: number = 0;
 
   constructor(private _LandingService: LandingService) {}
 
   ngOnInit(): void {
-    // this.getFavouriteRooms();
-    this.Pagination();
+    this.getFavouriteRooms(0, this.rows);
   }
 
   onPageChange(event: any) {
     this.first = event.first;
     this.rows = event.rows;
+    const currentPage = event.page;
+    this.getFavouriteRooms(currentPage, this.rows);
   }
 
-  getFavouriteRooms() {
-    this._LandingService.getFavouriteRooms().subscribe({
-      next: (data) => {
-        this.roomsList = data.data.favoriteRooms;
-      },
-    });
-  }
-
-  Pagination() {
-    this._LandingService.Pagination(this.first, this.rows).subscribe({
-      next: ({ data }) => {
-        this.roomsList =
-          data.favoriteRooms &&
-          data.favoriteRooms.length &&
-          data.favoriteRooms[0].rooms;
-        this.TotalPages = data.totalCount;
-      },
-    });
+  getFavouriteRooms(page: number, rows: number) {
+    const pageNumber = page + 1;
+    this._LandingService
+      .getFavouriteRooms({ page: pageNumber, size: rows })
+      .subscribe({
+        next: (data) => {
+          this.roomsData = data;
+          this.roomsList = this.roomsData.data.favoriteRooms[0].rooms;
+          this.totalPages = this.roomsData.data.totalCount
+          console.log(this.roomsData);
+        },
+      });
   }
 }

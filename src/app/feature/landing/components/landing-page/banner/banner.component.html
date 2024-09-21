@@ -10,7 +10,7 @@
     </p>
 
     <h5>{{ "LANDING_PAGE.START_BOOKING" | translate }}</h5>
-    <form class="landing-form">
+    <form class="landing-form" #exploreData="ngForm" (ngSubmit)="sendData()">
       <label>{{ "LANDING_PAGE.PICK_DATE" | translate }}</label>
       <p-calendar
         dateFormat="d M yy"
@@ -21,6 +21,7 @@
         styleClass="w-100"
         inputStyleClass="w-100"
         name="rangeDates"
+        [required]="true"
       ></p-calendar>
 
       <label class="mt-2">{{ "LANDING_PAGE.CAPACITY" | translate }}</label>
@@ -42,6 +43,7 @@
             capacity + ' ' + _translate.instant('LANDING_PAGE.PERSON')
           "
           name="capacity"
+          required
         />
         <button
           type="button"
@@ -52,7 +54,12 @@
         ></button>
       </div>
 
-      <button pButton class="p-button-primary px-5 mt-3 me-2">
+      <button
+        pButton
+        type="submit"
+        class="p-button-primary px-5 mt-3 me-2"
+        [disabled]="exploreData.invalid"
+      >
         {{ "BUTTONS.EXPLORE" | translate }}
       </button>
     </form>
