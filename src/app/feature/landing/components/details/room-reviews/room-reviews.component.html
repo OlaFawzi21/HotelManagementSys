@@ -1,5 +1,9 @@
 <ng-container *ngIf="isLoggedIn">
-  <h5>Reviews</h5>
+  <h5>
+    {{ "ROOM_DETAILS_REVIEWS.REVIEWS" | translate }} ({{
+      this.reviewsList && this.reviewsList.length
+    }})
+  </h5>
 
   <div class="mt-4">
     <p-scrollPanel
@@ -38,23 +42,25 @@
   </div>
 </ng-container>
 
-<div class="mt-4 d-flex align-items-center">
-  <h6>Rate</h6>
+<ng-container *ngIf="!isReviewBefore">
+  <div class="mt-4 d-flex align-items-center">
+    <h6>{{ "BUTTONS.RATE" | translate }}</h6>
 
-  <p-rating class="ms-4" [(ngModel)]="rateValue" [cancel]="false"></p-rating>
-</div>
+    <p-rating class="ms-4" [(ngModel)]="rateValue" [cancel]="false"></p-rating>
+  </div>
 
-<textarea
-  class="w-100 rounded-3 p-2"
-  rows="3"
-  pInputTextarea
-  [(ngModel)]="rateText"
-  placeholder="message"
-></textarea>
+  <textarea
+    class="w-100 rounded-3 p-2"
+    rows="3"
+    pInputTextarea
+    [(ngModel)]="rateText"
+    [placeholder]="'ROOM_DETAILS_REVIEWS.ADD_REVIEW_PLACEHOLDER' | translate"
+  ></textarea>
 
-<p-button
-  label="Rate"
-  [loading]="false"
-  class="d-block btn-main mt-3"
-  (click)="onReview()"
-></p-button>
+  <p-button
+    [label]="'BUTTONS.RATE' | translate"
+    [loading]="false"
+    class="d-block btn-main mt-3"
+    (click)="onReview()"
+  ></p-button>
+</ng-container>

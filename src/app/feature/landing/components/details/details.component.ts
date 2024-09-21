@@ -1,4 +1,3 @@
-
 import { rooms } from './../../constants/rooms';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -8,91 +7,92 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  pageid:string=''
-  listdetails:any
-  listroomdetails:any
- images: any[] | undefined;
- facilities: any[] | undefined;
+  pageid: string = '';
+  listdetails: any;
+  listroomdetails: any;
+  images: any[] | undefined;
+  facilities: any[] | undefined;
 
-concat:any
- 
- responsiveOptions: any[] | undefined;
-constructor(private _LandingService:LandingService ,private _ActivatedRoute:ActivatedRoute){
-  this.pageid=this._ActivatedRoute.snapshot.params['id']
-  console.log(this.pageid)
-}
+  concat: any;
 
-ngOnInit(): void {
-  this.getroomdetails(this.pageid)
+  responsiveOptions: any[] | undefined;
+  constructor(
+    private _LandingService: LandingService,
+    private _ActivatedRoute: ActivatedRoute
+  ) {
+    this.pageid = this._ActivatedRoute.snapshot.params['id'];
+    console.log(this.pageid);
+  }
 
- 
-  this.responsiveOptions = [
+  ngOnInit(): void {
+    this.getroomdetails(this.pageid);
+
+    this.responsiveOptions = [
       {
-          breakpoint: '1024px',
-          numVisible: 5
+        breakpoint: '1024px',
+        numVisible: 5,
       },
       {
-          breakpoint: '768px',
-          numVisible: 3
+        breakpoint: '768px',
+        numVisible: 3,
       },
       {
-          breakpoint: '560px',
-          numVisible: 1
-      }
-  ];
-}
+        breakpoint: '560px',
+        numVisible: 1,
+      },
+    ];
+  }
 
-getroomdetails(id:string){
-  this._LandingService.getRoomDetails(id).subscribe({
-    next:(res)=>{
-  this.listroomdetails=res
-  console.log(this.listroomdetails.data.rooms);
-  this.images=this.listroomdetails.data.room.images
-  console.log(this.images)
-  this.facilities=this.listroomdetails.data.room.facilities
-    }
-  })
+  getroomdetails(id: string) {
+    this._LandingService.getRoomDetails(id).subscribe({
+      next: (res) => {
+        this.listroomdetails = res;
+
+        console.log(this.listroomdetails.data.rooms);
+        this.images = this.listroomdetails.data.room.images;
+        console.log(this.images);
+        this.facilities = this.listroomdetails.data.room.facilities;
+      },
+    });
   }
   getFacilityIcon(facilityName: string): string {
     switch (facilityName) {
-      case "Pets allowed":
-        return "fa-solid fa-paw"; 
-        case "pets":
-        return "fa-solid fa-paw"; 
-      case "Lounges":
-        return "fa-solid fa-couch"; 
-      case "Dining & Restaurants":
-        return "fa-solid fa-utensils"; 
-      case "Kitchen":
-        return "fa-solid fa-kitchen-set"; 
-      case "bathroom6":
-        return "fa-solid fa-toilet";
-        case "Kids area":
-          return "fa-solid fa-gamepad";
-          case "Air conditioner":
-            return "fa-solid fa-fan"; 
-        case "air conditioning":
-        return "fa-solid fa-fan";
-        case "Free Wi-Fi":
-        return "fa-solid fa-wifi";
-        case "Laundry & ironing":
-          return "fa-solid  fa-soap";
-          case "Wifi":
-            return "fa-solid fa-wifi";
-           case "TV and telephone":
-          return "fa-solid fa-tv";
-          case "Cups":
-          return "fa-solid fa-mug-hot";
-          case "Coffee maker":
-            return "fa-solid fa-mug-hot";
-          
+      case 'Pets allowed':
+        return 'fa-solid fa-paw';
+      case 'pets':
+        return 'fa-solid fa-paw';
+      case 'Lounges':
+        return 'fa-solid fa-couch';
+      case 'Dining & Restaurants':
+        return 'fa-solid fa-utensils';
+      case 'Kitchen':
+        return 'fa-solid fa-kitchen-set';
+      case 'bathroom6':
+        return 'fa-solid fa-toilet';
+      case 'Kids area':
+        return 'fa-solid fa-gamepad';
+      case 'Air conditioner':
+        return 'fa-solid fa-fan';
+      case 'air conditioning':
+        return 'fa-solid fa-fan';
+      case 'Free Wi-Fi':
+        return 'fa-solid fa-wifi';
+      case 'Laundry & ironing':
+        return 'fa-solid  fa-soap';
+      case 'Wifi':
+        return 'fa-solid fa-wifi';
+      case 'TV and telephone':
+        return 'fa-solid fa-tv';
+      case 'Cups':
+        return 'fa-solid fa-mug-hot';
+      case 'Coffee maker':
+        return 'fa-solid fa-mug-hot';
+
       default:
-        return "pi pi-question"; 
+        return 'pi pi-question';
     }
   }
- 
 }
-

@@ -1,5 +1,9 @@
 <ng-container *ngIf="isLoggedIn">
-  <h5>Comments</h5>
+  <h5>
+    {{ "ROOM_DETAILS_COMMENTS.COMMENTS" | translate }} ({{
+      this.commentsList && this.commentsList.length
+    }})
+  </h5>
 
   <div class="mt-4">
     <p-scrollPanel
@@ -7,13 +11,26 @@
       styleClass="px-0"
     >
       <ng-container *ngFor="let comment of commentsList">
-        <div class="d-flex align-items-center">
-          <p-avatar
-            [image]="comment.user?.profileImage"
-            styleClass="mr-2"
-            shape="circle"
-          ></p-avatar>
-          <h6 class="mx-2 my-0">{{ comment.user?.userName }}</h6>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <p-avatar
+              [image]="comment.user?.profileImage"
+              styleClass="mr-2"
+              shape="circle"
+            ></p-avatar>
+            <h6 class="mx-2 my-0">{{ comment.user?.userName }}</h6>
+          </div>
+
+          <div *ngIf="userName === comment.user?.userName">
+            <i
+              class="pi pi-pencil pointer"
+              (click)="isEditable = comment._id"
+            ></i>
+            <i
+              class="pi pi-trash ps-3 pointer"
+              (click)="deleteComment(comment)"
+            ></i>
+          </div>
         </div>
 
         <p class="mb-0">{{ comment.comment }}</p>
@@ -29,21 +46,23 @@
   </div>
 </ng-container>
 
-<h6 class="mt-4">Add your comment</h6>
+<ng-container *ngIf="!isCommentBefore || isEditable">
+  <h6 class="mt-4">{{ "ROOM_DETAILS_COMMENTS.ADD_COMMENT" | translate }}</h6>
 
-<textarea
-  class="w-100 rounded-3 p-2"
-  rows="3"
-  pInputTextarea
-  [(ngModel)]="comment"
-  placeholder="message"
-></textarea>
+  <textarea
+    class="w-100 rounded-3 p-2"
+    rows="3"
+    pInputTextarea
+    [(ngModel)]="comment"
+    [placeholder]="'ROOM_DETAILS_COMMENTS.ADD_COMMENT_PLACEHOLDER' | translate"
+  ></textarea>
 
-<div class="text-end">
-  <p-button
-    label="Send"
-    [loading]="false"
-    class="d-block btn-main mt-3"
-    (click)="onComment()"
-  ></p-button>
-</div>
+  <div class="text-end">
+    <p-button
+      [label]="'BUTTONS.SEND' | translate"
+      [loading]="false"
+      class="d-block btn-main mt-3"
+      (click)="onComment()"
+    ></p-button>
+  </div>
+</ng-container>

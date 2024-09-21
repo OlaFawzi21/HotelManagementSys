@@ -17,18 +17,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto mx-3">
-        <a class="nav-item nav-link active" routerLinkActive="active">{{
-          "NAVBAR.HOME" | translate
-        }}</a>
-        <a class="nav-item nav-link" routerLinkActive="active">{{
-          "NAVBAR.EXPLORE" | translate
-        }}</a>
-        <a class="nav-item nav-link" routerLinkActive="active">{{
-          "NAVBAR.REVIEWS" | translate
-        }}</a>
-        <a class="nav-item nav-link" routerLink="/landing/favourite" routerLinkActive="active">{{
-          "NAVBAR.FAVORITES" | translate
-        }}</a>
+        <a
+          class="nav-item nav-link"
+          routerLink="/landing"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ "NAVBAR.HOME" | translate }}</a
+        >
+        <a
+          class="nav-item nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ "NAVBAR.EXPLORE" | translate }}</a
+        >
+        <a
+          class="nav-item nav-link"
+          routerLink="/landing/favourite"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ "NAVBAR.FAVORITES" | translate }}</a
+        >
       </div>
       <div
         class="d-flex justify-content-end align-items-center gap-4"

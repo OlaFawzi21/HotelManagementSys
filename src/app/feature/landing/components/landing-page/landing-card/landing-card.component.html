@@ -19,11 +19,11 @@
         <i
           (click)="addAndRemoveFavourite()"
           [ngClass]="isFavorite ? 'pi pi-heart-fill' : 'pi pi-heart'"
-          class="pi pi-heart-fill"
-          style="font-size: 2.5rem; padding: 5px; color: white"
+          class="pi pi-heart-fill pointer"
+          style="font-size: 1.3rem; padding: 5px; color: white"
         ></i>
-        <a  [routerLink]="['details', id]"
-          ><i class="pi pi-eye" style="font-size: 2.5rem; color: white"></i
+        <a [routerLink]="['details', id]"
+          ><i class="pi pi-eye" style="font-size: 1.3rem; color: white"></i
         ></a>
       </div>
     </div>

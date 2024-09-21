@@ -39,7 +39,7 @@ export class LoginComponent {
       next: (res) => {
         this.response = res;
       },
-       error: () => {
+      error: () => {
         this.loading = false;
       },
       complete: () => {
@@ -51,6 +51,8 @@ export class LoginComponent {
         });
         setTimeout(() => {
           localStorage.setItem('userToken', this.response.data.token);
+          localStorage.setItem('userName', this.response.data.user.userName);
+
           localStorage.setItem('role', this.response.data.user.role);
           if (this.response.data.user.role == 'admin') {
             this.router.navigate(['/dashboard']);

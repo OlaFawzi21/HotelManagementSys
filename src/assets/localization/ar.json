@@ -6,7 +6,9 @@
     "EXPLORE": "استكشف",
     "LOGOUT": "الخروج",
     "CHANGE_PASSWORD": "تغيير كلمةالسر",
-    "PROFILE": "الملف الشخصى"
+    "PROFILE": "الملف الشخصى",
+    "SEND": "ارسال",
+    "CONTINUE_BOOK": "اكمال الحجز"
   },
   "NAVBAR": {
     "HOME": "الرئيسية",
@@ -239,5 +241,29 @@
     }
   ],
   "sub tittel": "في الليله",
-  "Most popular": "اكثرانتشارا"
+  "Most popular": "اكثرانتشارا",
+  "ROOM_DETAILS_REVIEWS": {
+    "REVIEWS": "التقييمات",
+    "ADD_REVIEW_PLACEHOLDER": "اترك رسالة"
+  },
+  "ROOM_DETAILS_COMMENTS": {
+    "COMMENTS": "التعليقات",
+    "ADD_COMMENT": "اضف تعليق",
+    "ADD_COMMENT_PLACEHOLDER": "تعليق"
+  },
+  "ROOM_DETAILS_BOOKING": {
+    "PER_NIGHT": "خلال ليلة",
+    "DISCOUNT": "خصم"
+  },
+  "FAVORITES": { "FAVORITES_LIST_TITLE": "غرفك المفضلة" },
+  "ERROR_MESSAGES": {
+    "ERROR_TITLE": "خطأ",
+    "LOGIN_FIRST": "قم أولا بتسجيل الدخول"
+  },
+  "SUCCESS_MESSAGES": {
+    "SUCCESS_TITLE": "تم بنجاح",
+    "ADD_REVIEW_SUCCESS": "شكرا لك على التقييم",
+    "ADD_COMMENT_SUCCESS": "تم التعليق بنجاح",
+    "DELETE_COMMENT_SUCCESS": "تم حذف التعليق بنجاح"
+  }
 }

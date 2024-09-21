@@ -18,8 +18,8 @@
         selectionMode="range"
         [readonlyInput]="true"
         [showIcon]="true"
-        styleClass="w-100 h-38"
-        inputStyleClass="w-100 h-38"
+        styleClass="w-100"
+        inputStyleClass="w-100"
         name="rangeDates"
       ></p-calendar>
 
@@ -31,6 +31,7 @@
           pButton
           icon="pi pi-minus"
           styleClass="p-button-success"
+          class="p-button-danger"
           (click)="decrementCapacity()"
         ></button>
         <input
@@ -46,7 +47,7 @@
           type="button"
           pButton
           icon="pi pi-plus"
-          styleClass="p-button-danger"
+          class="p-button-success"
           (click)="incrementCapacity()"
         ></button>
       </div>

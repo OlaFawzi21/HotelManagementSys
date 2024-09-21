@@ -1,1 +1,59 @@
-<p>book-room-in-details works!</p>
+<div class="mb-5">
+  <h5>{{ "LANDING_PAGE.START_BOOKING" | translate }}</h5>
+
+  <p>
+    <span class="price">${{ room.price }}</span>
+    <span class="price-per-night">
+      {{ "ROOM_DETAILS_BOOKING.PER_NIGHT" | translate }}</span
+    >
+  </p>
+  <p class="discount">
+    {{ "ROOM_DETAILS_BOOKING.DISCOUNT" | translate }} {{ room.discount }}$
+  </p>
+</div>
+
+<form class="booking-form mt-3">
+  <label>{{ "LANDING_PAGE.PICK_DATE" | translate }}</label>
+  <p-calendar
+    dateFormat="d M yy"
+    [(ngModel)]="rangeDates"
+    selectionMode="range"
+    [readonlyInput]="true"
+    [showIcon]="true"
+    styleClass="w-100"
+    inputStyleClass="w-100"
+    name="rangeDates"
+  ></p-calendar>
+
+  <label class="mt-2">{{ "LANDING_PAGE.CAPACITY" | translate }}</label>
+
+  <div class="p-inputgroup">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-minus"
+      class="p-button-danger"
+      (click)="decrementCapacity()"
+    ></button>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="capacity"
+      [placeholder]="capacity + ' ' + _translate.instant('LANDING_PAGE.PERSON')"
+      name="capacity"
+    />
+    <button
+      type="button"
+      pButton
+      icon="pi pi-plus"
+      class="p-button-success"
+      (click)="incrementCapacity()"
+    ></button>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button pButton class="p-button-primary px-5 mt-3">
+      {{ "BUTTONS.CONTINUE_BOOK" | translate }}
+    </button>
+  </div>
+</form>
