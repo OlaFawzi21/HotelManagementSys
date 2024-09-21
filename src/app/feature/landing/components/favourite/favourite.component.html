@@ -18,19 +18,19 @@
           [type]="'room'"
           [id]="room?._id"
           [isFavorite]="false"
-          (removeFromFavorites)="Pagination()"
+          (removeFromFavorites)="getFavouriteRooms(0, rows)"
         ></app-landing-card>
       </div>
     </div>
-  </div>
 
-  <div class="card flex justify-content-center">
-    <p-paginator
-      (onPageChange)="onPageChange($event)"
-      [first]="first"
-      [rows]="rows"
-      [totalRecords]="120"
-      [rowsPerPageOptions]="[5, 10, 15]"
-    ></p-paginator>
+    <div>
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="totalPages"
+        [rowsPerPageOptions]="[6, 10, 15]"
+      ></p-paginator>
+    </div>
   </div>
 </section>

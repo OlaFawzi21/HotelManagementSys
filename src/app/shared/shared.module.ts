@@ -26,6 +26,7 @@ import { RatingModule } from 'primeng/rating';
 import { CarouselModule } from 'primeng/carousel';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { PaginatorModule } from 'primeng/paginator';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileImagePickerComponent } from './components/profile-image-picker/profile-image-picker.component';
@@ -84,6 +85,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     TranslateModule,
     SelectButtonModule,
     RatingModule,
+    BreadcrumbModule,
   ],
   exports: [
     InputTextModule,
@@ -123,6 +125,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     TableHeaderComponent,
     ConfirmDialogModule,
     RatingModule,
+    BreadcrumbModule,
   ],
 })
 export class SharedModule {}

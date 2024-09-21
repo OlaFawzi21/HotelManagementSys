@@ -4,7 +4,6 @@
 @import "pages/colors.scss";
 @import "pages/fonts.scss";
 @import "pages/inputs.scss";
-@import "pages/ngx-drop.scss";
 
 body {
   margin: 0;
@@ -38,7 +37,7 @@ h6 {
 }
 
 .p-scrollpanel .p-scrollpanel-bar {
-  background: #203fc7 ;
+  background: #203fc7;
 }
 
 ul {
@@ -48,4 +47,20 @@ ul {
 
 .fs {
   font-size: 14px;
+}
+
+
+.p-breadcrumb {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.p-breadcrumb .p-menuitem-link {
+  gap: 8px;
+}
+
+.p-breadcrumb .p-breadcrumb-list {
+  padding: 0 !important;
 }
