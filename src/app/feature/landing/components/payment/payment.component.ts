@@ -7,6 +7,8 @@ import {
 import { injectStripe, StripeCardComponent } from 'ngx-stripe';
 import { PaymentService } from './../../services/payment.service';
 import { MessageService } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
+import { LandingService } from '../../services/landing.service';
 
 @Component({
   selector: 'app-payment',
@@ -46,11 +48,18 @@ export class PaymentComponent {
   stripe = injectStripe(
     'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
   );
-
+pageid:string=''
+listroomdetails:any
+price:any
   constructor(
     private paymentService: PaymentService,
-    private messageService: MessageService
-  ) {}
+    private messageService: MessageService,
+    private _ActivatedRoute: ActivatedRoute,
+    private _LandingService:LandingService
+  ) { 
+    this.pageid = this._ActivatedRoute.snapshot.params['id'];
+    this.getroomdetails(this.pageid)
+  }
 
   createToken() {
     // const name = this.stripeTest.get('name').value;
@@ -77,5 +86,15 @@ export class PaymentComponent {
           });
         }
       });
+  } 
+  getroomdetails(id: string) {
+    this._LandingService.getRoomDetails(id).subscribe({
+      next: (res) => {
+        this.listroomdetails = res;
+this.price=this.listroomdetails.data.room.price
+        console.log(this.price);
+      },
+    });
   }
+
 }
