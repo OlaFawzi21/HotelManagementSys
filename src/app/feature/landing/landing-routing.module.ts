@@ -25,7 +25,7 @@ const routes: Routes = [
         canActivate: [userGuard],
       },
       {
-        path: 'payment',
+        path: 'payment/:id',
         component: PaymentComponent,
         canActivate: [userGuard],
       },

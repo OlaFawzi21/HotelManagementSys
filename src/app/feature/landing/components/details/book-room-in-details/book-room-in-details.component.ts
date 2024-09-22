@@ -47,7 +47,7 @@ export class BookRoomInDetailsComponent {
         this.paymentService.createBooking(dataToSend).subscribe({
           next: (res) => {
             if (res.success === true) {
-              this.router.navigate(['/landing/payment']);
+              // this.router.navigate(['/landing/payment']);
               this.paymentService.id = res.data.booking._id;
             }
           },
