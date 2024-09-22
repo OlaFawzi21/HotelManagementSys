@@ -9,7 +9,8 @@
     "PROFILE": "Profile",
     "SEND": "Send",
     "RATE": "Rate",
-    "CONTINUE_BOOK": "Continue Book"
+    "CONTINUE_BOOK": "Continue Book",
+    "BACK_TO_HOME": "Back to home"
   },
   "NAVBAR": {
     "HOME": "Home",
@@ -266,5 +267,10 @@
     "ADD_REVIEW_SUCCESS": "Thank you for your review",
     "ADD_COMMENT_SUCCESS": "Thank you for your comment",
     "DELETE_COMMENT_SUCCESS": "Comment is deleted successfully"
+  },
+  "PAYMENT": {
+    "SUCCESS_PAYMENT_TITLE": "Yay! Completed",
+    "SUCCESS_PAYMENT_DESC_LINE_1": "We will inform you via email later",
+    "SUCCESS_PAYMENT_DESC_LINE_2": "once the transaction has been accepted"
   }
 }

@@ -18,6 +18,8 @@ import { LandingService } from '../../services/landing.service';
 export class PaymentComponent {
   @ViewChild(StripeCardComponent) cardElement!: StripeCardComponent;
 
+  isSuccessPayment: boolean = false;
+
   private readonly fb = inject(UntypedFormBuilder);
 
   cardOptions: StripeCardElementOptions = {
@@ -48,17 +50,18 @@ export class PaymentComponent {
   stripe = injectStripe(
     'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
   );
-pageid:string=''
-listroomdetails:any
-price:any
+  pageid: string = '';
+  listroomdetails: any;
+  price: any;
+
   constructor(
     private paymentService: PaymentService,
     private messageService: MessageService,
     private _ActivatedRoute: ActivatedRoute,
-    private _LandingService:LandingService
-  ) { 
+    private _LandingService: LandingService
+  ) {
     this.pageid = this._ActivatedRoute.snapshot.params['id'];
-    this.getroomdetails(this.pageid)
+    this.getroomdetails(this.pageid);
   }
 
   createToken() {
@@ -76,6 +79,8 @@ price:any
                 summary: 'Success',
                 detail: res.message,
               });
+
+              this.isSuccessPayment = true;
             },
           });
         } else if (result.error) {
@@ -86,15 +91,14 @@ price:any
           });
         }
       });
-  } 
+  }
   getroomdetails(id: string) {
     this._LandingService.getRoomDetails(id).subscribe({
       next: (res) => {
         this.listroomdetails = res;
-this.price=this.listroomdetails.data.room.price
+        this.price = this.listroomdetails.data.room.price;
         console.log(this.price);
       },
     });
   }
-
 }
