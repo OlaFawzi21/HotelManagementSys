@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { LandingService } from '../../services/landing.service';
 import { GetRoomsListResponse } from 'src/app/feature/dashboard/modules/rooms/interfaces/get-rooms-list-response';
 import { DataSharingService } from '../../services/data-sharing.service';
+import { TranslateService } from '@ngx-translate/core';
 
 interface PageEvent {
   first: number;
@@ -33,16 +34,21 @@ export class ExploreComponent {
 
   constructor(
     private _landing: LandingService,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit() {
     this.dataSharingService.currentData.subscribe((data) => {
       this.receivedData = data;
     });
-    this.items = [{ label: 'Explore' }];
+    this.items = [{ label: this.translate.instant('NAVBAR.EXPLORE') }];
+    this.home = {
+      label: this.translate.instant('NAVBAR.HOME'),
+      icon: 'pi pi-home',
+      routerLink: '/landing',
+    };
     this.getRooms(0, this.rows); //PrimeNG pages start at 0, backend pages start at 1
-    this.home = { label: ' Home', icon: 'pi pi-home', routerLink: '/landing' };
   }
 
   getRooms(page: number, rows: number): void {

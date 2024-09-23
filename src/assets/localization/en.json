@@ -10,7 +10,8 @@
     "SEND": "Send",
     "RATE": "Rate",
     "CONTINUE_BOOK": "Continue Book",
-    "BACK_TO_HOME": "Back to home"
+    "BACK_TO_HOME": "Back to home",
+    "CANCEL": "Cancel"
   },
   "NAVBAR": {
     "HOME": "Home",
@@ -257,7 +258,9 @@
     "PER_NIGHT": "per night",
     "DISCOUNT": "Discount"
   },
-  "FAVORITES": { "FAVORITES_LIST_TITLE": "Your Favorite Room" },
+  "FAVORITES": {
+    "FAVORITES_LIST_TITLE": "Your Favorite Room"
+  },
   "ERROR_MESSAGES": {
     "ERROR_TITLE": "Error",
     "LOGIN_FIRST": "Please login first"
@@ -269,8 +272,25 @@
     "DELETE_COMMENT_SUCCESS": "Comment is deleted successfully"
   },
   "PAYMENT": {
+    "title":"Payment",
+    "subTitle":"Kindly follow the instructions below",
+    "enterData":"Enter Data",
+    "dataValid": "Data Valid",
+    "completed": "Completed",
+    "tax": "Tax",
+    "subTotal": "Sub total",
+    "total": "Total",
+    "transfer":"Transfer Pembayaran",
+    "bankCentralAsia": "Bank Central Asia",
+    "accountNumber": "2208 1996",
+    "buildWithAngga": "BuildWith Angga",
+    "bankMandiri": "Bank Mandiri",
     "SUCCESS_PAYMENT_TITLE": "Yay! Completed",
     "SUCCESS_PAYMENT_DESC_LINE_1": "We will inform you via email later",
     "SUCCESS_PAYMENT_DESC_LINE_2": "once the transaction has been accepted"
+  },
+  "explore": {
+    "exploreALLRooms": "Explore ALL Rooms",
+    "allRoom": "All Room"
   }
 }

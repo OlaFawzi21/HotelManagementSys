@@ -21,3 +21,15 @@
   border: 2px solid #eee;
   border-radius: 8px;
 }
+
+.btn-main {
+  width: 250px !important;
+
+  ::ng-deep .p-button {
+    width: 100% !important;
+  }
+}
+
+.logo-bank{
+  height: fit-content;
+}
