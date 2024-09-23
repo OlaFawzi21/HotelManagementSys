@@ -4,6 +4,7 @@ button {
 
 .btn-main .p-button {
   background-color: var(--bg-secondary-color) !important;
+  width: 250px;
 
   &:hover {
     background-color: var(--btn-hover) !important;
@@ -51,8 +52,13 @@ button {
   color: var(--yellow-color) !important;
 }
 
-.p-rating:not(.p-disabled):not(.p-readonly)
-  .p-rating-item:hover
-  .p-rating-icon {
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon {
   color: var(--yellow-color) !important;
+}
+
+.p-button.p-button-secondary {
+  background-color: var(--bg-gray-color) !important;
+  border: var(--bg-gray-color) !important;
+  color: var(--gray-color) !important;
+  width: 250px;
 }

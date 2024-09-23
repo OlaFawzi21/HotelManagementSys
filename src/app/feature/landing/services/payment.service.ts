@@ -7,12 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class PaymentService {
   baseUrl = 'portal/booking';
+  id: string;
+  price: number;
+  
   constructor(private _http: HttpClient) {}
 
   createBooking(data: any): Observable<any> {
     return this._http.post(this.baseUrl, data);
   }
-  id: string;
   payment(tokenId: string): Observable<any> {
     return this._http.post(`${this.baseUrl}/${this.id}/pay`, {
       token: tokenId,
