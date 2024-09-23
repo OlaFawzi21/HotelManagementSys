@@ -1,10 +1,10 @@
-<ng-container *ngIf="!isSuccessPayment; else successPayment">
-  <div class="container mt-5 w-75">
-    <p-steps
-      [model]="items"
-      [readonly]="true"
-      [activeIndex]="activeIndex"
-    ></p-steps>
+<div class="container mt-5 w-75">
+  <p-steps
+    [model]="items"
+    [readonly]="true"
+    [activeIndex]="activeIndex"
+  ></p-steps>
+  <ng-container *ngIf="!isSuccessPayment; else successPayment">
     <div class="tittel mt-5">
       <h2 class="text-center main-color">Payment</h2>
       <p class="text-center stable-text">
@@ -55,8 +55,8 @@
         ></p-button>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
+</div>
 
 <ng-template #successPayment>
   <app-success-payment></app-success-payment>
