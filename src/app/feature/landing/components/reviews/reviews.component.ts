@@ -34,11 +34,9 @@ export class ReviewsComponent {
       review: this.translate.instant('reviews.review5'),
     },
   ];
-  isArabic: boolean;
   responsiveOptions: any[];
 
   constructor(private translate: TranslateService) {
-    this.isArabic = this.translate.currentLang === 'ar';
   }
 
   ngOnInit() {

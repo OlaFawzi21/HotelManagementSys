@@ -3,14 +3,11 @@
 
   &__badge {
     position: absolute;
-    z-index: 1000;
-
+    z-index: 100;
+    right: 0;
     text-align: center;
     padding: 0.5rem 2rem;
-
-    border-top-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-
+    border-radius: 0 1rem;
     color: white;
     background-color: var(--card-badge);
   }
@@ -53,6 +50,9 @@
 
   .inner {
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    border-radius: 1rem;
+    overflow: hidden;
   }
 
   .port-item img {
@@ -62,7 +62,7 @@
   .port-item .layer {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.377);
+    background-color: rgba(0, 0, 0, 0.6);
     opacity: 0;
     border-radius: 16px;
     transition: 0.3s;
