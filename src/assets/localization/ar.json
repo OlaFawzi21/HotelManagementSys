@@ -8,7 +8,8 @@
     "CHANGE_PASSWORD": "تغيير كلمةالسر",
     "PROFILE": "الملف الشخصى",
     "SEND": "ارسال",
-    "CONTINUE_BOOK": "اكمال الحجز"
+    "CONTINUE_BOOK": "اكمال الحجز",
+    "BACK_TO_HOME": "العودة للرئيسية"
   },
   "NAVBAR": {
     "HOME": "الرئيسية",
@@ -265,5 +266,10 @@
     "ADD_REVIEW_SUCCESS": "شكرا لك على التقييم",
     "ADD_COMMENT_SUCCESS": "تم التعليق بنجاح",
     "DELETE_COMMENT_SUCCESS": "تم حذف التعليق بنجاح"
+  },
+  "PAYMENT": {
+    "SUCCESS_PAYMENT_TITLE": "تم بنجاح!",
+    "SUCCESS_PAYMENT_DESC_LINE_1": "سوف نؤكد عليك برسالة",
+    "SUCCESS_PAYMENT_DESC_LINE_2": "عندما تتم المعاملة"
   }
 }

@@ -15,6 +15,8 @@ import { MenuItem, MessageService } from 'primeng/api';
 export class PaymentComponent {
   @ViewChild(StripeCardComponent) cardElement!: StripeCardComponent;
 
+  isSuccessPayment: boolean = false;
+
   private readonly fb = inject(UntypedFormBuilder);
 
   cardOptions: StripeCardElementOptions = {
@@ -94,6 +96,7 @@ export class PaymentComponent {
                 detail: res.message,
               });
               this.activeIndex = 2;
+              this.isSuccessPayment = true;
             },
           });
         } else if (result.error) {

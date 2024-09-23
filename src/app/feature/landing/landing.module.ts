@@ -22,6 +22,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { NgxStripeModule } from 'ngx-stripe';
+import { SuccessPaymentComponent } from './components/payment/success-payment/success-payment.component';
 @NgModule({
   declarations: [
     LandingComponent,
@@ -42,6 +43,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     ExploreComponent,
     FooterComponent,
     PaymentComponent,
+    SuccessPaymentComponent,
   ],
   imports: [
     CommonModule,
