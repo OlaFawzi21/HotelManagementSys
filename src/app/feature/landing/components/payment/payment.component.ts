@@ -6,10 +6,7 @@ import {
 } from '@stripe/stripe-js';
 import { injectStripe, StripeCardComponent } from 'ngx-stripe';
 import { PaymentService } from './../../services/payment.service';
-import { MessageService } from 'primeng/api';
-import { ActivatedRoute } from '@angular/router';
-import { LandingService } from '../../services/landing.service';
-
+import { MenuItem, MessageService } from 'primeng/api';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -50,18 +47,37 @@ export class PaymentComponent {
   stripe = injectStripe(
     'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
   );
-  pageid: string = '';
-  listroomdetails: any;
-  price: any;
+
+  price: number;
+
+  items: MenuItem[] | undefined;
+
+  isCardValid: boolean = false;
+
+  activeIndex: number = 0;
 
   constructor(
     private paymentService: PaymentService,
-    private messageService: MessageService,
-    private _ActivatedRoute: ActivatedRoute,
-    private _LandingService: LandingService
-  ) {
-    this.pageid = this._ActivatedRoute.snapshot.params['id'];
-    this.getroomdetails(this.pageid);
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Enter Data',
+      },
+      {
+        label: 'Data Valid',
+      },
+      {
+        label: 'Completed',
+      },
+    ];
+    this.price = this.paymentService.price;
+  }
+
+  ngAfterViewInit() {
+    this.checkCard();
   }
 
   createToken() {
@@ -79,7 +95,7 @@ export class PaymentComponent {
                 summary: 'Success',
                 detail: res.message,
               });
-
+              this.activeIndex = 2;
               this.isSuccessPayment = true;
             },
           });
@@ -92,13 +108,17 @@ export class PaymentComponent {
         }
       });
   }
-  getroomdetails(id: string) {
-    this._LandingService.getRoomDetails(id).subscribe({
-      next: (res) => {
-        this.listroomdetails = res;
-        this.price = this.listroomdetails.data.room.price;
-        console.log(this.price);
-      },
+
+  checkCard() {
+    this.cardElement.change.subscribe((event) => {
+      if (event.error) {
+        this.isCardValid = false;
+      } else {
+        this.isCardValid = event.complete;
+        if (this.isCardValid) {
+          this.activeIndex = 1;
+        }
+      }
     });
   }
 }

@@ -3,11 +3,11 @@
   --main-color: #fff;
   --secondary-color: #203fc7;
   --ternary-color: #152c5b;
-  --gary-color: #b0b0b0;
+  --gray-color: #b0b0b0;
   --yellow-color: #dfcb1d;
   --bg-main-color: #fff;
   --bg-secondary-color: #203fc7;
-  --bg-gary-color: #f5f6f8;
+  --bg-gray-color: #f5f6f8;
   --bg-navbar-color: #e7eaef;
   --bg-icon-color: rgba(32, 63, 199, 0.2);
   --btn-hover: #3e60f9;
@@ -40,7 +40,7 @@
 }
 
 .gray-color {
-  color: var(--gary-color);
+  color: var(--gray-color);
 }
 
 .yellow-color {
@@ -56,7 +56,7 @@
 }
 
 .bg-gray-color {
-  background-color: var(--bg-gary-color);
+  background-color: var(--bg-gray-color);
 }
 
 .bg-navbar-color {
