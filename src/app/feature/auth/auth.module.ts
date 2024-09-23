@@ -9,6 +9,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from '@abacritt/angularx-social-login';
+ 
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
     AuthComponent,
@@ -17,6 +27,36 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ResetPasswordComponent,
     ForgetPasswordComponent,
   ],
-  imports: [CommonModule, AuthRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    SharedModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
+  ],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        lang: 'en',
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '301824227260-dppbcv7i1m60e4mqtru702j45om8f2h3.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('734526147774543'),
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        },
+      } as SocialAuthServiceConfig,
+    },
+  ],
 })
 export class AuthModule {}

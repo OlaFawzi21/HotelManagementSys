@@ -92,6 +92,11 @@ export class PaymentComponent {
           console.log(result.token.id);
           this.paymentService.payment(result.token.id).subscribe({
             next: (res) => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: res,
+              });
               this.isSuccessPayment = true;
               this.activeIndex = 2;
             },
