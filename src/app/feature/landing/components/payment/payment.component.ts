@@ -7,6 +7,7 @@ import {
 import { injectStripe, StripeCardComponent } from 'ngx-stripe';
 import { PaymentService } from './../../services/payment.service';
 import { MenuItem, MessageService } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -58,19 +59,20 @@ export class PaymentComponent {
 
   constructor(
     private paymentService: PaymentService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit() {
     this.items = [
       {
-        label: 'Enter Data',
+        label: this.translate.instant('PAYMENT.enterData'),
       },
       {
-        label: 'Data Valid',
+        label: this.translate.instant('PAYMENT.dataValid'),
       },
       {
-        label: 'Completed',
+        label: this.translate.instant('PAYMENT.completed'),
       },
     ];
     this.price = this.paymentService.price;

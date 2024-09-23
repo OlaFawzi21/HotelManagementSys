@@ -26,6 +26,11 @@ const routes: Routes = [
     redirectTo: 'landing',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo: 'landing',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
