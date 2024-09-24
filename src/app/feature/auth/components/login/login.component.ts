@@ -5,6 +5,13 @@ import { LoginRequest } from '../../interfaces/login-request';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LoginResponse } from '../../interfaces/login-response';
+import {
+  SocialAuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,11 +29,28 @@ export class LoginComponent {
     ]),
   });
 
+  user: SocialUser;
+  loggedIn: boolean;
+  private accessToken = '';
+
   constructor(
     private authService: AuthService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private socialService: SocialAuthService,
+    private httpClient: HttpClient
   ) {}
+
+  ngOnInit() {
+    this.socialService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = user != null;
+    });
+  }
+
+  loginWithGoogle(): void {
+    this.socialService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
 
   onLogin(data: FormGroup) {
     this.loginForm.markAllAsTouched();

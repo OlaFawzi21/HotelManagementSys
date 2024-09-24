@@ -6,10 +6,8 @@ import {
 } from '@stripe/stripe-js';
 import { injectStripe, StripeCardComponent } from 'ngx-stripe';
 import { PaymentService } from './../../services/payment.service';
-import { MessageService } from 'primeng/api';
-import { ActivatedRoute } from '@angular/router';
-import { LandingService } from '../../services/landing.service';
-
+import { MenuItem, MessageService } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -50,18 +48,38 @@ export class PaymentComponent {
   stripe = injectStripe(
     'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
   );
-  pageid: string = '';
-  listroomdetails: any;
-  price: any;
+
+  price: number;
+
+  items: MenuItem[] | undefined;
+
+  isCardValid: boolean = false;
+
+  activeIndex: number = 0;
 
   constructor(
     private paymentService: PaymentService,
     private messageService: MessageService,
-    private _ActivatedRoute: ActivatedRoute,
-    private _LandingService: LandingService
-  ) {
-    this.pageid = this._ActivatedRoute.snapshot.params['id'];
-    this.getroomdetails(this.pageid);
+    private translate: TranslateService
+  ) {}
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: this.translate.instant('PAYMENT.enterData'),
+      },
+      {
+        label: this.translate.instant('PAYMENT.dataValid'),
+      },
+      {
+        label: this.translate.instant('PAYMENT.completed'),
+      },
+    ];
+    this.price = this.paymentService.price;
+  }
+
+  ngAfterViewInit() {
+    this.checkCard();
   }
 
   createToken() {
@@ -77,10 +95,10 @@ export class PaymentComponent {
               this.messageService.add({
                 severity: 'success',
                 summary: 'Success',
-                detail: res.message,
+                detail: res,
               });
-
               this.isSuccessPayment = true;
+              this.activeIndex = 2;
             },
           });
         } else if (result.error) {
@@ -92,13 +110,17 @@ export class PaymentComponent {
         }
       });
   }
-  getroomdetails(id: string) {
-    this._LandingService.getRoomDetails(id).subscribe({
-      next: (res) => {
-        this.listroomdetails = res;
-        this.price = this.listroomdetails.data.room.price;
-        console.log(this.price);
-      },
+
+  checkCard() {
+    this.cardElement.change.subscribe((event) => {
+      if (event.error) {
+        this.isCardValid = false;
+      } else {
+        this.isCardValid = event.complete;
+        if (this.isCardValid) {
+          this.activeIndex = 1;
+        }
+      }
     });
   }
 }

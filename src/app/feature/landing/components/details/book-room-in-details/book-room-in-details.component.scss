@@ -10,7 +10,7 @@
 }
 
 .price-per-night {
-  color: var(--gary-color);
+  color: var(--gray-color);
   font-family: Poppins-Light !important;
   font-weight: 200 !important;
 }
@@ -21,6 +21,7 @@
 }
 
 .booking-form {
+
   ::ng-deep .p-inputtext,
   ::ng-deep .p-button {
     padding-top: 0 !important;

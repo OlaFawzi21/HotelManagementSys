@@ -23,7 +23,6 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/localization/', '.json');
 }
@@ -43,17 +42,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+
   ],
   providers: [
     TranslateService,
     MessageService,
-    { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorsInterceptor,
-      multi: true,
-    },
-    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
+   
   ],
   bootstrap: [AppComponent],
 })

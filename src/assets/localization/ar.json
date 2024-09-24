@@ -8,8 +8,9 @@
     "CHANGE_PASSWORD": "تغيير كلمةالسر",
     "PROFILE": "الملف الشخصى",
     "SEND": "ارسال",
-    "CONTINUE_BOOK": "اكمال الحجز",
-    "BACK_TO_HOME": "العودة للرئيسية"
+    "CONTINUE_BOOK": "إكمال الحجز",
+    "BACK_TO_HOME": "العودة للرئيسية",
+    "CANCEL": "إلغاء"
   },
   "NAVBAR": {
     "HOME": "الرئيسية",
@@ -256,7 +257,9 @@
     "PER_NIGHT": "خلال ليلة",
     "DISCOUNT": "خصم"
   },
-  "FAVORITES": { "FAVORITES_LIST_TITLE": "غرفك المفضلة" },
+  "FAVORITES": {
+    "FAVORITES_LIST_TITLE": "غرفك المفضلة"
+  },
   "ERROR_MESSAGES": {
     "ERROR_TITLE": "خطأ",
     "LOGIN_FIRST": "قم أولا بتسجيل الدخول"
@@ -268,8 +271,25 @@
     "DELETE_COMMENT_SUCCESS": "تم حذف التعليق بنجاح"
   },
   "PAYMENT": {
+    "title": "الدفع",
+    "subTitle": "يرجى اتباع التعليمات أدناه",
+    "enterData": "أدخل البيانات",
+    "dataValid": "البيانات صحيحة",
+    "completed": "مكتمل",
+    "tax": "الضرائب",
+    "subTotal": "المجموع الفرعي",
+    "total": "الإجمالي",
+    "transfer": "تحويل Pembayaran",
+    "bankCentralAsia": "بنك المركز الآسيوي",
+    "accountNumber": "2208 1996",
+    "buildWithAngga": "BuildWith Angga",
+    "bankMandiri": "بنك مانديري",
     "SUCCESS_PAYMENT_TITLE": "تم بنجاح!",
     "SUCCESS_PAYMENT_DESC_LINE_1": "سوف نؤكد عليك برسالة",
     "SUCCESS_PAYMENT_DESC_LINE_2": "عندما تتم المعاملة"
+  },
+  "explore": {
+    "exploreALLRooms": "استكشف جميع الغرف",
+    "allRoom": "جميع الغرف"
   }
 }

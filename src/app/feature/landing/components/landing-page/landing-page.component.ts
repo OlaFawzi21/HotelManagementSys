@@ -1,10 +1,7 @@
-import { rooms } from './../../constants/rooms';
 import { Component } from '@angular/core';
 
 import { LandingService } from '../../services/landing.service';
 
-import { Advertisment } from '../../interfaces/advertisment';
-import { Image } from 'primeng/image';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -19,13 +16,7 @@ export class LandingPageComponent {
   adslist: any;
   checked: boolean = false;
   roomId: number = 0;
-  constructor(
-    private _landing: LandingService,
-    private translate: TranslateService,
-
-  ) {
-
-  }
+  constructor(private _landing: LandingService) {}
 
   ngOnInit() {
     this.getAds();
@@ -59,5 +50,4 @@ export class LandingPageComponent {
       },
     });
   }
-
 }

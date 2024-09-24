@@ -38,8 +38,7 @@ export class FavouriteComponent implements OnInit {
         next: (data) => {
           this.roomsData = data;
           this.roomsList = this.roomsData.data.favoriteRooms[0].rooms;
-          this.totalPages = this.roomsData.data.totalCount
-          console.log(this.roomsData);
+          this.totalPages = this.roomsList.length;
         },
       });
   }
