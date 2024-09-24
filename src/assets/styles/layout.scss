@@ -1,7 +1,9 @@
+@import "../themes/light-mode.scss";
+@import "../themes/dark-mode.scss";
+@import "pages/colors.scss";
 @import "pages/auth.scss";
 @import "pages/dashboard.scss";
 @import "pages/buttons.scss";
-@import "pages/colors.scss";
 @import "pages/fonts.scss";
 @import "pages/inputs.scss";
 @import "pages/style-ar.scss";
@@ -11,6 +13,10 @@ body {
   height: 100%;
 
   font-family: Poppins !important;
+
+  color: var(--main-color) !important;
+
+  background-color: var(--bg-main-color) !important;
 }
 
 * {
@@ -49,7 +55,6 @@ ul {
 .fs {
   font-size: 14px;
 }
-
 
 .p-breadcrumb {
   background: transparent !important;

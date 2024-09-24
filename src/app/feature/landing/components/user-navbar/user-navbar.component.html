@@ -16,7 +16,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ms-auto mx-3">
+      <div class="navbar-nav ms-auto mx-2">
         <a
           class="nav-item nav-link"
           routerLinkActive="active"
@@ -41,6 +41,27 @@
           >{{ "NAVBAR.FAVORITES" | translate }}</a
         >
       </div>
+
+      <form [formGroup]="filterForm" class="select-button">
+        <p-selectButton
+          class="d-inline-flex me-2"
+          [options]="languagesOptions"
+          formControlName="language"
+          optionLabel="label"
+          optionValue="value"
+          (ngModelChange)="changeLang()"
+        ></p-selectButton>
+
+        <p-selectButton
+          class="d-inline-flex mx-2"
+          [options]="themesOptions"
+          formControlName="theme"
+          optionLabel="label"
+          optionValue="value"
+          (ngModelChange)="toggleTheme()"
+        ></p-selectButton>
+      </form>
+
       <div
         class="d-flex justify-content-end align-items-center gap-4"
         *ngIf="userProfile"
@@ -61,20 +82,12 @@
             ></p-avatar>
           </ng-template>
         </div>
+
         <h6>{{ userProfile.data.user.userName }}</h6>
         <a (click)="menu.toggle($event)" class="pointer"
           ><i class="pi pi-chevron-down"></i
         ></a>
         <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
-        <form [formGroup]="formGroup" class="select-button">
-          <p-selectButton
-            [options]="stateOptions"
-            formControlName="language"
-            optionLabel="label"
-            optionValue="value"
-            (ngModelChange)="changeLang()"
-          ></p-selectButton>
-        </form>
       </div>
     </div>
   </div>

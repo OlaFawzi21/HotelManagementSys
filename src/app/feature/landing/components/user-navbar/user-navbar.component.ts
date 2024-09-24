@@ -21,12 +21,19 @@ export class UserNavbarComponent {
   displayDialog: boolean = false;
   items: MenuItem[] | undefined;
 
-  formGroup: FormGroup;
+  filterForm: FormGroup;
   lang = 'en';
+  theme = 'light';
+  isDarkTheme: boolean = false;
 
-  stateOptions: any[] = [
+  languagesOptions: any[] = [
     { label: 'Ar', value: 'ar' },
     { label: 'En', value: 'en' },
+  ];
+
+  themesOptions: any[] = [
+    { label: 'Light', value: 'light' },
+    { label: 'Dark', value: 'dark' },
   ];
 
   changePasswordForm = new FormGroup({
@@ -43,11 +50,13 @@ export class UserNavbarComponent {
     private translateService: TranslateService
   ) {
     this.lang = this.translateService.currentLang;
+    this.isDarkTheme = localStorage.getItem('theme') === 'dark' ? true : false;
   }
 
   ngOnInit() {
-    this.formGroup = new FormGroup({
+    this.filterForm = new FormGroup({
       language: new FormControl(this.lang),
+      theme: new FormControl(this.theme),
     });
 
     this.getProfile();
@@ -78,6 +87,21 @@ export class UserNavbarComponent {
       localStorage.setItem('language', 'ar');
     }
     window.location.reload();
+  }
+
+  toggleTheme() {
+    const themeLink = document.getElementById('app-theme') as HTMLLinkElement;
+
+    if (this.isDarkTheme) {
+      themeLink.href = 'assets/themes/light-mode.scss';
+    } else {
+      themeLink.href = 'assets/themes/dark-mode.scss';
+    }
+
+    this.isDarkTheme = !this.isDarkTheme;
+    localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+
+    document.documentElement.classList.toggle('theme-switch');
   }
 
   getProfile() {

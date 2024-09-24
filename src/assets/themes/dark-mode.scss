@@ -1,5 +1,5 @@
-:root {
-  --default-color: #e0e0e0;
+:root.theme-switch {
+  --default-color: #fff;
   --main-color: #fff;
   --secondary-color: #4a90e2;
   --ternary-color: #8ea9e8;
@@ -7,8 +7,9 @@
   --yellow-color: #dfcb1d;
 
   --bg-main-color: #121212;
-  --bg-secondary-color: #1f2a48;    
+  --bg-secondary-color: #1f2a48;
   --bg-gary-color: #242424;
   --bg-navbar-color: #181818;
   --bg-icon-color: rgba(74, 144, 226, 0.2);
+  --text-gray-color: white;
 }
