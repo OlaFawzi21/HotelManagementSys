@@ -49,7 +49,7 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('734526147774543'),
+            provider: new FacebookLoginProvider('546455731192015'),
           },
         ],
         onError: (err) => {
