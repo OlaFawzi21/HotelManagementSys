@@ -41,7 +41,15 @@ export class AuthService {
     return this._http.post<any>(this.authBaseUrl, formValue);
   }
 
-  signIn(){
+  signInWithGoogle(token: string): Observable<any> {
+    return this._http.post<any>(this.authBaseUrl + 'auth/google', {
+      accessToken: token,
+    });
+  }
 
+  signInWithFacebook(token: string): Observable<any> {
+    return this._http.post<any>(this.authBaseUrl + 'auth/google', {
+      accessToken: token,
+    });
   }
 }

@@ -37,19 +37,28 @@ export class LoginComponent {
     private authService: AuthService,
     private messageService: MessageService,
     private router: Router,
-    private socialService: SocialAuthService,
-    private httpClient: HttpClient
+    private socialService: SocialAuthService
   ) {}
 
   ngOnInit() {
     this.socialService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
+      console.log(user);
+      this.loginWithGoogle();
     });
   }
 
+  signInWithFB(): void {
+    this.socialService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
   loginWithGoogle(): void {
-    this.socialService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signInWithGoogle(this.user.idToken).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+    });
   }
 
   onLogin(data: FormGroup) {
