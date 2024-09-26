@@ -17,7 +17,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from '@abacritt/angularx-social-login';
- 
+
 import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '301824227260-dppbcv7i1m60e4mqtru702j45om8f2h3.apps.googleusercontent.com'
+              '331503055161-9vlbtkhatqqiuv7gsdian4v0tgco980m.apps.googleusercontent.com'
             ),
           },
           {

@@ -82,8 +82,21 @@
           <a routerLink="/auth/forget-password">Forgot Password ?</a>
         </span>
 
-        <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
-         <!-- <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button> -->
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <asl-google-signin-button
+            type="icon"
+            size="medium"
+          ></asl-google-signin-button>
+          <a
+            style="
+              border: 1px solid #e1e1e1;
+              padding: 3px 8px;
+              border-radius: 5px;
+            "
+            (click)="signInWithFB()"
+            ><i class="pi pi-facebook" style="color: rgb(0, 82, 234)"></i
+          ></a>
+        </div>
       </form>
     </div>
   </div>
