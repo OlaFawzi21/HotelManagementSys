@@ -14,8 +14,6 @@ body {
 
   font-family: Poppins !important;
 
-  color: var(--main-color) !important;
-
   background-color: var(--bg-main-color) !important;
 }
 
@@ -73,4 +71,19 @@ ul {
 
 .p-steps .p-steps-item.p-highlight .p-steps-number {
   border: 2px solid;
+}
+
+.p-steps .p-steps-item .p-menuitem-link {
+  background: var(--bg-main-color);
+}
+
+.p-paginator,
+.p-dropdown,
+.p-dropdown-panel {
+  background: var(--bg-paginator) !important;
+}
+
+
+thead th{
+  padding-block: 15px;
 }

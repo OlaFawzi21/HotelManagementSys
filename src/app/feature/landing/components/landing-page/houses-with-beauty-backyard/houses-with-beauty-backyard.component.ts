@@ -9,6 +9,5 @@ export class HousesWithBeautyBackyardComponent implements OnInit {
   @Input() roomsList: any[];
   ngOnInit(): void {}
   ngOnChanges() {
-    console.log(this.roomsList);
   }
 }

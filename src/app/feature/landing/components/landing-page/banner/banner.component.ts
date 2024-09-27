@@ -14,7 +14,8 @@ export class BannerComponent {
   rangeDates: any[];
   capacity: number = 1;
   isLoggedIn: boolean = false;
-
+  today = new Date();
+  
   constructor(
     public _translate: TranslateService,
     private dataSharingService: DataSharingService,

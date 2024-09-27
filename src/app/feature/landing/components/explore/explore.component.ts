@@ -54,7 +54,6 @@ export class ExploreComponent {
   getRooms(page: number, rows: number): void {
     const pageNumber = page + 1;
     if (this.receivedData) {
-      console.log('hi');
 
       this.receivedData = {
         ...this.receivedData,

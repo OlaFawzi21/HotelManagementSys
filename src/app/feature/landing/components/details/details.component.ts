@@ -25,7 +25,6 @@ export class DetailsComponent implements OnInit {
     private _ActivatedRoute: ActivatedRoute
   ) {
     this.pageid = this._ActivatedRoute.snapshot.params['id'];
-    console.log(this.pageid);
   }
 
   ngOnInit(): void {
@@ -52,9 +51,7 @@ export class DetailsComponent implements OnInit {
       next: (res) => {
         this.listroomdetails = res;
 
-        console.log(this.listroomdetails.data.rooms);
         this.images = this.listroomdetails.data.room.images;
-        console.log(this.images);
         this.facilities = this.listroomdetails.data.room.facilities;
       },
     });
@@ -77,12 +74,8 @@ export class DetailsComponent implements OnInit {
         return 'fa-solid fa-gamepad';
       case 'Air conditioner':
         return 'fa-solid fa-fan';
-      case 'air conditioning':
-        return 'fa-solid fa-fan';
       case 'Free Wi-Fi':
         return 'fa-solid fa-wifi';
-      case 'Laundry & ironing':
-        return 'fa-solid  fa-soap';
       case 'Wifi':
         return 'fa-solid fa-wifi';
       case 'TV and telephone':
@@ -91,7 +84,12 @@ export class DetailsComponent implements OnInit {
         return 'fa-solid fa-mug-hot';
       case 'Coffee maker':
         return 'fa-solid fa-mug-hot';
-
+      case 'Laundry & ironing':
+        return 'fa-solid fa-soap';
+      case 'gym':
+        return 'fa-solid fa-dumbbell';
+      case 'fan':
+        return 'fa-solid fa-fan';
       default:
         return 'pi pi-question';
     }

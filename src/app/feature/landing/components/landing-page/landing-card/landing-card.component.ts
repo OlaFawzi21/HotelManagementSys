@@ -21,30 +21,36 @@ export class LandingCardComponent implements OnInit {
   @Input() id: string;
   @Input() isFavorite: boolean = true;
 
+  isLoggedIn: boolean = false;
+
   constructor(
     private _LandingService: LandingService,
     private MessageService: MessageService
   ) {
-    // this.roomId = this._ActivatedRoute.snapshot.params['_id'];
-    // console.log(this.roomId);
-  }
-  ngOnInit(): void {
-    this.id;
+    this.isLoggedIn = localStorage.getItem('userToken') ? true : false;
   }
 
+  ngOnInit(): void {}
+
   addAndRemoveFavourite() {
-    if (this.isFavorite == true) {
-      this.addToFavourite();
+    if (this.isLoggedIn) {
+      if (this.isFavorite == true) {
+        this.addToFavourite();
+      } else {
+        this.removeFromFavourite();
+      }
     } else {
-      this.removeFromFavourite();
+      this.MessageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Please log in to access this feature!',
+      });
     }
   }
 
   addToFavourite() {
     this._LandingService.addToFavourites(this.id).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
+      next: (data) => {},
       error: () => {},
       complete: () => {
         this.MessageService.add({
@@ -58,10 +64,7 @@ export class LandingCardComponent implements OnInit {
 
   removeFromFavourite() {
     this._LandingService.deleteFromFavourites(this.id).subscribe({
-      next: (data) => {
-        console.log(data);
-        console.log(this.id);
-      },
+      next: (data) => {},
       error: () => {},
       complete: () => {
         this.removeFromFavorites.emit();
