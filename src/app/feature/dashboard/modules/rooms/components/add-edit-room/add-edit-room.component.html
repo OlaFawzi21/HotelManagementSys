@@ -126,21 +126,22 @@
       </div>
     </div>
 
-    <app-image-picker
-      *ngIf="isViewMode !== undefined"
-      [initialImages]="initialImages"
-      [multiple]="multipleImages"
-      [name]="'Room'"
-      [fileLimit]="imagesLimit"
-      [isView]="isViewMode"
-      (imagesEmitter)="updateImages($event)"
-    ></app-image-picker>
+    <ng-container *ngIf="mode">
+      <app-image-picker
+        [initialImages]="initialImages"
+        [multiple]="multipleImages"
+        [name]="'Room'"
+        [fileLimit]="imagesLimit"
+        [isView]="mode === 'view' ? true : false"
+        (imagesEmitter)="updateImages($event)"
+      ></app-image-picker>
+    </ng-container>
 
     <p-divider class="mt-5"></p-divider>
 
     <div
       class="row mx-0 mb-3 justify-content-end align-items-center"
-      *ngIf="!isViewMode"
+      *ngIf="mode !== 'view'"
     >
       <button
         pButton

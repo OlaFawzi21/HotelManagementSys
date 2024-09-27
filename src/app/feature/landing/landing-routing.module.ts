@@ -23,7 +23,7 @@ const routes: Routes = [
       {
         path: 'explore',
         component: ExploreComponent,
-        canActivate: [userGuard],
+        // canActivate: [userGuard],
       },
       {
         path: 'payment',

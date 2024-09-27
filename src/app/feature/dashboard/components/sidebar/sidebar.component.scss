@@ -14,7 +14,7 @@
 
   .menu {
     .item {
-      color: var(--main-color) !important;
+      color: var(--sidebar-color) !important;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -24,14 +24,14 @@
 
       &:hover {
         background-color: var(--li-hover);
-        color: var(--main-color) !important;
+        color: var(--sidebar-color) !important;
         text-decoration: none !important;
       }
     }
 
     .active {
       background-color: var(--li-hover);
-      color: var(--main-color) !important;
+      color: var(--sidebar-color) !important;
     }
 
     .pi {

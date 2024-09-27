@@ -27,7 +27,7 @@ export class AddEditRoomComponent {
   initialImages: any[] = [];
   images: any[] = [];
 
-  isViewMode: boolean | undefined = undefined;
+  mode: string = '';
 
   roomForm = new FormGroup({
     roomNumber: new FormControl(null, [Validators.required]),
@@ -57,10 +57,10 @@ export class AddEditRoomComponent {
   checkRoute(): void {
     const currentRoute = this._router.url;
     if (currentRoute.includes('view')) {
-      this.isViewMode = true;
+      this.mode = 'view';
       this.roomForm.disable();
     } else {
-      this.isViewMode = false;
+      this.mode = 'editable';
       this.roomForm.enable();
     }
   }
@@ -71,6 +71,8 @@ export class AddEditRoomComponent {
 
         if (this.id) {
           this.initRoom();
+        } else {
+          this.mode = 'add';
         }
       },
       error: () => {
@@ -82,7 +84,6 @@ export class AddEditRoomComponent {
   }
 
   initRoom(): void {
-    this.facilitiesDropDown;
     this._room.getRoomById(this.id).subscribe({
       next: ({ data }) => {
         this.details = data.room;

@@ -24,7 +24,7 @@ export class ImagePickerComponent {
   @Input() initialImages: any[] = [];
   @Input() multiple = false;
   @Input() name: string;
-  @Input() fileLimit: number = 1;
+  @Input() fileLimit: number = 3;
   @Input() isView: boolean;
 
   images: any[] = [];
@@ -40,6 +40,7 @@ export class ImagePickerComponent {
 
       setTimeout(() => {
         this.fileUpload.files = [...files];
+
         this.cdr.detectChanges();
       });
     });
@@ -51,7 +52,6 @@ export class ImagePickerComponent {
 
   uploadImage(e: any): void {
     this.images = [...e.currentFiles];
-
 
     this.imagesEmitter.emit(this.images);
   }

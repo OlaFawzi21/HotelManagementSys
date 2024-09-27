@@ -47,14 +47,14 @@ export class AnonymousNavbarComponent {
   }
 
   openExplore() {
-    if (this.isLoggedIn) {
+    // if (this.isLoggedIn) {
       this.router.navigate(['/landing/explore']);
-    } else {
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Please log in to access this feature!',
-      });
-    }
+    // } else {
+    //   this.messageService.add({
+    //     severity: 'error',
+    //     summary: 'Error',
+    //     detail: 'Please log in to access this feature!',
+    //   });
+    // }
   }
 }

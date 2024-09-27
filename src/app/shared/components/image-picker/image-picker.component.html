@@ -15,7 +15,7 @@
   [disabled]="isView"
   class="image-picker"
   [styleClass]="
-    fileUpload._files && fileUpload._files.length
+    (fileUpload._files && fileUpload._files.length) || initialImages.length
       ? 'uploaded-image-container'
       : 'empty-image-container'
   "
@@ -34,14 +34,18 @@
       <p-image
         class="col-lg-2 text-center my-1"
         *ngFor="let image of images; let i = index; trackBy: trackByFn"
-        [src]="image.objectURL.changingThisBreaksApplicationSecurity"
+        [src]="image?.objectURL?.changingThisBreaksApplicationSecurity"
         alt="Image"
         width="100"
         height="100"
         [preview]="true"
       >
         <ng-template pTemplate="indicator">
-          <i (click)="removeImage(i)" class="px-1 pi pi-trash"></i>
+          <i
+            *ngIf="!isView"
+            (click)="removeImage(i)"
+            class="px-1 pi pi-trash"
+          ></i>
           <i class="px-1 pi pi-eye"></i>
         </ng-template>
       </p-image>
