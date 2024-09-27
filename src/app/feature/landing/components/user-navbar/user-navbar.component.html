@@ -7,8 +7,8 @@
     <button
       class="navbar-toggler"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup"
       aria-expanded="false"
       aria-label="Toggle navigation"
@@ -42,9 +42,9 @@
         >
       </div>
 
-      <form [formGroup]="filterForm" class="select-button">
+      <form [formGroup]="filterForm" class="select-button d-flex flex-lg-row flex-column gap-4 my-lg-0 my-3">
         <p-selectButton
-          class="d-inline-flex me-2"
+          class="d-inline-flex"
           [options]="languagesOptions"
           formControlName="language"
           optionLabel="label"
@@ -53,7 +53,7 @@
         ></p-selectButton>
 
         <p-selectButton
-          class="d-inline-flex mx-2"
+          class="d-inline-flex"
           [options]="themesOptions"
           formControlName="theme"
           optionLabel="label"
@@ -63,7 +63,7 @@
       </form>
 
       <div
-        class="d-flex justify-content-end align-items-center gap-4"
+        class="d-flex justify-content-lg-end align-items-center gap-4 ms-lg-3"
         *ngIf="userProfile"
       >
         <div class="avatar">
