@@ -31,13 +31,13 @@ export class BookingService {
         type: 'date',
         header: 'Start Date',
         field: 'startDate',
-        format: 'dd/mm/yyyy',
+        format: 'dd/MM/yyyy',
       },
       {
         type: 'date',
         header: 'End Date',
         field: 'endDate',
-        format: 'dd/mm/yyyy',
+        format: 'dd/MM/yyyy',
       },
       {
         type: 'object',

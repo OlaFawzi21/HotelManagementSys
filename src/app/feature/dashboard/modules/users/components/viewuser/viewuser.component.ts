@@ -6,15 +6,17 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 @Component({
   selector: 'app-viewuser',
   templateUrl: './viewuser.component.html',
-  styleUrls: ['./viewuser.component.scss']
+  styleUrls: ['./viewuser.component.scss'],
 })
 export class ViewuserComponent implements OnInit {
-  pageid:string=''
-  user:any
-  constructor(private _UserService:UserService,private _ActivatedRoute:ActivatedRoute,
-    private _router:Router){
-this.pageid=this._ActivatedRoute.snapshot.params['id']
-console.log(this.pageid)
+  pageid: string = '';
+  user: any;
+  constructor(
+    private _UserService: UserService,
+    private _ActivatedRoute: ActivatedRoute,
+    private _router: Router
+  ) {
+    this.pageid = this._ActivatedRoute.snapshot.params['id'];
   }
   userForm = new FormGroup({
     userName: new FormControl(null, [Validators.required]),
@@ -25,29 +27,26 @@ console.log(this.pageid)
   });
 
   ngOnInit(): void {
-    this.viewuser(this.pageid)
-    this.userForm.disable()
+    this.viewuser(this.pageid);
+    this.userForm.disable();
   }
-viewuser(id:string){
-  this._UserService.getUserByID(id).subscribe({
-    next:(res)=>{
-      console.log(res)
-this.user=res.data.user
-console.log(this.user)
-    },complete:()=>{
-      this.userForm.patchValue({
-        userName:this.user.userName,
-        email:this.user.email,
-        country:this.user.country,
-        role:this.user.role,
-        phoneNumber:this.user.phoneNumber,
-      })
-    }
-  })
-}
-Back(){
-  this._router.navigate(['/dashboard/users/userlist'])
-
-}
-
+  viewuser(id: string) {
+    this._UserService.getUserByID(id).subscribe({
+      next: (res) => {
+        this.user = res.data.user;
+      },
+      complete: () => {
+        this.userForm.patchValue({
+          userName: this.user.userName,
+          email: this.user.email,
+          country: this.user.country,
+          role: this.user.role,
+          phoneNumber: this.user.phoneNumber,
+        });
+      },
+    });
+  }
+  Back() {
+    this._router.navigate(['/dashboard/users/userlist']);
+  }
 }

@@ -5,7 +5,7 @@
     }})
   </h5>
 
-  <div class="mt-4">
+  <div class="mt-4" *ngIf="commentsList">
     <p-scrollPanel
       [style]="{ width: '100%', height: '200px' }"
       styleClass="px-0"
@@ -14,11 +14,11 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <p-avatar
-              [image]="comment.user?.profileImage"
+              [image]="comment.user.profileImage"
               styleClass="mr-2"
               shape="circle"
             ></p-avatar>
-            <h6 class="mx-2 my-0">{{ comment.user?.userName }}</h6>
+            <h6 class="mx-2 my-0">{{ comment.user.userName }}</h6>
           </div>
 
           <div *ngIf="userName === comment.user?.userName">
@@ -50,7 +50,7 @@
   <h6 class="mt-4">{{ "ROOM_DETAILS_COMMENTS.ADD_COMMENT" | translate }}</h6>
 
   <textarea
-    class="w-100 rounded-3 p-2"
+    class="w-100 rounded-3 p-2 bg-main-color gray-color"
     rows="3"
     pInputTextarea
     [(ngModel)]="comment"

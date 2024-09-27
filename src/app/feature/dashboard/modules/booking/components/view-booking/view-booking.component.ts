@@ -8,29 +8,27 @@ import { Booking } from '../../interfaces/booking';
 @Component({
   selector: 'app-view-booking',
   templateUrl: './view-booking.component.html',
-  styleUrls: ['./view-booking.component.scss']
+  styleUrls: ['./view-booking.component.scss'],
 })
 export class ViewBookingComponent {
   data: any;
-book:any
+  book: any;
   constructor(
     public deleteRef: DynamicDialogRef,
-    public config: DynamicDialogConfig
-    ,private _BookingService:BookingService
+    public config: DynamicDialogConfig,
+    private _BookingService: BookingService
   ) {}
- 
+
   ngOnInit() {
     this.data = this.config?.data;
-    this.viewbookbyid(this.data.id)
+    this.viewbookbyid(this.data.id);
   }
 
-viewbookbyid(id:string){
-  this._BookingService.getBookingByID(id).subscribe({
-    next:(res)=>{
-      console.log(res)
-this.book=res.data.booking
-console.log(this.book)
-    },
-  })
-}
+  viewbookbyid(id: string) {
+    this._BookingService.getBookingByID(id).subscribe({
+      next: (res) => {
+        this.book = res.data.booking;
+      },
+    });
+  }
 }

@@ -42,8 +42,6 @@ export class LandingService {
   }
 
   addToFavourites(id: string): Observable<any> {
-    console.log(id);
-
     return this._http.post('portal/favorite-rooms', { roomId: id });
   }
 

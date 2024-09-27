@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-between align-items-center">
-  <div>
+<div class="row m-0 justify-content-lg-between justify-content-center align-items-center g-5">
+  <div class="col-lg-5 col-10 p-0">
     <h4 class="title">
       {{ "LANDING_PAGE.BANNER_TITLE_LINE_1" | translate }}<br />
       {{ "LANDING_PAGE.BANNER_TITLE_LINE_2" | translate }}
@@ -10,7 +10,7 @@
     </p>
 
     <h5>{{ "LANDING_PAGE.START_BOOKING" | translate }}</h5>
-    <form class="landing-form" #exploreData="ngForm" (ngSubmit)="sendData()">
+    <form class="landing-form mt-4" #exploreData="ngForm" (ngSubmit)="sendData()">
       <label>{{ "LANDING_PAGE.PICK_DATE" | translate }}</label>
       <p-calendar
         dateFormat="d M yy"
@@ -21,10 +21,11 @@
         styleClass="w-100"
         inputStyleClass="w-100"
         name="rangeDates"
+        [minDate]="today"
         [required]="true"
       ></p-calendar>
 
-      <label class="mt-2">{{ "LANDING_PAGE.CAPACITY" | translate }}</label>
+      <label class="mt-4">{{ "LANDING_PAGE.CAPACITY" | translate }}</label>
 
       <div class="p-inputgroup">
         <button
@@ -57,17 +58,18 @@
       <button
         pButton
         type="submit"
-        class="p-button-primary px-5 mt-3 me-2"
-        [disabled]="exploreData.invalid"
+        class="p-button-primary bg-secondary-color px-5 mt-4"
       >
         {{ "BUTTONS.EXPLORE" | translate }}
       </button>
     </form>
   </div>
-  <div class="w-100 img-container">
-    <img
-      src="../../../../../../assets/images/landing/image 3.svg"
-      height="300px"
-    />
+  <div class="col-lg-5 col-10 p-0">
+    <div>
+      <img
+        class="w-100"
+        src="../../../../../../assets/images/landing/banner.png"
+      />
+    </div>
   </div>
 </div>

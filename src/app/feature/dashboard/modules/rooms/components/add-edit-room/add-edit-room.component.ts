@@ -106,6 +106,7 @@ export class AddEditRoomComponent {
         });
 
         this.initialImages = images;
+        console.log(this.details);
 
         this.checkRoute();
       },
@@ -123,12 +124,14 @@ export class AddEditRoomComponent {
       } else if (typeof value === 'string') {
         roomFormData.append(key, value);
       } else {
-        roomFormData.append(key, value as any);
+        roomFormData.append( key, value as any );
       }
     }
 
     this.images.forEach((image: File) => {
-      roomFormData.append('imgs', image);
+      roomFormData.append( 'imgs', image );
+      console.log(roomFormData.getAll);
+      
     });
 
     return roomFormData;
@@ -183,4 +186,5 @@ export class AddEditRoomComponent {
   updateImages(e: any): void {
     this.images = Array.from(e);
   }
+
 }
