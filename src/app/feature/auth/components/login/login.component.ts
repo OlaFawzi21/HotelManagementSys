@@ -44,7 +44,6 @@ export class LoginComponent {
     this.socialService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
-      console.log(user);
       this.loginWithGoogle();
     });
   }
@@ -56,7 +55,6 @@ export class LoginComponent {
   loginWithGoogle(): void {
     this.authService.signInWithGoogle(this.user.idToken).subscribe({
       next: (res) => {
-        console.log(res);
       },
     });
   }
@@ -81,7 +79,8 @@ export class LoginComponent {
           severity: 'success',
           summary: 'Success',
           detail: this.response.message,
-        });
+        } );
+        
         setTimeout(() => {
           localStorage.setItem('userToken', this.response.data.token);
           localStorage.setItem('userName', this.response.data.user.userName);

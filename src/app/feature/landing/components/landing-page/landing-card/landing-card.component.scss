@@ -35,7 +35,7 @@
     &-floated {
       position: absolute !important;
       bottom: 0;
-      z-index: 1000000000;
+      z-index: 10;
 
       .landing-card__footer__name,
       .landing-card__footer__location {

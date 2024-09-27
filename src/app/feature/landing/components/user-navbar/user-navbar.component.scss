@@ -1,5 +1,9 @@
+.navbar {
+    background: var(--bg-main-color);
+}
+
 .nav-link {
-    color: #152C5B !important;
+    color: var(--default-color) !important;
     cursor: pointer;
 }
 

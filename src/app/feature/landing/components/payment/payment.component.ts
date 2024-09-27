@@ -89,7 +89,6 @@ export class PaymentComponent {
       .createToken(this.cardElement.element, { name })
       .subscribe((result) => {
         if (result.token) {
-          console.log(result.token.id);
           this.paymentService.payment(result.token.id).subscribe({
             next: (res) => {
               this.messageService.add({

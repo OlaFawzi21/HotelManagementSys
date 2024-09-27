@@ -25,12 +25,12 @@ export class BookingListComponent {
 
   viewRef: DynamicDialogRef;
   deleteRef: DynamicDialogRef;
-book:any
+  book: any;
   constructor(
     private _booking: BookingService,
     public _dialog: DialogService,
     public messageService: MessageService,
-    public _BookingService:BookingService
+    public _BookingService: BookingService
   ) {
     this.columns = this._booking.tableColumns;
   }
@@ -52,56 +52,45 @@ book:any
     this.viewRef = this._dialog.open(ViewBookingComponent, {
       data: {
         id: e._id,
-      
       },
       header: '',
     });
-  
+
     // this.viewRef.onClose.subscribe((id) => {
     //   if (id) {
     //     this.viewbookbyid(id);
     //   }
     // });
   }
- 
 
- 
+  onDelete(e: Booking): void {
+    this.deleteRef = this._dialog.open(DeleteItemComponent, {
+      data: {
+        id: e._id,
+        name: 'booking',
+      },
+      header: '',
+    });
 
- 
+    this.deleteRef.onClose.subscribe((id) => {
+      if (id) {
+        this.deletebooking(id);
+      }
+    });
+  }
 
-
-
-
-
-
-
-onDelete(e: Booking): void {
-  this.deleteRef = this._dialog.open(DeleteItemComponent, {
-    data: {
-      id: e._id,
-      name: 'booking',
-    },
-    header: '',
-  });
-
-  this.deleteRef.onClose.subscribe((id) => {
-    if (id) {
-      this.deletebooking(id);
-    }
-  });
-}
-
-deletebooking(id: string): void {
-  this._BookingService.deleteBooking(id).subscribe({
-    next: () => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: 'booking is deleted successfully!',
-      });
-
-      this.getBookingList()
-    },
-  });
-}
+  deletebooking(id: string): void {
+    this._BookingService.deleteBooking(id).subscribe({
+      next: (res) => {
+        if (res.success) {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'booking is deleted successfully!',
+          });
+          this.getBookingList();
+        }
+      },
+    });
+  }
 }

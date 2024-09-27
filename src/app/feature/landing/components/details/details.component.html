@@ -4,7 +4,7 @@
       {{ listroomdetails?.data?.room.roomNumber }}
     </h2>
     <div class="d-flex justify-content-center m-5">
-      <div class="card w-100">
+      <div class="card w-100 overflow-hidden">
         <p-galleria
           [value]="images"
           [responsiveOptions]="responsiveOptions"
@@ -17,8 +17,7 @@
               style="
                 width: 100%;
                 height: auto;
-                max-height: 300px;
-                object-fit: cover;
+                max-height: 500px;
               "
             />
           </ng-template>
@@ -62,17 +61,9 @@
         </div>
         <div class="row mt-5">
           <div class="col-md-3" *ngFor="let item of facilities">
-            <!-- <p-dropdown>
-              <ng-template pTemplate="dropdownicon">
-                <i
-                  [class]="getFacilityIcon(item.name) + ' px-0'"
-                  style="font-size: 2.5rem; color: blue"
-                ></i>
-              </ng-template>
-            </p-dropdown> -->
             <i
               [class]="getFacilityIcon(item.name) + ' px-0'"
-              style="font-size: 2rem; color: blue"
+              style="font-size: 2rem; color: var(--ternary-color)"
             ></i>
             <span class="stable-text d-block">{{ item.name }}</span>
           </div>
@@ -81,10 +72,10 @@
       <div class="col-md-4">
         <div
           class="card details-card p-5 rounded-3"
-          *ngIf="listroomdetails.data?.room"
+          *ngIf="listroomdetails?.data?.room"
         >
           <app-book-room-in-details
-            [room]="listroomdetails.data?.room"
+            [room]="listroomdetails?.data?.room"
           ></app-book-room-in-details>
         </div>
       </div>

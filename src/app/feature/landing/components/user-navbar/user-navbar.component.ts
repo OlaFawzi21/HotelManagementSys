@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { MenuItem, MessageService, ConfirmationService } from 'primeng/api';
+import {
+  MenuItem,
+  MessageService,
+  ConfirmationService,
+  ConfirmEventType,
+} from 'primeng/api';
 import { AppService } from 'src/app/app.service';
 import { NavbarService } from 'src/app/feature/dashboard/services/navbar.service';
 import { UserDataService } from 'src/app/shared/services/user-data.service';
@@ -15,6 +20,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-user-navbar',
   templateUrl: './user-navbar.component.html',
   styleUrls: ['./user-navbar.component.scss'],
+  providers: [ConfirmationService],
 })
 export class UserNavbarComponent {
   userProfile: UserData;
@@ -47,7 +53,8 @@ export class UserNavbarComponent {
     private messageService: MessageService,
     private _Router: Router,
     private navbarService: NavbarService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private ConfirmationService: ConfirmationService
   ) {
     this.lang = this.translateService.currentLang;
     this.isDarkTheme = localStorage.getItem('theme') === 'dark' ? true : false;
@@ -73,9 +80,7 @@ export class UserNavbarComponent {
       {
         label: 'Logout',
         icon: 'pi pi-fw pi-sign-out',
-        command: () => {
-          this.logout();
-        },
+        command: () => this.confirmationLogout(),
       },
     ];
   }
@@ -111,6 +116,7 @@ export class UserNavbarComponent {
       },
     });
   }
+
   showDialog() {
     this.displayDialog = true;
   }
@@ -118,6 +124,7 @@ export class UserNavbarComponent {
   hideDialog() {
     this.displayDialog = false;
   }
+
   changePassword() {
     this.changePasswordForm.markAllAsTouched();
     if (this.changePasswordForm.valid) {
@@ -135,6 +142,25 @@ export class UserNavbarComponent {
           },
         });
     }
+  }
+
+  confirmationLogout() {
+    this.ConfirmationService.confirm({
+      message: 'Are you sure you want to logout ?',
+      header: 'Logout',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.logout();
+      },
+      reject: (type: any) => {
+        switch (type) {
+          case ConfirmEventType.REJECT:
+            break;
+          case ConfirmEventType.CANCEL:
+            break;
+        }
+      },
+    });
   }
 
   logout() {

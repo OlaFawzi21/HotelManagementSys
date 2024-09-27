@@ -19,6 +19,8 @@ export class BookRoomInDetailsComponent {
 
   isLoggedIn: boolean = false;
 
+  today = new Date();
+
   constructor(
     public _translate: TranslateService,
     private paymentService: PaymentService,

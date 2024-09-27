@@ -1,6 +1,6 @@
 .stable-text {
   font-size: 16px; /* Adjust the font size as needed */
-  color: #33333393; /* Set text color */
+  color: var(--gray-color); /* Set text color */
   line-height: 1.5; /* Improve readability with line height */
   margin: 0; /* Reset margins for consistent spacing */
   padding: 5px 0; /* Add vertical padding */
@@ -8,6 +8,7 @@
 
 .details-card {
   border: 1px solid var(--card-border-color) !important;
+  background-color: var(--bg-main-color);
 }
 
 .reviews-comments-container {

@@ -2,7 +2,9 @@ button {
   border-radius: revert-layer !important;
 }
 
-.btn-main .p-button {
+.btn-main .p-button,
+.p-datepicker-trigger.p-button,
+.p-selectbutton .p-button.p-highlight {
   background-color: var(--bg-secondary-color) !important;
 
   &:hover {
